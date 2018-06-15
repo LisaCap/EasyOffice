@@ -1,0 +1,16 @@
+<ul class="navbar-nav ml-auto">
+   
+    {# boucle sur le tableau des liens #}
+    {% for lien in liens %}
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="http://localhost/EasyOffice/public/{{ lien.href }}">{{ lien.libelle_lien }} <span class="sr-only">(current)</span></a>
+        </li>
+    {% endfor %}
+
+</ul>
+
+<!--Si on veut rajouter un bouton de recherche-->
+{#<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Vous cherchez ?" aria-label="Search">
+    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Rechercher</button>
+</form>#}

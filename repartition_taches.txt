@@ -1,0 +1,14 @@
+------------------------------
+15/06
+------------------------------
+
+__Denys & Maxence__
+>Gestion base de données, reflechir à la création, aux fonctionnalités, make entity
+
+__Sophia & Lisa__
+>Mise en place des fondations du symfony
+(paramétrage du .env, security.yaml, bundle, templates, template bootstrap)
+
+------------------------------
+18/06
+------------------------------

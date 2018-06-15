@@ -1,0 +1,18 @@
+15/06 _Sophia_Lisa
+
+> dossier img, organisation ? 
+> les trucs à faire : make entity
+> regarder pour l'ajax et le google api avec le code postal api
+> cookies ? sessions ? comment ça marche ? 
+> generer mentions légales
+> regarder comment on fait un site map
+> regarder ce que l'on met dans un robot.txt
+
+
+
+
+____________________________________
+FONCTIONNALITES A DEVELOPPER
+____________________________________
+
+> souplesse de la selection des salles (à 3 jours pres, à 5€ pres...)

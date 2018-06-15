@@ -1,0 +1,32 @@
+body h1{
+    font-family: 'Roboto', sans-serif;
+    text-transform: none;
+}
+
+.vert_logo{
+    color: #43b874;
+}
+
+#clients_civiliteClient {
+    border: none;
+}
+
+#clients_civiliteClient input {
+    margin-right: 5px;
+}
+
+#clients_civiliteClient label {
+    margin-right: 40px;
+}
+
+#clients_newsletterClient {
+    border: none;
+}
+
+#clients_newsletterClient input {
+    margin-right: 5px;
+}
+
+#clients_newsletterClient label {
+    margin-right: 40px;
+}
