@@ -14,9 +14,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 //pour utiliser les annotations
 use Symfony\Component\Routing\Annotation\Route;
 // table utilisateurs
-use App\Entity\Clients;
+use App\Entity\Membre;
 //formulaire inscription
-use App\Form\ClientsType;
+use App\Form\MembreType;
 
 class SecurityController extends Controller
 {
@@ -31,9 +31,9 @@ class SecurityController extends Controller
 	public function inscription(Request $request, UserPasswordEncoderInterface $passwordEncoder)
 	{
 		//liaison avec la table des utilisateurs
-		$clients = new Clients();
+		$membre = new Membre();
 		//création du formulaire
-		$form = $this->createForm(ClientsType::class, $clients);
+		$form = $this->createForm(MembreType::class, $membre);
 
 		//récupération des données du formulaire
 		$form->handleRequest($request);
@@ -41,11 +41,11 @@ class SecurityController extends Controller
 		if($form->isSubmitted() && $form->isValid())
 		{
 			//encodage du mot de passe
-			$hash = $passwordEncoder->encodePassword($clients, $clients->getPasswordClient());
-			$clients->setPasswordClient($hash);
+			$hash = $passwordEncoder->encodePassword($membre, $membre->getPasswordMembre());
+			$membre->setPasswordMembre($hash);
 			//enregistrement dans la table
 			$em = $this->getDoctrine()->getManager();
-			$em->persist($clients);
+			$em->persist($membre);
 			$em->flush();
 
 			//retour à l'accueil
@@ -59,10 +59,10 @@ class SecurityController extends Controller
 
 	/**
 	* @Route(
-	*		"/login",
-	*	  name="login")
+	*		"/connexion",
+	*	  name="connexion")
 	*/
-	public function login(Request $request, AuthenticationUtils $authUtils)
+	public function connexion(Request $request, AuthenticationUtils $authUtils)
 	{
 		//récupération de l'erreur si besoin
 		$error = $authUtils->getLastAuthenticationError();
@@ -70,14 +70,14 @@ class SecurityController extends Controller
 		$lastUsername = $authUtils->getLastUsername();
 
 		//affichage du formulaire
-		return $this->render('security/login.html.twig',
+		return $this->render('security/connexion.html.twig',
 							array('last_username' => $lastUsername,
 										'error' => $error,
-										'title' => 'login'));
+										'title' => 'connexion'));
 	}	
 	/**
 	* @Route(
-	*		"/logout",
-	*	  name="logout")
+	*		"/deconnexion",
+	*	  name="deconnexion")
 	*/
 }

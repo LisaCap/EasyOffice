@@ -4,9 +4,15 @@
 > les trucs à faire : make entity
 > regarder pour l'ajax et le google api avec le code postal api
 > cookies ? sessions ? comment ça marche ? 
-> generer mentions légales
+> generer mentions légales - à retravailler
 > regarder comment on fait un site map
 > regarder ce que l'on met dans un robot.txt
+
+18/06
+> gerer le munu selon ROLE
+> reflechir à l'index
+> gerer connexion/inscription
+> les make entities
 
 
 

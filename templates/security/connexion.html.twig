@@ -28,17 +28,17 @@
        <fieldset>
            <legend>Connexion</legend>
             
-               <form action="{{ path('login') }}" method="post">
+               <form action="{{ path('connexion') }}" method="post">
                    <div class="form-group">
-                      <label for="username">
-                          Username : 
+                      <label for="email">
+                          Email : 
                       </label>
-                      <input type="text" name ="_username" values="{{ last_username }}" class="form-control">
+                      <input type="text" name ="_email" values="{{ last_username }}" class="form-control">
                    </div>
                    
                    <div class="form-group">
                       <label for="password">
-                          Password : 
+                          Mot de passe : 
                       </label>
                       <input type="password" name ="_password" class="form-control">
                    </div>
@@ -46,7 +46,7 @@
                    {##}
                    
                    <div class="form-group text-center">
-                       <button type="submit" class="btn btn-success">Login</button>
+                       <button type="submit" class="btn btn-success">Connexion</button>
                    </div>
                </form>
 

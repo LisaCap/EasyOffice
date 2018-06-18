@@ -12,3 +12,9 @@ __Sophia & Lisa__
 ------------------------------
 18/06
 ------------------------------
+
+__Sophia & Lisa__
+Gestion du formulaire de connexion et d'inscription
+
+__Denys & Maxence__
+>Finaliser gestion base de données, make entity

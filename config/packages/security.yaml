@@ -2,7 +2,7 @@ security:
   #la partie qui permet d'encrypter mon mot de passe
   # Méthode d'encryptage : Blowfish, c'est ce qu'il y a de plus performant sur le marché en ce moment (bcrypt), AES, c'est l'autre cryptage tres bien qui crypte en 256 bit 
   encoders:
-    App\Entity\Clients:
+    App\Entity\Membre:
       algorithm: bcrypt
       cost: 14
   # hierarchie (qui a le droit)
@@ -20,8 +20,8 @@ security:
   providers:
     main: 
       entity:
-        class: App\Entity\Clients
-        property: emailClient
+        class: App\Entity\Membre
+        property: emailMembre
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -31,17 +31,17 @@ security:
       provider: main
       anonymous: true
       form_login:
-        login_path: login
-        check_path: login
+        login_path: connexion
+        check_path: connexion
       remember_me:
         secret: '%kernel.secret%'
         lifetime: 604800 #une semaine en secondes
         path: /
       logout:
         # la route vers la déconnexion
-        path: /logout
+        path: /deconnexion
         target: /
 
   access_control:
-    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/connexion, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/admin, roles: ROLE_ADMIN }
