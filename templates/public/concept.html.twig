@@ -1,0 +1,43 @@
+{# templates/public/concept.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block h1 %} Concept {% endblock %}
+    {% block introduction %} L'introduction {% endblock %}
+    {% block option_introduction %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+        <!--Section -->
+        <div class="row">
+            <section id="concept" class="content-section text-center">
+                  <div class="col-lg-8 mx-auto">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam. Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis. Donec a dui et dui fringilla consectetur id nec massa. Aliquam erat volutpat. Sed ut dui ut lacus dictum fermentum vel tincidunt neque. 
+                        It’s not possible to translate it, it’s mixed up copy. But the original passages do show through, so some translation is possible. Jaspreet Singh Boparai (a Cambridge University graduate) came up with the following translation:
+                        Rrow itself, let it be sorrow; let him love it; let him pursue it, ishing for its acquisitiendum. Because he will ab hold, unless but through concer, and also of those who resist. Now a pure snore disturbeded sum dust. He ejjnoyes, in order that somewon, also with a severe one, unless of life. May a cusstums offficer somewon nothing of a poison-filled. Until, from a twho, twho chaffinch may also pursue it, not even a lump. But as twho, as a tank; a proverb, yeast; or else they tinscribe nor. 
+                        Still garbage, but at least you now know what you’ve been pasting in all this time.
+                        </p>
+                  </div>
+            </section>
+        </div>
+       
+
+        <!-- Map Section -->
+        <div id="map"></div>
+
+    {% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}
+

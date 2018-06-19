@@ -29,7 +29,7 @@ class IncController extends Controller
                 array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),
                 array('href' => 'contact', 'libelle_lien' => 'Contact'),
-                array('href' => 'logout', 'libelle_lien' => 'Deconnexion'));
+                array('href' => 'deconnexion', 'libelle_lien' => 'Deconnexion'));
         }
         
         //si l'utilisateur est loggué et possede les droits ROLE_USER
@@ -41,7 +41,7 @@ class IncController extends Controller
                 array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),
                 array('href' => 'contact', 'libelle_lien' => 'Contact'),
-                array('href' => 'logout', 'libelle_lien' => 'Deconnexion'));
+                array('href' => 'deconnexion', 'libelle_lien' => 'Deconnexion'));
         }
         //pour les autres
         else

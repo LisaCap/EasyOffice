@@ -40,9 +40,16 @@ __Lisa__
 Login et Logout, formulaire d'inscription et connexion
 MembreType.php
 >Services/MonUpload.php
+gestion de la navbar
 
 __Sophia__
+TEMPLATES
 inscription.html.twig
-formulaire_reservation.html.twig
-formulaire_location.html.twig
+reservation.html.twig
+offreSalle.html.twig
+aide.html.twig
+concept.html.twig
 
+------------------------------
+20/06
+------------------------------
