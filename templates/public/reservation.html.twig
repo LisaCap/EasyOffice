@@ -1,0 +1,66 @@
+{# templates/public/template.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block h1 %} Le h1 {% endblock %}
+    {% block introduction %} L'introduction {% endblock %}
+    {% block option_introduction %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <fieldset>
+                   <legend>Reservation</legend>
+
+                        {{ form_start(form) }}
+                        {# form_start c'est comme une ouverture de balise form #}
+
+                        {# {{ form_widget(form) }}  le basic de symfony#}
+
+                        {#formulaire bootstrap#}
+
+                        <div class="form-group">
+
+                            {{ form_row(form.jourArrivee, {attr: {class: "form-control"} }) }}
+
+                        </div>
+                        
+                        <div class="form-group">
+
+                            {{ form_row(form.jourDepart, {attr: {class: "form-control"} }) }}
+
+                        </div>
+
+                        <div class="form-group">
+
+                            {{ form_row(form.messageProduit, {attr: {class: "form-control"} }) }}
+
+                        </div>
+
+                        <div class="form-group text-center">
+
+                            <button type="submit" class="btn btn-success">Valider</button>
+
+                        </div>
+
+                 </fieldset>
+            </div>
+        </div>
+
+    {% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

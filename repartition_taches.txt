@@ -3,7 +3,7 @@
 ------------------------------
 
 __Denys & Maxence__
->Gestion base de données, reflechir à la création, aux fonctionnalités, make entity
+>Gestion base de données, reflechir à la création, aux fonctionnalités
 
 __Sophia & Lisa__
 >Mise en place des fondations du symfony
@@ -19,9 +19,30 @@ __Sophia & Lisa__
 Gestion du formulaire de connexion et d'inscription
 
 __Denys & Maxence__
->Finaliser gestion base de données, make entity
+>Finaliser gestion base de données
 
 APREM
 
 __tous les 4__
 Mise en pratique de scenario d'utilisation du site, afin de voir les failles de la BDD
+
+------------------------------
+19/06
+------------------------------
+
+__Denys__
+Make entity
+
+__Maxence__
+Prise en main du l'API Google Map
+
+__Lisa__
+Login et Logout, formulaire d'inscription et connexion
+MembreType.php
+>Services/MonUpload.php
+
+__Sophia__
+inscription.html.twig
+formulaire_reservation.html.twig
+formulaire_location.html.twig
+

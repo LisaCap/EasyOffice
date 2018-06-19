@@ -10,8 +10,8 @@
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block h1 %} Inscription {% endblock %}
-    {% block introduction %} Pour vous inscrire chez Easy Office, merci de remplir ce formulaire {% endblock %}
+    {% block h1 %} Votre Salle {% endblock %}
+    {% block introduction %} Merci de renseigner les champs suivants afin que les utilisateurs puisse trouver votre salle ! {% endblock %}
     {% block option_introduction %}{% endblock %}
 {#FIN DE HEADER#}
 
@@ -37,90 +37,81 @@
         
             <div class= "col-sm-6">
                 <fieldset>
-                    <legend>Inscription</legend>
+                   <legend>Location</legend>
 
                         {{ form_start(form) }}
 
                         {#formulaire bootstrap#}
 
                         <div class="form-group">
-                            {{ form_row(form.nomMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_row(form.prenomMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_row(form.nomDeSocieteMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_row(form.siretMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_row(form.tvaMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_row(form.dateDeNaissanceMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
                             <div class="form-check form-check-inline">  
-                                {{ form_row(form.sexeMembre, {attr: {class: "form-check-input"} }) }}
+                                {{ form_row(form.referenceSalle, {attr: {class: "form-check-input"} }) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ form_row(form.adresseMembre, {attr: {class: "form-control"} }) }}
+                            {{ form_row(form.nomSalle, {attr: {class: "form-control"} }) }}
                         </div>
 
                         <div class="form-group">
-                            {{ form_row(form.cpMembre, {attr: {class: "form-control"} }) }}
+                            {{ form_row(form.adresseSalle, {attr: {class: "form-control"} }) }}
                         </div>
 
                         <div class="form-group">
-                            {{ form_row(form.villeMembre, {attr: {class: "form-control"} }) }}
+                            {{ form_row(form.cpSalle, {attr: {class: "form-control"} }) }}
                         </div>
 
                         <div class="form-group">
-                            {{ form_row(form.telephoneMembre, {attr: {class: "form-control"} }) }}
+                            {{ form_row(form.villeSalle, {attr: {class: "form-control"} }) }}
                         </div>
-
-                        <div class="form-group">  
-                            {{ form_row(form.idStatutMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
+                        
+                        {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS DE CATEGORIES#}
                         <div class="form-group">
-                            {{ form_row(emailMembre, {attr: {class: "form-control"} }) }}
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_row(form.passwordMembre.first, {attr: {class: "form-control"} }) }}
+                            <div class="form-check form-check-inline">  
+                                {{ form_row(form.categorieSalle, {attr: {class: "form-check-input"} }) }}
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            {{ form_row(form.passwordMembre.second, {attr: {class: "form-control"} }) }}
-                        </div>           
+                            {{ form_row(form.surfaceSalle, {attr: {class: "form-control"} }) }}
+                        </div>
 
                         <div class="form-group">
-                            {{ form_row(form.photoMembre, {attr: {class: "form-control"} }) }}
+                            {{ form_row(form.descriptionSalle, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.nbrPieceSalle, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.capaciteSalle, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.prixSalle, {attr: {class: "form-control"} }) }}
+                        </div>
+                        
+                        {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS D'EQUIPEMENTS#}
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">  
+                                {{ form_row(form.equipementSalle, {attr: {class: "form-check-input"} }) }}
+                            </div>
                         </div>
 
                         <div class="form-group text-center">
+
                             <button type="submit" class="btn btn-success">Valider</button>
+
                         </div>
 
                         <div class="form-group">
                              {{ form_end(form) }}
-                        </div>
+                       </div>
 
-                    </fieldset>
-
-                </div><!--fin du class=col-sm-6-->
-        </div><!--fin du row-->
+                </fieldset>
+            </div><!--FIN DE CLASS-->
+        </div><!--FIN DE ROW-->
 
     {% endblock %}
 {#FIN DE MAIN#}

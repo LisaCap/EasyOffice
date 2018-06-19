@@ -22,10 +22,13 @@ class IncController extends Controller
         if($authChecker->isGranted('ROLE_ADMIN'))
         {
             $liens = array(
-                array('href' => 'produits', 'libelle_lien' => 'Produits'),
-                array('href' => 'panier', 'libelle_lien' => 'Panier'),
-                array('href' => 'gestionClients', 'libelle_lien' => ' Gestion Clients'),
-                array('href' => 'ajoutProduit', 'libelle_lien' => 'Ajout Produit'),
+                array('href' => 'gestionMembre', 'libelle_lien' => ' Gestion Membre'),
+                array('href' => 'gestionSalles', 'libelle_lien' => 'Gestion Salles'),
+                array('href' => 'profil', 'libelle_lien' => 'Profil'),
+                array('href' => 'concept', 'libelle_lien' => 'Concept'),
+                array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
+                array('href' => 'aide', 'libelle_lien' => 'Aide'),
+                array('href' => 'contact', 'libelle_lien' => 'Contact'),
                 array('href' => 'logout', 'libelle_lien' => 'Deconnexion'));
         }
         
@@ -34,19 +37,22 @@ class IncController extends Controller
         {
             $liens = array(
                 array('href' => 'profil', 'libelle_lien' => 'Profil'),
-                array('href' => 'panier', 'libelle_lien' => 'Panier'),
-                array('href' => 'produits', 'libelle_lien' => 'Produits'),
-                array('href' => 'serviceClient', 'libelle_lien' => 'Service client'),
+                array('href' => 'concept', 'libelle_lien' => 'Concept'),
+                array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
+                array('href' => 'aide', 'libelle_lien' => 'Aide'),
+                array('href' => 'contact', 'libelle_lien' => 'Contact'),
                 array('href' => 'logout', 'libelle_lien' => 'Deconnexion'));
         }
         //pour les autres
         else
         {
             $liens = array(
-                array('href' => 'produits', 'libelle_lien' => 'Produits'),
+                array('href' => 'concept', 'libelle_lien' => 'Concept'),
+                array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
+                array('href' => 'aide', 'libelle_lien' => 'Aide'),
                 array('href' => 'contact', 'libelle_lien' => 'Contact'),
                 array('href' => 'inscription', 'libelle_lien' => 'Inscription'),
-                array('href' => 'login', 'libelle_lien' => 'Connexion'));
+                array('href' => 'connexion', 'libelle_lien' => 'Connexion'));
         }
         
         return $this->render('inc/navbar.html.twig', array('liens' =>$liens));

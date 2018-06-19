@@ -2,6 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    fUploadPhotoMembre: '%kernel.project_dir%/public/img/membre/photo_profil'
+    fUploadPhotoSalleDefault: '%kernel.project_dir%/public/img/salle/defaults'
 
 services:
     # default configuration for services in *this* file
@@ -26,3 +28,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    # Service de téléchargement des images
+    App\Services\UploadPhotoMembre:
+        arguments:
+            $targetDir: '%fUploadPhotoMembre%'
+    App\Services\UploadPhotoSalleDefault:
+        arguments:
+            $targetDir: '%fUploadPhotoSalleDefault%'

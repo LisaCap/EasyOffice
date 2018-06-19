@@ -1,0 +1,51 @@
+{# templates/public/template.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block h1 %} Nos salles {% endblock %}
+    {% block introduction %} Voici l'ensemble des salles que nous proposons... {% endblock %}
+    {% block option_introduction %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+        <!--Section -->
+        <div class="row">
+            <section id="criteres" class="col-sm-4">
+              
+            </section>
+            
+            <section id="propositionSalles" class="col-sm-8">
+                  
+                   <div class="jumbotron jumbotron-fluid" style="background-image: url({{asset(salles.photoSalle)}});background-position:center;background-size:cover;">
+                    <div class="container fond-blanc">
+                      
+                       <div class="">
+                            <h3 class="display-4">{{ article.nomProduit }}</h3>
+                            <p class="lead">{{ article.prixProduit }} €</p>
+                            <a class="btn btn-info" href="{{ url('detailProduit', {'id' : article.id }) }}">Détails</a>
+                       </div>
+                        
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+
+        <!-- Map Section -->
+        <div id="map"></div>
+
+    {% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

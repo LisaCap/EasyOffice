@@ -62,10 +62,11 @@ $statut à mettre dans $_SESSION pour gerer le menu du tableau de bord
 
 
 
+
 REPARTITION TACHE A FAIRE
 _________________________
 > gerer la session
-> gerer l'api google map
+> gerer l'api google map (maxcence)
 > gerer l'ajax
 > 
 

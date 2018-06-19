@@ -32,43 +32,43 @@ class PublicController extends Controller
     //Page d'accueil, qui apparaisse dans l'url
     public function index()
     {
-        return $this->render('public/index.html.twig', array('title' => 'Bienvenue chez LiliBoutique!', 'h1' => 'Bienvenue chez LiliBoutique !'));
+        return $this->render('public/index.html.twig', array('title' => 'Easy Office'));
     }
     
     /**
     * @Route(
-    *   "/produits",
-    *   name = "produits")
+    *   "/salles",
+    *   name = "salles")
     */
     
-    //Page d'accueil, qui apparaisse dans l'url
-    public function produits()
+    //toutes les salles
+    public function salle()
     {
         //appel du modele Produits
-        $produits = $this->getDoctrine()->getRepository(Produits::class);
+        $salles = $this->getDoctrine()->getRepository(Salle::class);
         //liste de tous les produits (SELECT * FROM produits)
-        $listeProduits = $produits->findAll();
-        return $this->render('public/produits.html.twig', array('title' => 'Produits', 'h1' => 'Produits', 'produits' => $listeProduits));
+        $listeSalles = $salles->findAll();
+        return $this->render('public/salles.html.twig', array('title' => 'Salles', 'salles' => $listeSalles));
     }
     
     
     /**
     * @Route(
-    *   "/detailProduit/{id}",
-    *   name = "detailProduit",
+    *   "/detailSalle/{id}",
+    *   name = "detailSalle",
     *   requirements={"id":"\d+"},
     *   defaults={"id":1})
     */
     
     //Page d'accueil, qui apparaisse dans l'url
-    public function detailProduit($id)
+    public function detailSalle($id)
     {
         //appel du modele Produits (c'est comme si je faisais un new Produit)
-        $produits = $this->getDoctrine()->getRepository(Produits::class);
-        //infos du produit (SELECT * FROM produits WHERE id= :id)
-        $detailProduit = $produits->find($id);
+        $salle = $this->getDoctrine()->getRepository(Salle::class);
+        //infos de la salle (SELECT * FROM salle WHERE id= :id)
+        $detailSalle = $produits->find($id);
         
-        return $this->render('public/detailProduit.html.twig', array('title' => $detailProduit->getNomProduit(), 'h1' => $detailProduit->getNomProduit(), 'detail' => $detailProduit));
+        return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'h1' => $detailSalle->getNomSalle(), 'detail' => $detailSalle));
     }
         
     /**
@@ -80,7 +80,31 @@ class PublicController extends Controller
     //Page d'accueil, qui apparaisse dans l'url
     public function mentionsLegales()
     {
-        return $this->render('public/mentionsLegales.html.twig', array('title' => 'Mentions Légales de LiliBoutique!', 'h1' => 'Mentions Légales'));
+        return $this->render('public/mentionsLegales.html.twig', array('title' => 'Mentions Légales EasyOffice'));
+    }
+    
+    /**
+    * @Route(
+    *   "/aide",
+    *   name = "aide")
+    */
+    
+    //Page d'accueil, qui apparaisse dans l'url
+    public function aide()
+    {
+        return $this->render('public/aide.html.twig', array('title' => 'Aide EasyOffice'));
+    }
+    
+    /**
+    * @Route(
+    *   "/concept",
+    *   name = "concept")
+    */
+    
+    //Page d'accueil, qui apparaisse dans l'url
+    public function concept()
+    {
+        return $this->render('public/concept.html.twig', array('title' => 'Concept EasyOffice'));
     }
     
 }
