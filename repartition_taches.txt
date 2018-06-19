@@ -13,8 +13,15 @@ __Sophia & Lisa__
 18/06
 ------------------------------
 
+MATIN
+
 __Sophia & Lisa__
 Gestion du formulaire de connexion et d'inscription
 
 __Denys & Maxence__
 >Finaliser gestion base de données, make entity
+
+APREM
+
+__tous les 4__
+Mise en pratique de scenario d'utilisation du site, afin de voir les failles de la BDD

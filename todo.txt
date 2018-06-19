@@ -4,7 +4,7 @@
 > les trucs à faire : make entity
 > regarder pour l'ajax et le google api avec le code postal api
 > cookies ? sessions ? comment ça marche ? 
-> generer mentions légales - à retravailler
+> generer mentions lég ales - à retravailler
 > regarder comment on fait un site map
 > regarder ce que l'on met dans un robot.txt
 
@@ -13,6 +13,61 @@
 > reflechir à l'index
 > gerer connexion/inscription
 > les make entities
+> Dans la creation de la table Salle -> pour relier avec la table Option -> pour que Symfony creer une table intermediaire (table option_salle) -> a faire au moment de la creation de l'entité ( dans discord le fichier vehicule.php)
+
+requete produit
+_______________
+
+> dans la table Produit, si le propriétaire refuse la demande de location, on delete immediatemment le produit
+> Sceanio 1: 
+Si le locataire reserve une salle, -> creation d'un Produit, dans la table Produit.
+Si le proprietaire refuser->suppression du produit, et il faudra penser à faire une suppression dans la table "Indisponible".
+> fiche produit -> rajouter une div agenda
+> travailler les libellés de catégories
+> Sur la page d'accueil, : Quand, où, quelle categorie ?
+
+accueil
+_______________
+champs où? 
+>si il renseigne deux chiffre > requete LIKElesdeuxchiffres
+>si il renseigne 5chiffres > requetelechiffreentier
+>si c'est du texte, chercher une ville
+
+recherche
+__________
+creer une variable $critere qui remplirai la requete SELECT au fur et a mesure, à faire passer dans la $_SESSION
+
+
+menu
+_________
+rajouter "voir mes favoris" quand on est loggué dans le menu avec bouttons
+> qd on est loggué en tant que hote, rajouter dans big menu "rechercher une salle"
+
+reservation
+____________
+$reservation (varible ou on enregistre en cache le produit pour reserver) -> on enregistre ce produit dans $_SESSION -> on est redirigé sur connexion (avec un bouton "inscription") -> lorqu'on est connécté on est redirigé sur la page reservation du produit qu'on a mis dans $reservation de la $_SESSION. 
+
+ORDRE PRiORITE REDIRECTION
+_______________________
+Si $reservation est rempli -> aller sur la page reservation
+Si $critere est rempli mais $reservation vide, aller sur la page recherche avec les critères enregistrés
+Si $reservation et $critere sont vide, aller sur la page index
+
+SWITCH PROPRIETAIRE/LOCATAIRE
+_____________________________
+$statut à mettre dans $_SESSION pour gerer le menu du tableau de bord
+>si on est proprietaire/locataire -> big menu -> passer en hote (ou passer en proprietaire)
+> si on est hote OU proprietaire, afficher le bouton "modifier profil" dans l'onglet "profil"
+
+
+
+
+REPARTITION TACHE A FAIRE
+_________________________
+> gerer la session
+> gerer l'api google map
+> gerer l'ajax
+> 
 
 
 
@@ -22,3 +77,9 @@ FONCTIONNALITES A DEVELOPPER
 ____________________________________
 
 > souplesse de la selection des salles (à 3 jours pres, à 5€ pres...)
+>  infos bancaire pour paiement en ligne
+> pouvoir choisir les options (equipements) avec des paiements supplementaires lors de la creation du produit. Donc il aurait fallu creer une table supplementaire
+> etendre les recherches au departement dans le "ou?" de la page d'accueil
+>pouvoir rajouter des equipements particulier à une salle (et que ça rentre dans la bdd sans passer par la description)
+>gestion de la caution 
+> creer une messagerie interne
