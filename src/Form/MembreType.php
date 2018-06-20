@@ -20,6 +20,9 @@ use Symfony\Component\Form\Extension\Core\Type\DateType; //Date
 use Symfony\Component\Form\Extension\Core\Type\IntegerType; //nombre
 use Symfony\Component\Form\Extension\Core\Type\EmailType; //email
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType; //civilité
+
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; //entity pour les clés etrangeres
+
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType; //saisir deux fois le mot de passe, et gestion des valeurs identiques
 use Symfony\Component\Form\Extension\Core\Type\PasswordType; // password
 use Symfony\Component\Form\Extension\Core\Type\SubmitType; //btn submit
@@ -30,7 +33,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Range;
 
-//objet qui correspond a la table statuMembre
+//objet qui correspond a la table statutMembre
 use App\Entity\StatutMembre;
 
 
@@ -63,7 +66,7 @@ class MembreType extends AbstractType
                 ->add('tvaMembre', TextType::class,
                       array('label' => 'Numéro Tva de la Société', 'required' => false))
             
-                ->add('dateDeNaissanceMembre', DateType::class,
+                ->add('dateDeNaissance', DateType::class,
                       array('constraints' => array(new NotBlank()),
                             'label' => 'Date de Naissance'))
             
@@ -81,7 +84,7 @@ class MembreType extends AbstractType
             
                 ->add('cpMembre', IntegerType::class,
                       array('constraints' => array(new NotBlank(),
-                                                   new Regex(array('pattern' => "/^[1-9]{5}$/"))
+                                                   new Regex(array('pattern' => "/^[0-9]{5}$/"))
                                                   ),
                             'label' => 'Code postal'))
             
@@ -107,7 +110,7 @@ class MembreType extends AbstractType
                       array('constraints' => array(new NotBlank()),
                             'label' => 'Email'))
             
-                ->add('passwordClient', repeatedType::class,
+                ->add('passwordMembre', repeatedType::class,
                       array('type' => PasswordType::class,
                             'first_options' => array('label' =>'Mot de passe'),
                             'second_options' => array('label' =>'Validation du mot de passe')))

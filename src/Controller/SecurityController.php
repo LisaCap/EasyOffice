@@ -65,8 +65,8 @@ class SecurityController extends Controller
             }*/
             
             //enregistrer la date du jour au format SQL pour enregistrer dans la table
-            $dateEnregistrement = date("Y-m-d H:i:s"); 
-            $membre->setDateEnregistrement($dateEnregistrement);
+            $dateEnregistrement = new \DateTime(); 
+            $membre->setDateEnregistrementMembre($dateEnregistrement);
             
             
 			//encodage du mot de passe

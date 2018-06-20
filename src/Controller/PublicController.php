@@ -107,4 +107,16 @@ class PublicController extends Controller
         return $this->render('public/concept.html.twig', array('title' => 'Concept EasyOffice'));
     }
     
+    /**
+    * @Route(
+    *   "/contact",
+    *   name = "contact")
+    */
+    
+    //Page contact, qui apparait dans l'url
+    public function contact()
+    {
+        return $this->render('public/contact.html.twig', array('title' => 'Contact EasyOffice'));
+    }
+    
 }

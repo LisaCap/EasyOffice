@@ -1,19 +1,19 @@
 15/06 _Sophia_Lisa
 
 > dossier img, organisation ? 
-> les trucs à faire : make entity
+> les trucs à faire : make entity OK
 > regarder pour l'ajax et le google api avec le code postal api
 > cookies ? sessions ? comment ça marche ? 
-> generer mentions lég ales - à retravailler
+> generer mentions légales - à retravailler
 > regarder comment on fait un site map
 > regarder ce que l'on met dans un robot.txt
 
 18/06
-> gerer le munu selon ROLE
+> gerer le menu selon ROLE OK
 > reflechir à l'index
 > gerer connexion/inscription
 > les make entities
-> Dans la creation de la table Salle -> pour relier avec la table Option -> pour que Symfony creer une table intermediaire (table option_salle) -> a faire au moment de la creation de l'entité ( dans discord le fichier vehicule.php)
+> Dans la creation de la table Salle -> pour relier avec la table Option -> pour que Symfony creer une table intermediaire (table option_salle) -> a faire au moment de la creation de l'entité ( dans discord le fichier vehicule.php) OK
 
 requete produit
 _______________
@@ -68,7 +68,7 @@ _________________________
 > gerer la session
 > gerer l'api google map (maxcence)
 > gerer l'ajax
-> 
+> gerer les template de page d'erreur
 
 
 
