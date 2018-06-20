@@ -1,0 +1,61 @@
+{# templates/public/template.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block h1 %} Nos salles {% endblock %}
+    {% block introduction %} Voici l'ensemble des salles que nous proposons... {% endblock %}
+    {% block option_introduction %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+       
+        <!-- Map Section -->
+        <div id="map"></div>
+        
+        <div class="row">
+            <!--Section Criteres-->
+            <section id="criteres" class="col-sm-4">
+            la colonne critere
+            </section>
+            <!--Fin Section Criteres-->
+            
+            <!--Section Toutes nos salles-->
+            <section id="propositionSalles" class="col-sm-8">
+                  
+                   {% for liste_salles in salle %}
+          
+                      <article class="col-sm-3">
+                            <div class="container">
+                               <div class="row">
+                                    <h3 class="display-4">{{ liste_salles.nomSalle }}</h3>
+                                    <p class="lead">{{ liste_salles.prixSalle }} €</p>
+                                    <p class="lead">{{ liste_salles.id }}</p>
+                                    <a class="btn btn-info" href="{{ url('detailSalle', {'id' : liste_salles.id }) }}">Détails</a>
+                               </div>
+                            </div>
+                      </article>
+
+                  {% endfor %}
+                
+                
+            </section>
+            <!--Fin Section Toutes nos salles-->
+        </div>
+
+
+
+    {% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

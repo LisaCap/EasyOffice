@@ -14,11 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 //creer le lien avec Twig
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-//connexion avec la table produit pour la fonction produits
-use App\Entity\Produits;
+//connexion avec la table salle pour la fonctionsalle
+use App\Entity\Salle;
+
+//connexion avec la table Membre pour la fonction Profil (affichage du profil du membre)
+use App\Entity\Membre;
 
 //pour les produits, dans la classe Produit, j'ai fait un lien avec les categorie, alors il faut que j'etablisse le lien ici aussi
-use App\Entity\Categories;
+use App\Entity\CategorieSalle;
 
 
 class PublicController extends Controller
@@ -37,18 +40,18 @@ class PublicController extends Controller
     
     /**
     * @Route(
-    *   "/salles",
-    *   name = "salles")
+    *   "/salle",
+    *   name = "salle")
     */
     
     //toutes les salles
     public function salle()
     {
-        //appel du modele Produits
-        $salles = $this->getDoctrine()->getRepository(Salle::class);
-        //liste de tous les produits (SELECT * FROM produits)
-        $listeSalles = $salles->findAll();
-        return $this->render('public/salles.html.twig', array('title' => 'Salles', 'salles' => $listeSalles));
+        //appel du modele Salle
+        $salle = $this->getDoctrine()->getRepository(Salle::class);
+        //liste de toutes les salles (SELECT * FROM salle)
+        $listeSalles = $salle->findAll();
+        return $this->render('public/salle.html.twig', array('title' => 'Salles EasyOffice', 'salle' => $listeSalles));
     }
     
     
@@ -63,10 +66,29 @@ class PublicController extends Controller
     //Page d'accueil, qui apparaisse dans l'url
     public function detailSalle($id)
     {
-        //appel du modele Produits (c'est comme si je faisais un new Produit)
+        //appel du modele Salle (c'est comme si je faisais un new Produit)
         $salle = $this->getDoctrine()->getRepository(Salle::class);
         //infos de la salle (SELECT * FROM salle WHERE id= :id)
-        $detailSalle = $produits->find($id);
+        $detailSalle = $salle->find($id);
+        
+        return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'h1' => $detailSalle->getNomSalle(), 'detail' => $detailSalle));
+    }
+    
+    /**
+    * @Route(
+    *   "/profil/{id}",
+    *   name = "profil",
+    *   requirements={"id":"\d+"},
+    *   defaults={"id":1})
+    */
+    
+    //Page d'accueil, qui apparaisse dans l'url
+    public function profil($id)
+    {
+        //appel du modele Salle (c'est comme si je faisais un new Produit)
+        $salle = $this->getDoctrine()->getRepository(Membre::class);
+        //infos de la salle (SELECT * FROM salle WHERE id= :id)
+        $detailSalle = $salle->find($id);
         
         return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'h1' => $detailSalle->getNomSalle(), 'detail' => $detailSalle));
     }

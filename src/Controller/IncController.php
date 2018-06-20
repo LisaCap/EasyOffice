@@ -26,7 +26,7 @@ class IncController extends Controller
                 array('href' => 'gestionSalles', 'libelle_lien' => 'Gestion Salles'),
                 array('href' => 'profil', 'libelle_lien' => 'Profil'),
                 array('href' => 'concept', 'libelle_lien' => 'Concept'),
-                array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
+                array('href' => 'salle', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),
                 array('href' => 'contact', 'libelle_lien' => 'Contact'),
                 array('href' => 'deconnexion', 'libelle_lien' => 'Deconnexion'));
@@ -38,7 +38,7 @@ class IncController extends Controller
             $liens = array(
                 array('href' => 'profil', 'libelle_lien' => 'Profil'),
                 array('href' => 'concept', 'libelle_lien' => 'Concept'),
-                array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
+                array('href' => 'salle', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),
                 array('href' => 'contact', 'libelle_lien' => 'Contact'),
                 array('href' => 'deconnexion', 'libelle_lien' => 'Deconnexion'));
@@ -48,7 +48,7 @@ class IncController extends Controller
         {
             $liens = array(
                 array('href' => 'concept', 'libelle_lien' => 'Concept'),
-                array('href' => 'salles', 'libelle_lien' => 'Trouver sa salle'),
+                array('href' => 'salle', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),
                 array('href' => 'contact', 'libelle_lien' => 'Contact'),
                 array('href' => 'inscription', 'libelle_lien' => 'Inscription'),

@@ -1,0 +1,39 @@
+{# templates/public/template.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block h1 %} Le h1 {% endblock %}
+    {% block introduction %} L'introduction {% endblock %}
+    {% block option_introduction %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+        <!--Section -->
+        <section id="contact" class="content-section text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Map Section -->
+        <div id="map"></div>
+
+{% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

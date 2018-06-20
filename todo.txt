@@ -59,6 +59,10 @@ $statut à mettre dans $_SESSION pour gerer le menu du tableau de bord
 >si on est proprietaire/locataire -> big menu -> passer en hote (ou passer en proprietaire)
 > si on est hote OU proprietaire, afficher le bouton "modifier profil" dans l'onglet "profil"
 
+INSCRIPTION
+_______________
+mail unique A FAIRE
+
 
 
 

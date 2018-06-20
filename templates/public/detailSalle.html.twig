@@ -1,0 +1,44 @@
+{# templates/public/template.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block h1 %} {{ detail.nomSalle }} {% endblock %}
+    {% block introduction %} L'introduction {% endblock %}
+    {% block option_introduction %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+    <div class="row">
+
+          <div class="col-sm-4">
+          </div>
+
+          <div class="col-sm-3">
+              <img class="img-fluid" src="{#{{asset(detail.photoProduit)}}#}" alt="photo de mon produit">
+          </div>
+
+          <div class="col-sm-5">
+              <h1>{{ detail.nomSalle}}</h1>
+              <p> Ref : {{ detail.referenceSalle }} <br>
+               Prix : {{ detail.prixSalle }} <br>
+               Description : {{ detail.descriptionSalle }} <br>
+               Catégorie : {{ detail.idCategorieSalle.libelleCategorieSalle }} </p>
+               <a class="btn btn-info" href="{{ url('salle') }}">Retour</a>
+          </div>
+    </div>
+
+{% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

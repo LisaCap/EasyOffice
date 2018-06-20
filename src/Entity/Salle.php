@@ -79,7 +79,8 @@ class Salle
     private $prixSalle;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Equipement", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $equipementSalle;
 
@@ -232,14 +233,14 @@ class Salle
         return $this;
     }
 
-    public function getEquipementSalle(): ?int
+    public function getEquipementSalle()
     {
         return $this->equipementSalle;
     }
 
-    public function setEquipementSalle(int $equipementSalle): self
+    public function setEquipementSalle(id $id): self
     {
-        $this->equipementSalle = $equipementSalle;
+        $this->equipementSalle = $id;
 
         return $this;
     }
