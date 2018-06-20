@@ -279,18 +279,44 @@ class Membre implements UserInterface, \Serializable
 
         return $this;
     }
-
+    
+    //GESTION PASSWORD//////////////////////////
+    
+    //méthode imposée par l'interface
+    public function getUsername(): ?string
+    {
+        return $this->emailMembre;
+    }
+    // méthode imposée par l'interface
+    public function setUsername(string $emailMembre): self
+    {
+        $this->emailMembre = $emailMembre;
+        return $this;
+    }
+    //méthode imposée par l'interface
+    public function getPassword(): ?string
+    {
+        return $this->passwordMembre;
+    }
     public function getPasswordMembre(): ?string
     {
         return $this->passwordMembre;
     }
-
+    //méthode imposée par l'interface
+    public function setPassword(string $passwordMembre): self
+    {
+        $this->passwordMembre = $passwordMembre;
+        return $this;
+    }
+    
     public function setPasswordMembre(string $passwordMembre): self
     {
         $this->passwordMembre = $passwordMembre;
 
         return $this;
     }
+    ////////////////////////////
+
 
     public function getDateEnregistrementMembre(): ?\DateTimeInterface
     {
@@ -326,5 +352,65 @@ class Membre implements UserInterface, \Serializable
         $this->photoMembre = $photoMembre;
 
         return $this;
+    }
+    
+    ///Les fonction à rajouter pour Membre //////////////////////
+    //récupération des rôles
+    public function getRoles()
+    {
+        return $this->roles; //return ['ROLE_USER'];
+    }
+    //récupération du "salt" (null car bscript le fait automatiquement)
+    public function getSalt()
+    {
+        return null;
+    }
+    //fonction imposée par l'interface user
+    public function eraseCredentials()
+    {
+    }
+    //sérialisation de l'utilisateur (pour stocker en session)
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->emailMembre,
+            $this->passwordMembre,
+            $this->isActive
+        ));
+    }
+    //dé-sérialisation de l'objet (session)
+    public function unserialize($serialized)
+    {
+        list($this->id, 
+                 $this->emailMembre,
+                 $this->passwordMembre,
+                 $this->isActive)
+        = unserialize($serialized);
+    }
+    //ajout d'un role
+    public function setRoles($val)
+    {
+        return $this->roles[] = $val;
+    }
+    //compte non expiré?
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+    //Compte non vérouillé
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+    //  identifiants non expirés
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+    // est activé
+    public function isEnabled()
+    {
+        return $this->isActive;
     }
 }

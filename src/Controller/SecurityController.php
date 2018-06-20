@@ -68,6 +68,10 @@ class SecurityController extends Controller
             $dateEnregistrement = new \DateTime(); 
             $membre->setDateEnregistrementMembre($dateEnregistrement);
             
+            //enregistrer en automatique des infos, c'est fictif, pour ne pas faire planter la requete sql
+            $infosCarteBancaire = 'CB'; 
+            $membre->setInfoBancaireMembre($infosCarteBancaire);
+            
             
 			//encodage du mot de passe
 			$hash = $passwordEncoder->encodePassword($membre, $membre->getPasswordMembre());

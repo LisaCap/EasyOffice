@@ -61,9 +61,7 @@ __Maxence__
 Templates 
 index
 
-
-
 __Lisa__
-
+relier BDD avec le site (pour la connexion/inscription notemment)
 
 __Sophia__
