@@ -10,8 +10,8 @@
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block h1 %} Le h1 {% endblock %}
-    {% block introduction %} L'introduction {% endblock %}
+    {% block h1 %} {{ membre.nomMembre }} {% endblock %}
+    {% block introduction %} {{ membre.emailMembre }} {% endblock %}
     {% block option_introduction %}{% endblock %}
 {#FIN DE HEADER#}
 

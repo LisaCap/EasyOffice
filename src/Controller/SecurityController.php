@@ -13,10 +13,22 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 //pour utiliser les annotations
 use Symfony\Component\Routing\Annotation\Route;
-// table utilisateurs
+
+// table utilisateurs pour enregistrer un nouvel utilisateur
 use App\Entity\Membre;
+
+// table Produit pour enregistrer une nouvelle reservation
+use App\Entity\Produit;
+
+// table Salle pour récupérer l'id de la salle
+use App\Entity\Salle;
+
+
 //formulaire inscription
 use App\Form\MembreType;
+
+//formulaire reservation
+use App\Form\ReservationType;
 
 //gerrer upload photo profil
 use App\Services\UploadPhotoMembre;
@@ -87,7 +99,7 @@ class SecurityController extends Controller
             
 
 			//retour à l'accueil
-			return $this->redirectToRoute('index');
+			return $this->redirectToRoute('connexion');
 		}
 		//affichage du formulaire
 		return $this->render('security/inscription.html.twig',
@@ -124,10 +136,79 @@ class SecurityController extends Controller
 							array('last_username' => $lastUsername,
 										'error' => $error,
 										'title' => 'connexion'));
-	}	
+	}
+    
 	/**
-	* @Route(
-	*		"/deconnexion",
-	*	  name="deconnexion")
+	* @Route("/tableauDeBord",name="tableauDeBord")
 	*/
+	public function tableauDeBord()
+	{
+		//récupération de l'utilisateur connecté
+		$membre = $this->getUser();
+        
+        //comment je le renvoie vers la page de connexion si il n'est pas loggué ??? 
+        
+        /*if($membre = $this->getUser())
+        {
+            return $this->render('security/tableauDeBord.html.twig', 
+									array('title' => 'Tableau de bord',
+												'membre' => $membre));
+        }else
+        {
+            return $this->render('security/connexion.html.twig', 
+									array('title' => 'Connexion'));
+        }*/
+		
+		//return new Response('<pre>'.print_r($user, true));
+		return $this->render('security/tableauDeBord.html.twig', 
+									array('title' => 'Tableau de bord',
+												'membre' => $membre));
+	}
+    
+    /**
+	* @Route(
+	*	  "/reservation/{id}",
+	*	  name="reservation",
+    *     requirements={"id":"\d+"})
+	*/
+	public function reservation(Request $request $id)
+	{
+		//liaison avec la table des utilisateurs
+		$reservation = new Produit();
+		//création du formulaire
+		$form = $this->createForm(ReservationType::class, $reservation);
+
+		//récupération des données du formulaire
+		$form->handleRequest($request);
+        
+		//si soumis et validé
+		if($form->isSubmitted() && $form->isValid())
+		{            
+            
+            //recuperer l'id membre via la session            
+            $idMembre = $this->getUser()->getId();
+            
+            //appel du modèle Salle pour retrouver les detail du produit
+            $salle = $this->getDoctrine()->getRepository(Salle::class);
+            
+            //infos du produit (SELECT * FROM produits where id= :id)
+            //pour pouvoir recuperer la description de la salle
+            $detailSalle = $salle->find($id);
+            
+            //ensuite il faut enregistrer date de depart et date d'arrivée afin de créer une boucle pour créer les joursindisponible dans la table indisponible 
+            //A FAIRE
+            
+			//enregistrement dans la table
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($reservation);
+			$em->flush();
+
+			//retour au tableau de bord pour voir notre reservation
+			return $this->redirectToRoute('tableauDeBord');
+		}
+		//affichage du formulaire
+		return $this->render('security/reservation.html.twig',
+									array('form' => $form->createView(),
+												'title' => 'reservation', 'detailSalle'=> $detailSalle));
+	}
 }

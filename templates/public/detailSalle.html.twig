@@ -33,6 +33,7 @@
                Description : {{ detail.descriptionSalle }} <br>
                Catégorie : {{ detail.idCategorieSalle.libelleCategorieSalle }} </p>
                <a class="btn btn-info" href="{{ url('salle') }}">Retour</a>
+               <a class="btn btn-info" href="{{ url('reservation', {'id' : detail.id}) }}">Reserver</a>
           </div>
     </div>
 

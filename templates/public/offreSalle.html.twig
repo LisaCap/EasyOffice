@@ -43,12 +43,7 @@
 
                         {#formulaire bootstrap#}
 
-                        <div class="form-group">
-                            <div class="form-check form-check-inline">  
-                                {{ form_row(form.referenceSalle, {attr: {class: "form-check-input"} }) }}
-                            </div>
-                        </div>
-
+                        {# generer la reference de la salle dans le publicController #}
                         <div class="form-group">
                             {{ form_row(form.nomSalle, {attr: {class: "form-control"} }) }}
                         </div>
@@ -68,7 +63,7 @@
                         {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS DE CATEGORIES#}
                         <div class="form-group">
                             <div class="form-check form-check-inline">  
-                                {{ form_row(form.categorieSalle, {attr: {class: "form-check-input"} }) }}
+                                {{ form_row(form.idCategorieSalle, {attr: {class: "form-check-input"} }) }}
                             </div>
                         </div>
 
@@ -98,12 +93,9 @@
                                 {{ form_row(form.equipementSalle, {attr: {class: "form-check-input"} }) }}
                             </div>
                         </div>
+                        
+                        {# LE BOUTON SUBMIT EST DANS OffreSallType #}
 
-                        <div class="form-group text-center">
-
-                            <button type="submit" class="btn btn-success">Valider</button>
-
-                        </div>
 
                         <div class="form-group">
                              {{ form_end(form) }}

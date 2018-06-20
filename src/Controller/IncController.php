@@ -24,7 +24,7 @@ class IncController extends Controller
             $liens = array(
                 array('href' => 'gestionMembre', 'libelle_lien' => ' Gestion Membre'),
                 array('href' => 'gestionSalles', 'libelle_lien' => 'Gestion Salles'),
-                array('href' => 'profil', 'libelle_lien' => 'Profil'),
+                array('href' => 'tableauDeBord', 'libelle_lien' => 'Tableau de bord'),
                 array('href' => 'concept', 'libelle_lien' => 'Concept'),
                 array('href' => 'salle', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),
@@ -36,7 +36,7 @@ class IncController extends Controller
         elseif($authChecker->isGranted('ROLE_USER'))
         {
             $liens = array(
-                array('href' => 'profil', 'libelle_lien' => 'Profil'),
+                array('href' => 'tableauDeBord', 'libelle_lien' => 'Tableau de bord'),
                 array('href' => 'concept', 'libelle_lien' => 'Concept'),
                 array('href' => 'salle', 'libelle_lien' => 'Trouver sa salle'),
                 array('href' => 'aide', 'libelle_lien' => 'Aide'),

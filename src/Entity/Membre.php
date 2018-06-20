@@ -79,7 +79,7 @@ class Membre implements UserInterface, \Serializable
     private $telephoneMembre;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\StatutMembre", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\StatutMembre", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $idStatutMembre;

@@ -73,25 +73,6 @@ class PublicController extends Controller
         
         return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'h1' => $detailSalle->getNomSalle(), 'detail' => $detailSalle));
     }
-    
-    /**
-    * @Route(
-    *   "/profil/{id}",
-    *   name = "profil",
-    *   requirements={"id":"\d+"},
-    *   defaults={"id":1})
-    */
-    
-    //Page d'accueil, qui apparaisse dans l'url
-    public function profil($id)
-    {
-        //appel du modele Salle (c'est comme si je faisais un new Produit)
-        $salle = $this->getDoctrine()->getRepository(Membre::class);
-        //infos de la salle (SELECT * FROM salle WHERE id= :id)
-        $detailSalle = $salle->find($id);
-        
-        return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'h1' => $detailSalle->getNomSalle(), 'detail' => $detailSalle));
-    }
         
     /**
     * @Route(
