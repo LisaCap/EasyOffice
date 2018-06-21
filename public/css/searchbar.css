@@ -1,0 +1,72 @@
+/* START SEARCH BAR - index.html.twig */
+
+.index {
+    margin-top: 150px;
+    width:100vw;
+    height: 20vh;
+    display:flex;
+}
+
+.searchbox {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    opacity: 0.8;
+    height: 60px;
+    max-width: 700px;
+}
+
+.input-group {
+    width:220px;
+    display:flex;
+    align-items:center;
+}
+
+input {
+    height:60px;
+    width:100px;
+    border:none;
+    padding: 0 15px;
+}
+
+.picto {
+    width: 50px;
+    background: #FFF;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.picto i {
+    color: #000;
+    font-size:20px;
+}
+
+.selector {
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
+
+.index .container .row .col-sm-4 {
+    width: 150px;
+    min-height: auto;
+    flex: auto;
+}
+
+.fab, .fas, .far {
+    color: white;
+    width: 80%;
+}
+
+.typesalle {
+    width: 150px;
+}
+
+.valid {
+    margin-left: 20px;
+}
+
+/* END SEARCH BAR - index.html.twig */

@@ -5,88 +5,213 @@
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <!--CSS SEARCHBAR-->
+        <link href="{{ asset('css/searchbar.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+    {% endblock %}
 {#FIN DE HEAD#}
 
+{% block header %}
+    <header class="headerIndex">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
 
-{#HEADER#}
-    {#HEADER#}
-    {% block header %} <h1>Accueil</h1> {% endblock %}
-{#FIN DE HEADER#}
-{#FIN DE HEADER#}
+                        <h1 class="brand-heading"></h1>
+                        {#HEADER#}
+                        <h1> Easy<span class="vert_logo console">Office</span></h1>
+                        <p> Location de salle en ligne </p>
 
-{#MAIN#}
-{% block main %}
-    
-    <!-- About Section -->
-    <section id="about" class="content-section text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>About EasyOffice</h2>
-            <p>Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-              <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-            <p>This theme features stock photos by
-              <a href="http://gratisography.com/">Gratisography</a>
-              along with a custom Google Maps skin courtesy of
-              <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-            <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with SASS and LESS files for easy customization!</p>
-          </div>
+                        {# BOUTTON SCROLL#}
+                        <a href="#about" class="btn btn-circle js-scroll-trigger">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                        {#FIN DE HEADER#}
+
+                        <p class="intro-text"></p>
+                    </div>
+                </div>
+            </div>
+            {# BEGIN SEARCHBAR #}
+            {% block searchbar %}
+
+                <div class="row">
+                    <div class="index">
+                        <div class="container searchbox">
+                            <div class="input-group">
+                                <div class="selector">
+                                    <input type="text" placeholder="Où?" aria-label="ou" aria-describedby="basic-addon2">
+                                    <div class="picto">
+                                        <i class="fas fa-map-marker fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="selector">
+                                    <input type="text" placeholder="Quand?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="picto">
+                                        <i class="far fa-calendar-alt fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="selector">
+                                    <input class="typesalle"  type="text" placeholder="Type de salle" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="picto">
+                                        <i class="fab fa-typo3"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="valid btn btn-outline-success">rechercher</button>
+                        </div>
+                    </div>
+                </div>
+
+            {% endblock %}
+            {# END SEARCHBAR #}
         </div>
-      </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="download-section content-section text-center">
-      <div class="container">
-        <div class="col-lg-8 mx-auto">
-          <h2>Download Grayscale</h2>
-          <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-          <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="content-section text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Contact Start Bootstrap</h2>
-            <p>Feel free to leave us a comment on the
-              <a href="http://startbootstrap.com/template-overviews/grayscale/">Grayscale template overview page</a>
-              on Start Bootstrap to give some feedback about this theme!</p>
-            <ul class="list-inline banner-social-buttons">
-              <li class="list-inline-item">
-                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-                  <i class="fa fa-twitter fa-fw"></i>
-                  <span class="network-name">Twitter</span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg">
-                  <i class="fa fa-github fa-fw"></i>
-                  <span class="network-name">Github</span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
-                  <i class="fa fa-google-plus fa-fw"></i>
-                  <span class="network-name">Google+</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Map Section -->
-    <div id="map"></div>
-
+    </header>
 {% endblock %}
-{#FIN DE MAIN#}
 
-{#SCRIPT#}
-{% block javascripts %}{% endblock %}
-{#FIN DE SCRIPT#}
+
+
+
+    {#MAIN#}
+    {% block main %}
+
+        <!-- About Section -->
+        <div class="container-fluid">
+            <div class="littleGreenLine"></div>
+            <section id="about" class="content-section text-center">
+                <div class="container">
+
+
+                    <h2 class="my-4 text-center text-lg-left">Nos dernières offres</h2>
+
+                    <div class="row text-center text-lg-left">
+
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section content-section text-center">
+            <div class="container">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Download Grayscale</h2>
+                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
+                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2>Contact Start Bootstrap</h2>
+                        <p>Feel free to leave us a comment on the
+                            <a href="http://startbootstrap.com/template-overviews/grayscale/">Grayscale template overview page</a>
+                            on Start Bootstrap to give some feedback about this theme!</p>
+                        <ul class="list-inline banner-social-buttons">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
+                                    <i class="fa fa-twitter fa-fw"></i>
+                                    <span class="network-name">Twitter</span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg">
+                                    <i class="fa fa-github fa-fw"></i>
+                                    <span class="network-name">Github</span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
+                                    <i class="fa fa-google-plus fa-fw"></i>
+                                    <span class="network-name">Google+</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <div id="map"></div>
+
+    {% endblock %}
+    {#FIN DE MAIN#}
+
+    {# SCRIPT PERSO #}
+    {% block javascripts %}
+        <link href="{{ asset('js/searchbar.js') }}" rel="stylesheet">
+    {% endblock %}
+    {#FIN DE SCRIPT#}

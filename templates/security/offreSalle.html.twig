@@ -37,7 +37,7 @@
         
             <div class= "col-sm-6">
                 <fieldset>
-                   <legend>Location</legend>
+                   <legend>Prposer une salle</legend>
 
                         {{ form_start(form) }}
 
@@ -60,11 +60,9 @@
                             {{ form_row(form.villeSalle, {attr: {class: "form-control"} }) }}
                         </div>
                         
-                        {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS DE CATEGORIES#}
-                        <div class="form-group">
-                            <div class="form-check form-check-inline">  
-                                {{ form_row(form.idCategorieSalle, {attr: {class: "form-check-input"} }) }}
-                            </div>
+                        {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS DE CATEGORIES#}                        
+                        <div class="form-group">  
+                            {{ form_row(form.idCategorieSalle, {attr: {class: "form-control"} }) }}
                         </div>
 
                         <div class="form-group">

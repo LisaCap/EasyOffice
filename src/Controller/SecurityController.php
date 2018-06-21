@@ -226,15 +226,20 @@ class SecurityController extends Controller
 		$nouvelleSalle = new Salle();
 		//création du formulaire
 		$form = $this->createForm(OffreSalleType::class, $nouvelleSalle);
-
+        
 		//récupération des données du formulaire
 		$form->handleRequest($request);
         
 		//si soumis et validé
 		if($form->isSubmitted() && $form->isValid())
 		{
+            //recuperer l'id membre via la session pour le mettre en BDD          
+            $idMembre = $this->getUser()->getId();
+            $nouvelleSalle->setIdMembre($idMembre);
+            
             //recuperer le nom de la salle pour generer une reference unique en incluant son nom
             $nomSalle = $nouvelleSalle->getNomSalle();
+            
             //creation d'une reference en automatique
             $referenceUnique =  rand(1,10000) . $nomSalle;
             $nouvelleSalle->setReferenceSalle($referenceUnique);

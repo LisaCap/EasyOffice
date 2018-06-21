@@ -98,7 +98,7 @@ class MembreType extends AbstractType
                                                   ),
                             'label' => 'Téléphone'))
                       
-                //attention ici c'est une clé etrangere , je ne sais pas bien si ce code marche...
+                //attention ici c'est une clé etrangere 
                 ->add('idStatutMembre', EntityType::class,
                       array('class' => StatutMembre::class,
                             'choice_label' => 'libelleStatutMembre',

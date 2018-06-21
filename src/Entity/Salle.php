@@ -166,7 +166,7 @@ class Salle
         return $this->idCategorieSalle;
     }
 
-    public function setIdCategorieSalle(id $id): self
+    public function setIdCategorieSalle($id): self
     {
         $this->idCategorieSalle = $id;
 

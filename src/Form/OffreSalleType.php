@@ -16,16 +16,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 //gerer les affichages de données par type, selon le besoin
 use Symfony\Component\Form\Extension\Core\Type\TextType; //input
 use Symfony\Component\Form\Extension\Core\Type\TextareaType; // textarea pour la description
-use Symfony\Component\Form\Extension\Core\Type\FileType; // photo de profil
+use Symfony\Component\Form\Extension\Core\Type\FileType; // photo de la salle ? 
 use Symfony\Component\Form\Extension\Core\Type\DateType; //Date
 use Symfony\Component\Form\Extension\Core\Type\IntegerType; //nombre
-use Symfony\Component\Form\Extension\Core\Type\EmailType; //email
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType; //civilité
+
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType; //equipement
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType; //entity pour les clés etrangeres
 
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType; //saisir deux fois le mot de passe, et gestion des valeurs identiques
-use Symfony\Component\Form\Extension\Core\Type\PasswordType; // password
 use Symfony\Component\Form\Extension\Core\Type\SubmitType; //btn submit
 
 //validateurs pour les données
@@ -120,7 +118,7 @@ class OffreSalleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array('data_class' => Salle::class));
-        //rattachement à la classe Test qui est liée à ma table Test
+        //rattachement à la classe Salle
     }
     
     

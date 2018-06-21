@@ -1,6 +1,25 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
 body h1{
     font-family: 'Roboto', sans-serif;
     text-transform: none;
+}
+
+h1 {
+    animation: type 4s steps(60, end);
 }
 
 .vert_logo{
@@ -30,3 +49,46 @@ body h1{
 #clients_newsletterClient label {
     margin-right: 40px;
 }
+
+.intro-body {
+    position: relative;
+    margin: 0 auto;
+}
+
+.landing-container {
+    padding: 50px;
+}
+.landing-container .search-box {
+    height: 80px;
+    padding: 10px;
+}
+
+.intro-body {
+    position: relative;
+}
+
+/* DEBUT style pour la navbar (toutes les pages du site) */
+
+#mainNav {
+    background-color: #43B874;
+}
+
+/* DEBUT block "Nos dernières offres" */
+
+.littleGreenLine {
+    position: absolute;
+    width: 75px;
+    height: 105px;
+    border-right: 10px solid #43B874;
+}
+
+
+.content-section {
+    padding-top: 50px;
+}
+
+h2 {
+    color: black;
+}
+
+/* FIN block "Nos dernières offres" */
