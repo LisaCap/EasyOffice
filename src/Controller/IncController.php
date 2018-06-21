@@ -1,5 +1,5 @@
 <?php
-//src/Controller/MenuController.php
+//src/Controller/IncController.php
 namespace App\Controller; //on est dans le dossier src, mais on ecrit App. C'est son nom pour l'appeler (c'est par rapport à l'autolaod)
 
 //creer le lien avec Twig

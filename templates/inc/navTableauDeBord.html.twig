@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-sm-12 text-center">
+			
+			{% for lien in liensTableauDeBord %}
+                    <a href="http://localhost/EasyOffice/public/{{ lien.href }}" class="btn btn-warning"> {{ lien.libelle_lien }}</a>
+            {% endfor %}
+            
+    </div>
+</div>
