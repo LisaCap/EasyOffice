@@ -30,6 +30,9 @@ use App\Form\MembreType;
 //formulaire reservation
 use App\Form\ReservationType;
 
+//formulaire pour proposer une salle
+use App\Form\OffreSalleType;
+
 //gerrer upload photo profil
 use App\Services\UploadPhotoMembre;
 
@@ -192,7 +195,7 @@ class SecurityController extends Controller
             $salle = $this->getDoctrine()->getRepository(Salle::class);
             
             //infos du produit (SELECT * FROM produits where id= :id)
-            //pour pouvoir recuperer la description de la salle
+            //pour pouvoir recuperer la description de la salle à mettre en haut de la page
             $detailSalle = $salle->find($id);
             
             //ensuite il faut enregistrer date de depart et date d'arrivée afin de créer une boucle pour créer les joursindisponible dans la table indisponible 
@@ -210,5 +213,43 @@ class SecurityController extends Controller
 		return $this->render('security/reservation.html.twig',
 									array('form' => $form->createView(),
 												'title' => 'reservation', 'detailSalle'=> $detailSalle));
+	}
+    
+    /**
+	* @Route(
+	*	  "/offreSalle",
+	*	  name="offreSalle")
+	*/
+	public function offreSalle(Request $request)
+	{
+		//liaison avec la table des utilisateurs
+		$nouvelleSalle = new Salle();
+		//création du formulaire
+		$form = $this->createForm(OffreSalleType::class, $nouvelleSalle);
+
+		//récupération des données du formulaire
+		$form->handleRequest($request);
+        
+		//si soumis et validé
+		if($form->isSubmitted() && $form->isValid())
+		{
+            //recuperer le nom de la salle pour generer une reference unique en incluant son nom
+            $nomSalle = $nouvelleSalle->getNomSalle();
+            //creation d'une reference en automatique
+            $referenceUnique =  rand(1,10000) . $nomSalle;
+            $nouvelleSalle->setReferenceSalle($referenceUnique);
+            
+			//enregistrement dans la table
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($nouvelleSalle);
+			$em->flush();
+            
+			//retour au tableau de bord pour voir notre reservation
+			return $this->redirectToRoute('tableauDeBord');
+		}
+		//affichage du formulaire
+		return $this->render('security/offreSalle.html.twig',
+									array('form' => $form->createView(),
+												'title' => 'offreSalle'));
 	}
 }

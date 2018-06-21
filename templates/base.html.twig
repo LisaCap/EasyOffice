@@ -61,26 +61,8 @@
         <!-- FIN NAVIGATION -->
         
         
-        <!--HEADER--> 
-        <header class="masthead">
-          <div class="intro-body">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8 mx-auto">
-
-                    <h1 class="brand-heading">{% block h1 %}{% endblock %}</h1>
-                   
-                    <p class="intro-text">{% block introduction %}{% endblock %}</p>
-                    
-                    {% block option_introduction %}{% endblock %}
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-        
-        
+        <!--HEADER-->
+            {% block header %}{% endblock %}
         <!--FIN HEADER--> 
         
         

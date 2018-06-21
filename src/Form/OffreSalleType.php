@@ -119,7 +119,7 @@ class OffreSalleType extends AbstractType
     
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array('data_class' => Membre::class));
+        $resolver->setDefaults(array('data_class' => Salle::class));
         //rattachement à la classe Test qui est liée à ma table Test
     }
     

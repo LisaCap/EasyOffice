@@ -18,40 +18,18 @@ class TableauDeBordController extends Controller
 {
     public function navTableauDeBord(AuthorizationCheckerInterface $authChecker)
     {
-        //recuperer le statut membre pour savoir quel menu on lui affiche
-        // 1 -> Locataire
-        // 2 -> Propriétaire
-        // 3 -> Locataire/ Propriétaire
-        $statutMembre = $this->getUser()->getIdStatutMembre();
         
-        //Faut-il faire une version admin ? ou est ce qu'il herite du user ? 
-        
-        //si l'utilisateur est loggué et possede les droits ROLE_USER et est locataire
-        if($authChecker->isGranted('ROLE_USER') && $statutMembre == '1')
+        //si l'utilisateur est loggué 
+        if($authChecker->isGranted('ROLE_USER'))
         {
-            $liensTableauDeBord = array(
-                array('href' => 'tableauDeBord/profil', 'libelle_lien' => 'Profil'),
-                array('href' => 'tableauDeBord/mesReservations', 'libelle_lien' => 'Mes reservations'),
-                array('href' => 'tableauDeBord/message', 'libelle_lien' => 'Message'));
+            //recuperer le statut membre pour savoir quel menu on lui affiche
+            // 1 -> Locataire
+            // 2 -> Propriétaire
+            // 3 -> Locataire/ Propriétaire
+            $statutMembre = $this->getUser();
         }
         
-        //si l'utilisateur est loggué et possede les droits ROLE_USER et est propriétaire
-        elseif($authChecker->isGranted('ROLE_USER') && $statutMembre == '2')
-        {
-            $liensTableauDeBord = array(
-                array('href' => 'tableauDeBord/profil', 'libelle_lien' => 'Profil'),
-                array('href' => 'tableauDeBord/mesReservations', 'libelle_lien' => 'Mes reservations'));
-        }
-        //pour les autres
-        else
-        {
-            $liensTableauDeBord = array(
-                array('href' => 'tableauDeBord/profil', 'libelle_lien' => 'Profil'),
-                array('href' => 'tableauDeBord/mesReservations', 'libelle_lien' => 'Mes reservations'),
-                array('href' => 'tableauDeBord/test', 'libelle_lien' => 'raté'));
-        }
-        
-        return $this->render('inc/navTableauDeBord.html.twig', array('liensTableauDeBord' =>$liensTableauDeBord));
+        return $this->render('inc/navTableauDeBord.html.twig', array('statut' =>$statutMembre));
     }
     
     

@@ -10,9 +10,9 @@
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block h1 %} {{ membre.nomMembre }} {% endblock %}
-    {% block introduction %} {{ membre.emailMembre }} {% endblock %}
-    {% block option_introduction %}{% endblock %}
+    {% block header %}
+        <h1>{{ membre.nomMembre }}</h1>
+    {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
@@ -20,6 +20,8 @@
    
     {# appel d'un controleur et d'un template pour mon menu personnalisé selon le role du membre et son statut#}
     {{ render(controller('App\\Controller\\TableauDeBordController::navTableauDeBord'))}}
+    
+    {#Le tableau de bord pourrait être une page recapitulative de notre profil#}
     
     
 {% endblock %}
