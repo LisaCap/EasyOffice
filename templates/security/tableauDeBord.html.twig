@@ -17,20 +17,27 @@
 
 {#MAIN#}
 {% block main %}
-        <!--Section -->
-        <section id="contact" class="content-section text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Map Section -->
-        <div id="map"></div>
-
+    <div class="row">
+		<div class="col-sm-12 text-center">
+		
+		    
+			<a href="profil" class="btn btn-warning">Profil</a>
+			<a href="reservations" class="btn btn-primary">Mes Reservations</a>
+            <a href="reservations" class="btn btn-default">Mes Salles</a>
+            <a href="reservations" class="btn btn-danger">Messagerie</a>
+            
+            {% if membre.idStatutMembre == 3 %}
+			<a href="reservations" class="btn btn-danger">Passer</a>
+			{% else %}
+			<i class="fas fa-check fa-2x text-success"></i>
+			{% endif %}
+            
+            
+            
+            
+			<hr>
+		</div>
+    </div>
 {% endblock %}
 {#FIN DE MAIN#}
 

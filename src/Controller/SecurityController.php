@@ -171,7 +171,7 @@ class SecurityController extends Controller
 	*	  name="reservation",
     *     requirements={"id":"\d+"})
 	*/
-	public function reservation(Request $request $id)
+	public function reservation(Request $request)
 	{
 		//liaison avec la table des utilisateurs
 		$reservation = new Produit();

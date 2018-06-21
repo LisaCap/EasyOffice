@@ -55,7 +55,7 @@ concept.html.twig
 ------------------------------
 
 __Denys__
-
+malade (lombargie musculaire)
 
 __Maxence__
 Templates 
@@ -64,6 +64,25 @@ index
 __Lisa__
 relier BDD avec le site (pour la connexion/inscription notemment)
 commencer à initialiser les fichiers salle.html.twig et detailSalle.html.twig
+
+__Sophia__
+aide.html.twig
+concept.html.twig
+
+------------------------------
+20/06
+------------------------------
+
+__Denys__
+matin : kiné
+
+__Maxence__ 
+index.html.twig
+
+__Lisa__
+salle.html.twig_detailSalle.html.twig
+ReservationType.php & OffreSalleType.php
+TableauDeBord.thml.twig
 
 __Sophia__
 aide.html.twig
