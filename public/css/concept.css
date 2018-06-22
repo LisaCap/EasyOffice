@@ -1,0 +1,76 @@
+.headerConcept {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 200px 0;
+  text-align: center;
+  color: white;
+  background: url("../img/wallpaperconcept.jpg") no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.headerConcept .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.headerConcept .intro-body .brand-heading {
+  font-size: 50px;
+}
+
+.headerConcept .intro-body .intro-text {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .headerConcept {
+    height: 100%;
+    padding: 0;
+  }
+  .headerConcept .intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .headerConcept .intro-body .intro-text {
+    font-size: 22px;
+  }
+}
+
+body{
+    background: white;
+}
+
+
+h1 {
+    font-size: 5em;
+    text-align: center;
+    color:white;
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    color:white;
+}
+
+
+div {
+  margin-left: auto;
+  margin-right: auto;
+  width: ...;
+  color: #43b874;   
+}
+
+
+.headerConcept {
+ background: linear-gradient(
+ rgba(217, 216, 216, 0.45), 
+ rgba(216, 216, 216, 0.45)
+ ),url("../img/wallpaperconcept.jpg");
+ background-size:cover;
+ background-repeat:no-repeat;
+}
+

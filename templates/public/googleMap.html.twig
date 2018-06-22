@@ -1,0 +1,65 @@
+{# templates/public/template.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}
+    
+    <style>
+            #map{
+                height: 500px;
+            }
+            .logo{
+                width: 200px;
+            }
+    </style>
+    
+    {% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+    {% block header %} <h1>Test Google Map</h1> {% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+      
+      <!--Formulaire pour entrer une adresse--> 
+       <form method="post" action="">
+            <fieldset>
+                <legend><h2>Votre adresse</h2></legend>
+                <label for="adresse">Adresse</label><br>
+                    <input type="text" id="adresse" name="adresse" value="<?php if(isset($_POST['adresse'])) print $_POST['adresse']; ?>" size="100"><br>
+
+                <label for="cp">Code Postal</label><br />
+                <input type="text" id="cp" name="cp" value="<?php if(isset($_POST['cp'])) print $_POST['cp']; ?>" size="100"><br>
+                
+                <label for="ville">Ville</label><br />
+                <input type="text" id="ville" name="ville" value="<?php if(isset($_POST['ville'])) print $_POST['ville']; ?>" size="100"><br>
+                
+                <input type="submit" name="valider" id="valider" value="Valider">
+                
+            </fieldset>
+        </form>
+        
+        <!--Section map-->
+        <div class='container-fluid'>
+            <div class="row">
+                <div id="map" class="col-sm-12"></div>
+            </div>
+        </div>
+
+{% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}
+    
+    <script src="js/googleMap/googleMaps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDwMSNslhTJzpI1A8U6iffFKfCCVP47awo" async defer></script>
+    
+    {% endblock %}
+{#FIN DE SCRIPT#}

@@ -122,4 +122,15 @@ class PublicController extends Controller
         return $this->render('public/contact.html.twig', array('title' => 'Contact EasyOffice'));
     }
     
+    /**
+    * @Route(
+    *   "/googleMap",
+    *   name = "googleMap")
+    */
+    //Page googleMap, qui apparait dans l'url
+    public function googleMap()
+    {
+        return $this->render('public/googleMap.html.twig', array('title' => 'googleMap EasyOffice'));
+    }
+    
 }

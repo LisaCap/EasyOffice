@@ -90,3 +90,18 @@ __Sophia__
 aide.html.twig
 concept.html.twig
 
+------------------------------
+22/06
+------------------------------
+
+__Denys__
+BACK : salle.html.twig & index.html.twig avec les Controllers
+>recherche par critere pour afficher les salles
+
+__Maxence__ 
+index.html.twig
+
+__Lisa__
+creation outils google map pour comprendre le fonctionnement pour l'integrer par la suite
+
+__Sophia__
