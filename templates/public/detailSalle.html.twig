@@ -35,10 +35,81 @@
                <a class="btn btn-info" href="{{ url('reservation', {'id' : detail.id}) }}">Reserver</a>
           </div>
     </div>
+    
+    <!--Section map-->
+        <div class='container-fluid'>
+            <div class="row">
+                <div id="map" class="col-sm-12"></div>
+            </div>
+        </div>
 
 {% endblock %}
 {#FIN DE MAIN#}
 
 {#SCRIPT#}
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+    
+    <script>
+    //variable pour la carte
+    var map;
+    //fonction initMap appelée par l'API Google
+    function initMap()
+    {
+        //DIV devant recevoir la carte
+        var mapDiv = document.getElementById('map');
+        //création de la carte
+        map = new google.maps.Map(mapDiv, {
+            zoom: 17,
+            mapTypeId: 'satellite'
+        });
+
+        //contenu HTML de la boite d'info
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">{{ detail.adresseSalle }}' + ' ' + '{{ detail.cpSalle }}' + ' ' + '{{ detail.villeSalle }}' +
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">{{ detail.nomSalle }}</h1>'+
+          '<div id="bodyContent">'+
+          '<p> {{ detail.descriptionSalle }} <br/></p>'+
+          '</div>'+
+          '</div>';
+        //boite d'info
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        // pour centrer la carte avec une adresse réelle
+        var geocoder = new google.maps.Geocoder();
+        var address =
+              ' {{ adresse }}' + ', ' + '{{ cp }}' + ' ' + '{{ ville }}' ;
+        geocoder.geocode({'address': address}, function(results, status) 
+        {
+            if (status === google.maps.GeocoderStatus.OK)
+            {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    title: '{{ detail.nomSalle }}'
+                });
+
+                // ajout de la boite et du listener
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+
+            } 
+            else 
+            {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+
+        });
+
+    }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDwMSNslhTJzpI1A8U6iffFKfCCVP47awo" async defer></script>
+    
+    {% endblock %}
 {#FIN DE SCRIPT#}

@@ -95,13 +95,19 @@ concept.html.twig
 ------------------------------
 
 __Denys__
-BACK : salle.html.twig & index.html.twig avec les Controllers
->recherche par critere pour afficher les salles
+affichage du profil dans la page tableauDeBord.html.twig
 
 __Maxence__ 
 index.html.twig
 
 __Lisa__
-creation outils google map pour comprendre le fonctionnement pour l'integrer par la suite
+creation outils google map pour comprendre le fonctionnement pour l'integrer par la suite (ggogleMap.html.twig)
+intégration de l'outis Google API dans la page DetailSalle.html.twig
+
+--formaulaire de reservation--
+reservation.twig.html
+ReservationType.php
 
 __Sophia__
+aide.html.twig
+sitemap

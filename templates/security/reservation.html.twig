@@ -10,51 +10,57 @@
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>Le h1</h1> {% endblock %}
+    {% block header %} <h1>Reservation</h1> {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <fieldset>
-                   <legend>Reservation</legend>
+       
+       <div class="container-fluid">
+           
+           <div class="row">
+               <div class="col-sm-3"></div>
+               <div class="col-sm-6">
+                   <h2>Récapitulation du produit :</h2>
+                   <p>
+                       Nom : {{ detailSalle.nomSalle }} <br>
+                       Adresse : {{ detailSalle.adresseSalle }} <br>
+                       Code Postal : {{ detailSalle.cpSalle }} <br>
+                       Ville : {{ detailSalle.villeSalle }} <br>
+                   </p>
+               </div>
+           </div>
+           
+           
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <fieldset>
+                       <legend>Reservation</legend>
 
-                        {{ form_start(form) }}
-                        {# form_start c'est comme une ouverture de balise form #}
+                            {{ form_start(form) }}
+                            {# form_start c'est comme une ouverture de balise form #}
 
-                        {# {{ form_widget(form) }}  le basic de symfony#}
+                            {# {{ form_widget(form) }}  le basic de symfony#}
 
-                        {#formulaire bootstrap#}
+                            {#formulaire bootstrap#}
 
-                        <div class="form-group">
+                            <div class="form-group">
 
-                            {{ form_row(form.jourArrivee, {attr: {class: "form-control"} }) }}
+                                {{ form_row(form.jourIndisponible, {attr: {class: "form-control"} }) }}
 
-                        </div>
-                        
-                        <div class="form-group">
+                            </div>
 
-                            {{ form_row(form.jourDepart, {attr: {class: "form-control"} }) }}
+                            {#Ici il aurait fallu mettre un message, pour que ce soit inscrit dans la table produit, et non la table Indisponible#}
 
-                        </div>
+                             <div class="form-group">
+                                 {{ form_end(form) }}
+                             </div>
 
-                        <div class="form-group">
-
-                            {{ form_row(form.messageProduit, {attr: {class: "form-control"} }) }}
-
-                        </div>
-
-                        <div class="form-group text-center">
-
-                            <button type="submit" class="btn btn-success">Valider</button>
-
-                        </div>
-
-                 </fieldset>
-            </div>
-        </div>
+                     </fieldset>
+                </div>
+            </div>{#fin de div class row#}
+       </div>{#fin de container fluid#}
 
     {% endblock %}
 {#FIN DE MAIN#}

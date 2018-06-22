@@ -1,0 +1,81 @@
+ /**
+	* @Route(
+	*	  "/reservation/{id}",
+	*	  name="reservation",
+    *     requirements={"id":"\d+"})
+	*/
+	public function reservation(Request $request)
+	{
+        //pour afficher la description du produit en rappel au dessus du formulaire
+        $salle = $this->getDoctrine()->getRepository(Salle::class);
+        //infos de la salle (SELECT * FROM salle WHERE id= :id)
+        $detailSalle = $salle->find($id);
+        
+        //Creation d'un nouveau Produit issu de la classe Produit
+		$reservation = new Produit();
+		//création du formulaire
+		$form = $this->createForm(ReservationType::class, $reservation);
+
+		//récupération des données du formulaire
+		$form->handleRequest($request);
+        
+        //transformer les données recueille pour jourArrivee et JourDepart en JourIndisponible. Sinon le formulaire de va pas etre content car le nombre de champs ne correspond pas au variable entrées dans le formulaire
+        
+            $jourArrivee = $reservation->getJourArrivee();
+            $jourDepart = $reservation->getJourDepart();
+        
+            //declaration d'un tableau jourIndisponible pour enregistrer le nombre de ligne qui correspond au nombre de reservation
+            $jourIndisponible = array;
+        
+        if($jourArrivee == $jourDepart)
+        {
+            $jourIndisponible = $jourArrivee;
+        }else
+        {
+            
+            $i = $jourArrivee;
+            while($i <= $jourDepart)
+            {
+                $jourIndisponible[] = $annee . "-" . $mois . "-" . $jour
+                $i++;
+                
+            }
+        }
+        
+        //ensuite il faudrait faire un enregistrement de ligne à chaque fois que ma boucle jourIndisponible refait un tour
+        //on peut faire un count ? 
+        
+		//si soumis et validé
+		if($form->isSubmitted() && $form->isValid())
+		{            
+            
+            //recuperer l'id membre via la session            
+            $idMembre = $this->getUser()->getId();
+            //ensuite il faut inscrire cet id dans le champs idMembre de la Table Produit
+            $reservation->setIdMembre($idMembre);
+            
+            //insertion de l'id salle dans le champ idSalle de la table Produit
+            $reservation->setIdSalle($id);
+            
+            //insertion de l'etatProduit dans le champ EtatProduit de la table Produit
+            $etatProduit = 1; //1 = "en cours de validation" et '2' = "validé";
+            $reservation->setEtatProduit($etatProduit);
+            
+            //insertion des jourIndisponible dans le bon format
+            $reservation->setJourIndisponible($jourIndisponible);
+            
+            
+			//enregistrement dans la table
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($reservation);
+			$em->flush();
+
+			//retour au tableau de bord pour voir notre reservation
+			return $this->redirectToRoute('tableauDeBord');
+		}
+		//affichage du formulaire
+		return $this->render('security/reservation.html.twig',
+									array('form' => $form->createView(),
+												'title' => 'reservation', 'detailSalle'=> $detailSalle));
+		
+	}

@@ -70,7 +70,6 @@ mail unique A FAIRE
 REPARTITION TACHE A FAIRE
 _________________________
 > gerer la session
-> gerer l'api google map (maxcence)
 > gerer l'ajax
 > gerer les template de page d'erreur
 
@@ -88,3 +87,4 @@ ____________________________________
 >pouvoir rajouter des equipements particulier à une salle (et que ça rentre dans la bdd sans passer par la description)
 >gestion de la caution 
 > creer une messagerie interne
+> On aurait pu créer un agenda dynamique où on peut reserver des journées entrecoupées. cad : reserver 3 jours d'affilés, puis 2 jours non, puis les 3 jours suivant. Mais Air Bnb n'a pas développer ce principe... donc est ce faisable ? 

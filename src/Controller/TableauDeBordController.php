@@ -32,5 +32,31 @@ class TableauDeBordController extends Controller
         return $this->render('inc/navTableauDeBord.html.twig', array('statut' =>$statutMembre));
     }
     
+    /**
+	* @Route("/tableauDeBord",name="tableauDeBord")
+	*/
+	public function tableauDeBord()
+	{
+		//récupération de l'utilisateur connecté
+		$membre = $this->getUser();
+        
+        //comment je le renvoie vers la page de connexion si il n'est pas loggué ??? 
+        
+        /*if($membre = $this->getUser())
+        {
+            return $this->render('security/tableauDeBord.html.twig', 
+									array('title' => 'Tableau de bord',
+												'membre' => $membre));
+        }else
+        {
+            return $this->render('security/connexion.html.twig', 
+									array('title' => 'Connexion'));
+        }*/
+		
+		//return new Response('<pre>'.print_r($user, true));
+		return $this->render('security/tableauDeBord.html.twig', 
+									array('title' => 'Tableau de bord',
+												'membre' => $membre));
+	}
     
 }

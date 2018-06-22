@@ -48,7 +48,7 @@ class Indisponible
         return $this->idSalle;
     }
 
-    public function setIdSalle(id $id): self
+    public function setIdSalle($id): self
     {
         $this->idSalle = $id;
 
@@ -60,7 +60,7 @@ class Indisponible
         return $this->idMembre;
     }
 
-    public function setIdMembre(id $id): self
+    public function setIdMembre($id): self
     {
         $this->idMembre = $id;
 

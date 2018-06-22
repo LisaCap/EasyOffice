@@ -71,7 +71,7 @@ class PublicController extends Controller
         //infos de la salle (SELECT * FROM salle WHERE id= :id)
         $detailSalle = $salle->find($id);
         
-        return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'h1' => $detailSalle->getNomSalle(), 'detail' => $detailSalle));
+        return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'adresse' => $detailSalle->getAdresseSalle(), 'cp' => $detailSalle->getCpSalle(), 'ville' => $detailSalle->getVilleSalle(), 'detail' => $detailSalle ));
     }
         
     /**
@@ -123,14 +123,26 @@ class PublicController extends Controller
     }
     
     /**
-    * @Route(
-    *   "/googleMap",
-    *   name = "googleMap")
-    */
-    //Page googleMap, qui apparait dans l'url
-    public function googleMap()
-    {
-        return $this->render('public/googleMap.html.twig', array('title' => 'googleMap EasyOffice'));
-    }
+	* @Route(
+	*	  "/googleMap/{id}",
+	*	  name="googleMap",
+    *     requirements={"id":"\d+"},
+    *     defaults={"id":1})
+	*/
+	public function salleGoogleMap($id)
+	{
+		
+		//trouver l'enregistrement d'id avec $id via le repository
+        $salle = $this->getDoctrine()//methode predefini de Doctrine //chercher mon mapping vers ma BDD (rapport classe/table)
+                     ->getRepository(Salle::class); //le repository permet de lire dans une table
+        $detailSalle = $salle->find($id);
+                   // find permet de trouver la ligne dont l'id est $id
+                  // ->findAll(); retourne toute la table
+                  // ->findBy(['prenom' => 'Michel']); retourne tous les enregistrements dont le nom est Michel
+                  // ->findOneBy(['prenom' => 'Michel', 'nom' => 'MARTIN']); retourne l'enregistrment dont le nom est MARTIN et le prenom est Michel
+        
+        return $this->render('public/googleMap.html.twig', array('title' => $detailSalle->getNomSalle(), 'adresse' => $detailSalle->getAdresseSalle(), 'cp' => $detailSalle->getCpSalle(), 'ville' => $detailSalle->getVilleSalle(), 'detail' => $detailSalle ));
+		
+	}
     
 }

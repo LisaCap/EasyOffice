@@ -37,13 +37,7 @@ use Symfony\Component\Validator\Constraints\Range;
 //objet qui correspond a la table Membre pour rercuperer l'id
 //Enfin à voir pour recuperer l'id via la session plutot....
 //IDEM pour l'idCategorieSalle
-use App\Entity\Membre;
-
-//Pour l'idCategorieSalle , pour recuperer la liste deroulante avec les libéllés
-use App\Entity\CategorieSalle;
-
-//Pour l'Equipement (avec creation de table intermediaire par Doctrine), pour recuperer la liste deroulante avec les libéllés des equipements
-use App\Entity\Equipement;
+use App\Entity\Indisponible;
 
 
 class ReservationType extends AbstractType
@@ -55,61 +49,9 @@ class ReservationType extends AbstractType
         //ATTENTION on recupere l'idMembre via la session, à mettre dans la table Produit
         //ATTENTION il faut aussi recuperer l'idSalle de la page où on se trouve...par le GET donc à mettre dans le lien dans on clique sur "reserver" quand on est sur "detailSalle"
         
-        $builder->add('nomSalle', TextType::class,
-                      array('constraints' => array(new NotBlank(),
-                                                   new Length(array('min' => 3, 'max' => 255)) 
-                                                   ),
-                            'label' => 'Nom de la salle'))
-            
-                ->add('adresseSalle', TextType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Adresse'))
-            
-                ->add('cpSalle', IntegerType::class,
-                      array('constraints' => array(new NotBlank(),
-                                                   new Regex(array('pattern' => "/^[0-9]{5}$/"))
-                                                  ),
-                            'label' => 'Code postal'))
-            
-                ->add('villeSalle', TextType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Ville'))
-                      
-                //attention ici c'est une clé etrangere , je ne sais pas bien si ce code marche...
-                ->add('idCategorieSalle', EntityType::class,
-                      array('class' => CategorieSalle::class,
-                            'choice_label' => 'libelleCategorieSalle',
-                            'expanded' => false,
-                            'multiple' => false),
-                      array('constraints' => array(new NotBlank()), 'label' => 'Catégorie'))
-            
-                ->add('surfaceSalle', IntegerType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Surface (en m²)'))
-            
-                 ->add('descriptionSalle', TextAreaType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Description'))
-            
-                ->add('nbrPieceSalle', IntegerType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Nombre de pièce(s)'))
-            
-                ->add('capaciteSalle', IntegerType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Capacité (nombre de personnes pouvant être accueillies)'))
-            
-                ->add('prixSalle', IntegerType::class,
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Prix (€/Journée)'))
-            
-                //attention ici c'est une clé etrangere avec un Many to Many , je ne sais pas bien si ce code marche...
-                ->add('equipementSalle', EntityType::class,
-                      array('class' => Equipement::class,
-                            'choice_label' => 'libelleEquipement',
-                            'expanded' => true,
-                            'multiple' => true),
-                      array('constraints' => array(new NotBlank()), 'label' => 'Equipement(s)'))
+        $builder->add('jourIndisponible', DateType::class,
+                      array('constraints' => array(new NotBlank() ),
+                            'label' => 'Jour de reservation'))
                 
                 //creer deux champs input qui fait tout les controle et le cryptage
                 ->add('Save', SubmitType::class,
@@ -120,7 +62,7 @@ class ReservationType extends AbstractType
     
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array('data_class' => Membre::class));
+        $resolver->setDefaults(array('data_class' => Indisponible::class));
         //rattachement à la classe Test qui est liée à ma table Test
     }
     

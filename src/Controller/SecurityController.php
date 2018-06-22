@@ -23,6 +23,9 @@ use App\Entity\Produit;
 // table Salle pour récupérer l'id de la salle
 use App\Entity\Salle;
 
+// pour le formulaire de reservation, aller charger la table Indisponible pour rentrer les lignes de reservation
+use App\Entity\Indisponible;
+
 
 //formulaire inscription
 use App\Form\MembreType;
@@ -141,32 +144,6 @@ class SecurityController extends Controller
 										'title' => 'connexion'));
 	}
     
-	/**
-	* @Route("/tableauDeBord",name="tableauDeBord")
-	*/
-	public function tableauDeBord()
-	{
-		//récupération de l'utilisateur connecté
-		$membre = $this->getUser();
-        
-        //comment je le renvoie vers la page de connexion si il n'est pas loggué ??? 
-        
-        /*if($membre = $this->getUser())
-        {
-            return $this->render('security/tableauDeBord.html.twig', 
-									array('title' => 'Tableau de bord',
-												'membre' => $membre));
-        }else
-        {
-            return $this->render('security/connexion.html.twig', 
-									array('title' => 'Connexion'));
-        }*/
-		
-		//return new Response('<pre>'.print_r($user, true));
-		return $this->render('security/tableauDeBord.html.twig', 
-									array('title' => 'Tableau de bord',
-												'membre' => $membre));
-	}
     
     /**
 	* @Route(
@@ -174,15 +151,23 @@ class SecurityController extends Controller
 	*	  name="reservation",
     *     requirements={"id":"\d+"})
 	*/
-	public function reservation(Request $request)
+	public function reservation($id, Request $request)
 	{
-		//liaison avec la table des utilisateurs
-		$reservation = new Produit();
+        //pour afficher la description du produit en rappel au dessus du formulaire
+        $salle = $this->getDoctrine()->getRepository(Salle::class);
+        //infos de la salle (SELECT * FROM salle WHERE id= :id)
+        $detailSalle = $salle->find($id);
+        
+        //Creation d'un nouveau Produit issu de la classe Produit
+		$reservation = new Indisponible();
 		//création du formulaire
 		$form = $this->createForm(ReservationType::class, $reservation);
 
 		//récupération des données du formulaire
 		$form->handleRequest($request);
+        
+        //dans cette fonction, nous allons faire des requete simplifier (sans boucle pour gerer entre jour Depart et jour Arrivée). Pour voir le code qui a commencé à etre developper ->testReservationController.php
+
         
 		//si soumis et validé
 		if($form->isSubmitted() && $form->isValid())
@@ -190,16 +175,17 @@ class SecurityController extends Controller
             
             //recuperer l'id membre via la session            
             $idMembre = $this->getUser()->getId();
+            //ensuite il faut inscrire cet id dans le champs idMembre de la Table Produit
+            $reservation->setIdMembre($idMembre);
             
-            //appel du modèle Salle pour retrouver les detail du produit
-            $salle = $this->getDoctrine()->getRepository(Salle::class);
+            //insertion de l'id salle dans le champ idSalle de la table Produit
+            $reservation->setIdSalle($id);
             
-            //infos du produit (SELECT * FROM produits where id= :id)
-            //pour pouvoir recuperer la description de la salle à mettre en haut de la page
-            $detailSalle = $salle->find($id);
+            //insertion de l'etatProduit dans le champ EtatProduit de la table Produit
+            $statutIndisponible = 1; //1 = "loué" et '2' = "indisponible(proprietaire)";
+            $reservation->setStatutIndisponible($statutIndisponible);
             
-            //ensuite il faut enregistrer date de depart et date d'arrivée afin de créer une boucle pour créer les joursindisponible dans la table indisponible 
-            //A FAIRE
+            
             
 			//enregistrement dans la table
 			$em = $this->getDoctrine()->getManager();
@@ -213,6 +199,7 @@ class SecurityController extends Controller
 		return $this->render('security/reservation.html.twig',
 									array('form' => $form->createView(),
 												'title' => 'reservation', 'detailSalle'=> $detailSalle));
+		
 	}
     
     /**
