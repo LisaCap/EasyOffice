@@ -67,6 +67,9 @@ input {
 
 .valid {
     margin-left: 20px;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
 /* END SEARCH BAR - index.html.twig */

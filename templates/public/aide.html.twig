@@ -1,0 +1,72 @@
+{# templates/public/aide.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+    {% block title %} {{ title }} {% endblock %}
+    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block stylesheets %}
+         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+         <link href="{{ asset('css/aide.css') }}" rel="stylesheet">
+    {% endblock %}
+
+{#FIN DE HEAD#}
+
+{% block header %} 
+<header class="headerAide">
+<br/><br/><br/><br/><br/><br/><br/>
+<h1>Vous Vous posez des questions? Vous êtes au bonne endroit?</h1>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> 
+ <h2>Aide</h2>  
+
+</header>
+{% endblock %}
+
+
+{#MAIN#}
+{% block main %}
+<main class="mainContainerFluid">               
+        <!--Section -->
+        <div class="col-md-12">                                       
+       </div><br/><br/>
+       <p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Qui est EasyOffice?
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+<div class="card card-body">Nos plateformes permettent une mise en relation<br/>  plus facile entre les locataires en recherche de logement<br/>et les bailleurs particuliers ou professionnels.<br/>Notre promesse : vous faciliter la mise en location grâce à des outils innovants,<br/>des annonces à jour et des profils contenant le maximum d'informations.  
+</div>
+</div>
+  <p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+    Où se trouvent les conditions générales ? 
+  </button>
+</p>
+<div class="collapse" id="collapseExample2">
+<div class="card card-body">Les conditions générales d'utilisation du site Sun Location sont accessibles en cliquant ici.  
+</div>
+</div>       <h1></h1>
+
+        <h2></h2>
+        <div class="row">
+      
+            <section id="aide" class="content-section text-center">
+                  <div class="col-lg-8 mx-auto">
+                        <p>
+                        </p>
+                  </div>
+                
+            </section>
+        </div>
+       </main>
+
+        <!-- Map Section -->
+    
+
+    {% endblock %}
+{#FIN DE MAIN#}
+
+{#SCRIPT#}
+    {% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

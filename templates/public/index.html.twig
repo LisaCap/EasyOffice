@@ -15,7 +15,7 @@
 
 {% block header %}
     <header class="headerIndex">
-        <div class="intro-body">
+        <div id="intro" class="intro-body">
             <div class="container intro">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
@@ -24,20 +24,21 @@
                         {#HEADER#}
                         <h1> Easy<span class="vert_logo console">Office</span></h1>
                         <p> Location de salle en ligne </p>
-
-                        {# BOUTTON SCROLL#}
-                        <a href="#about" class="btn btn-circle js-scroll-trigger">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
                         {#FIN DE HEADER#}
-
                         <p class="intro-text"></p>
                     </div>
                 </div>
             </div>
+
+            {# BOUTTON SCROLL#}
+            <div class="button-scroll">
+                <a href="#product" class="js-scroll-trigger">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
+            </div>
+
             {# BEGIN SEARCHBAR #}
             {% block searchbar %}
-
                 <div class="row">
                     <div class="index">
                         <div class="container searchbox">
@@ -69,27 +70,23 @@
                         </div>
                     </div>
                 </div>
-
             {% endblock %}
             {# END SEARCHBAR #}
         </div>
     </header>
 {% endblock %}
 
-
-
-
-    {#MAIN#}
+    {# MAIN #}
     {% block main %}
 
-        <!-- About Section -->
-        <div class="container-fluid">
-            <div class="littleGreenLine"></div>
-            <section id="about" class="content-section text-center">
+        <!-- Product Section -->
+        <div class="container-fluid block-product">
+            <section id="product" class="content-section text-center">
                 <div class="container">
 
-
-                    <h2 class="my-4 text-center text-lg-left">Nos dernières offres</h2>
+                    <div class="border-titre-offres">
+                        <h2 class="titre-offres my-4">Nos dernières offres</h2>
+                    </div>
 
                     <div class="row text-center text-lg-left">
 
@@ -154,64 +151,52 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </section>
+            {# BOUTTON SCROLL#}
+            <div class="button-scroll">
+                <a href="#presentation" class="js-scroll-trigger">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
+            </div>
         </div>
 
-        <!-- Download Section -->
-        <section id="download" class="download-section content-section text-center">
-            <div class="container">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </section>
+        <!-- Presentation Section -->
+        <section id="presentation" class="download-section content-section text-center">
+            <div class="container-fluid">
 
-        <!-- Contact Section -->
-        <section id="contact" class="content-section text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h2>Contact Start Bootstrap</h2>
-                        <p>Feel free to leave us a comment on the
-                            <a href="http://startbootstrap.com/template-overviews/grayscale/">Grayscale template overview page</a>
-                            on Start Bootstrap to give some feedback about this theme!</p>
-                        <ul class="list-inline banner-social-buttons">
-                            <li class="list-inline-item">
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-                                    <i class="fa fa-twitter fa-fw"></i>
-                                    <span class="network-name">Twitter</span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg">
-                                    <i class="fa fa-github fa-fw"></i>
-                                    <span class="network-name">Github</span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
-                                    <i class="fa fa-google-plus fa-fw"></i>
-                                    <span class="network-name">Google+</span>
-                                </a>
-                            </li>
-                        </ul>
+                <p class="font-italic">Je suis un <span class="type">particulier</span> et je souhaite...</p>
+
+                <div class="row container-product">
+                    <!-- SECTION : PRESENTATION Colonne de gauche -->
+                    <div class="col-md-6 left-column">
+                        <div class="text-presentation">
+                            <h3>LOUER UNE SALLE</h3>
+                        </div>
                     </div>
+                    <!-- SECTION : PRESENTATION Colonne de droite -->
+                    <div class="col-md-6 right-column">
+                        <div class="text-presentation">
+                            <h3>METTRE EN LOCATION UNE SALLE</h3>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            {# BOUTTON SCROLL#}
+            <div class="button-scroll">
+                <a href="#intro" class="js-scroll-trigger">
+                    <i class="fa fa-angle-double-up animated"></i>
+                </a>
+            </div>
         </section>
-
-        <!-- Map Section -->
-        <div id="map"></div>
 
     {% endblock %}
-    {#FIN DE MAIN#}
+    {# FIN DE MAIN #}
 
     {# SCRIPT PERSO #}
     {% block javascripts %}
-        <link href="{{ asset('js/searchbar.js') }}" rel="stylesheet">
+        {# EFFET TYPEWRITER #}
+        <link href="{{ asset('js/typed.js') }}" rel="stylesheet">
     {% endblock %}
     {#FIN DE SCRIPT#}

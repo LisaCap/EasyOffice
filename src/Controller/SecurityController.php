@@ -176,10 +176,10 @@ class SecurityController extends Controller
             //recuperer l'id membre via la session            
             $idMembre = $this->getUser()->getId();
             //ensuite il faut inscrire cet id dans le champs idMembre de la Table Produit
-            $reservation->setIdMembre($idMembre);
+            $reservation->setIdMembre(1);
             
             //insertion de l'id salle dans le champ idSalle de la table Produit
-            $reservation->setIdSalle($id);
+            $reservation->setIdSalle(1);
             
             //insertion de l'etatProduit dans le champ EtatProduit de la table Produit
             $statutIndisponible = 1; //1 = "loué" et '2' = "indisponible(proprietaire)";

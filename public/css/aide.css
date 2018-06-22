@@ -1,0 +1,97 @@
+.headerAide {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 200px 0;
+  text-align: center;
+  color: white;
+  background: url("../img/wallpaperaide.jpg") no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.headerAide .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.headerAide .intro-body .brand-heading {
+  font-size: 50px;
+}
+
+.headerAide .intro-body .intro-text {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .headerAide {
+    height: 100%;
+    padding: 0;
+  }
+  .headerAide .intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .headerAide .intro-body .intro-text {
+    font-size: 22px;
+  }
+}
+
+body{
+    background: white;
+}
+
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    color:white;
+}
+
+h2 {
+    font-size: 5em;
+    text-align: center;
+    color:white;
+}
+
+
+div {
+  margin-left: auto;
+  margin-right: auto;
+  width: ...;
+  color: #43b874;   
+}
+
+
+.headerAide {
+ background: linear-gradient(
+ rgba(217, 216, 216, 0.45), 
+ rgba(216, 216, 216, 0.45)
+ ),url("../img/wallpaperaide.jpg");
+ background-size:cover;
+ background-repeat:no-repeat;
+}
+
+
+
+button:active {
+    background-color: red;
+    outline: none; /* Pour enlever la bordure bleu */
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #227179;
+    border-color: #ffffff;
+}
+.btn-primary {
+    color: #717171;
+    background-color: #dddddd;
+    border-color: #227179;
+    width: 1650px;
+    height: 50px;  
+    display: block;
+    margin : auto;
+
+} 

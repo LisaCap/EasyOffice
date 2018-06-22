@@ -1,109 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta name="description" content="{% block meta_description %}{% endblock %}">
-        
-        <!--NORMALIZE-->
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
-         
-        <!--TITLE-->
-        <title>{% block title %}{% endblock %}</title>
-        
-        <!--CSS BOOTSTRAP GLOBAL-->
-        <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-        
-        <!--CSS BOOTSTRAP GREYSCALE-->
-        <link href="{{ asset('css/bootstrap/grayscale.min.css') }}" rel="stylesheet">
-        
-        <!--CSS FONTAWESOME-->
-        <link href="{{ asset('css/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
-        
-        <!--TYPOGRAPHIE A TELECHARGER (EVITER LIEN INTERNET)-->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
-            <!--TYPOGRAPHIE DU LOGO-->
-            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        
-        <!--CSS GLOABAL DE MES PAGES-->
-        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-        
-        <!--BLOCK CSS SPECIFIQUE DE MA PAGE-->
-        {% block stylesheets %}{% endblock %}
-    </head>
-    
-    <body id="page-top">
-        
-        <!-- NAVIGATION -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-          <div class="container">
-                <!-- Logo EasyOffice -->
-                <a class="navbar-brand js-scroll-trigger" href="{{ url('index')}}">EasyOffice</a>
-                <!-- Boutton hamburger -->
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                  Menu
-                  <i class="fa fa-bars"></i>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                 
-                    {# appel d'un controleur et d'un template pour mon menu personnalisé selon le role du membre #}
-                    {{ render(controller('App\\Controller\\IncController::navbar'))}}
-                    
-                  
-                </div>
-                
-          </div> <!--FIN DU DIV CLASS CONTAINER-->
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
 
-        <!-- FIN NAVIGATION -->
-        
-        
-        <!--HEADER-->
-            {% block header %}{% endblock %}
-        <!--FIN HEADER--> 
-        
-        
-        
-        {# faire un peu d'espace entre menu et texte... mais à mieux arranger avec du css#}
-        <br><br>
-      
-        <!--MAIN-->
-        <main>
-            {% block main %}{% endblock %}
-        </main>
-        <!--FIN DE MAIN-->
-        
-        <!--FOOTER-->
-        <footer class="container-fluid">
-           <div class="row">
-                <div class="col-sm-12 text-center">
-                     {# appel d'un controleur et d'un template #}
-                     {{ render(controller('App\\Controller\\IncController::footer'))}}
-                </div>
-           </div>
-        </footer>
-        
-        
-        <!--SCRIPTS----------------------------------------------------------------------------------------------------------->
-        <!--SCRIPT JQUERY-->
-        <script src="{{ asset('js/jquery/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <!--NORMALIZE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
 
-        <!--SCRIPT BOOTSTRAP-->
-        <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-        
-        <!--SCRIPT TEMPLATE GREYSCALE BOOTSTRAP-->
-        <script src="{{ asset('js/bootstrap/grayscale.min.js') }}"></script>
-         
-        <!-- Google Maps API Key -->         
-        
+    <!--TITLE-->
+    <title>{% block title %}{% endblock %}</title>
 
-         <!--SCRIPT PERSONNALISE DE MA PAGE-->
-        {% block javascripts %}{% endblock %}
-    </body>
+    <!--CSS BOOTSTRAP GLOBAL-->
+    <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!--CSS BOOTSTRAP GREYSCALE-->
+    <link href="{{ asset('css/bootstrap/grayscale.min.css') }}" rel="stylesheet">
+
+    <!--CSS FONTAWESOME-->
+    <link href="{{ asset('css/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
+
+    <!--TYPOGRAPHIE A TELECHARGER (EVITER LIEN INTERNET)-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+    <!--TYPOGRAPHIE DU LOGO-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!--CSS GLOABAL DE MES PAGES-->
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!--BLOCK CSS SPECIFIQUE DE MA PAGE-->
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body id="page-top">
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+
+        <!-- Logo EasyOffice -->
+        <a class="navbar-brand js-scroll-trigger" href="{{ url('index')}}">EasyOffice</a>
+
+        <!-- Boutton hamburger -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            {# appel d'un controleur et d'un template pour mon menu personnalisé selon le role du membre #}
+            {{ render(controller('App\\Controller\\IncController::navbar'))}}
+        </div>
+    </div> <!--FIN DU DIV CLASS CONTAINER-->
+</nav>
+<!-- FIN NAVIGATION -->
+
+<!-- DEBUT HEADER -->
+{% block header %}{% endblock %}
+<!-- FIN DE HEADER -->
+
+
+<!-- DEBUT MAIN-->
+<main>
+    {% block main %}{% endblock %}
+</main>
+<!--FIN DE MAIN-->
+
+<!-- DEBUT FOOTER -->
+
+        <div class="col-sm-12 text-center footer">
+            {# appel d'un controleur et d'un template #}
+            {{ render(controller('App\\Controller\\IncController::footer'))}}
+        </div>
+
+<!-- FIN DE FOOTER -->
+
+<!--SCRIPTS----------------------------------------------------------------------------------------------------------->
+<!--SCRIPT JQUERY-->
+<script src="{{ asset('js/jquery/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+
+<!--SCRIPT BOOTSTRAP-->
+<script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+<!--SCRIPT TEMPLATE GREYSCALE BOOTSTRAP-->
+<script src="{{ asset('js/bootstrap/grayscale.min.js') }}"></script>
+
+<!-- SCRIPT DATEPICKER CALENDAR -->
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+
+<!-- Google Maps API Key -->
+<script src="js/googleMaps.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyDwMSNslhTJzpI1A8U6iffFKfCCVP47awo" async defer></script>
+
+<!--SCRIPT PERSONNALISE DE MA PAGE-->
+{% block javascripts %}{% endblock %}
+</body>
 </html>
