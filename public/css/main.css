@@ -12,6 +12,14 @@ html {
 
 body {
     background-color: white;
+    color: black;
+}
+
+/* START STICKY NAVBAR */
+
+
+#mainNav.navbar-shrink {
+    background-color: #7e7e7b;
 }
 
 body h1{
@@ -19,8 +27,14 @@ body h1{
     text-transform: none;
 }
 
+
+
 h1 {
     animation: type 4s steps(60, end);
+}
+
+p, small{
+    font-family: 'Roboto', sans-serif;
 }
 
 .vert_logo{
@@ -50,7 +64,6 @@ h1 {
 #clients_newsletterClient label {
     margin-right: 40px;
 }
-
 
 
 /* Footer */

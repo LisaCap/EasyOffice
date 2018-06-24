@@ -4,6 +4,8 @@ namespace App\Services;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+//mettre un extends UploadedFile ???? pour pouvoir gerer le guessExtension ? 
+
 class UploadPhotoMembre
 {
     private $targetDir;

@@ -5,49 +5,149 @@
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+    <!--CSS SPEC SALLE-->
+        <link href="{{ asset('css/salle.css') }}" rel="stylesheet">
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>Nos salles</h1> {% endblock %}
+    {% block header %}
+    
+        
+    <header id="headerSalle">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+
+                        <h1 class="brand-heading">
+                            Nos Salles <br> Easy<span class="vert_logo console">Office</span>
+                        </h1>
+                        
+                        <div class="barre-blanche col-sm-6"></div>
+                        
+                        <p class="intro-text">
+                            Le meilleur des salles pour professionnels    
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-       
-        <!-- Map Section -->
-        <div id="map"></div>
+    
+    <div class="container-fluid">
         
         <div class="row">
             <!--Section Criteres-->
-            <section id="criteres" class="col-sm-4">
-            la colonne critere
-            </section>
+            <aside id="criteres" class="col-lg-2 col-md-4">
+                <fieldset>
+                    <legend>Vos critères</legend>
+
+                        <form>
+
+                            <div class="form-group">
+                                <label class="bold" for="categorie">Catégorie</label>
+                                <select class="form-control" id="categorie">
+                                  <option>Réunion</option>
+                                  <option>Formation</option>
+                                  <option>Conférence</option>
+                                  <option>Séminaire</option>
+                                  <option>Stockage</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="bold" for="prix">Prix <small>à la journée</small></label>
+                                <select class="form-control" id="prix">
+                                  <option>0 à 20</option>
+                                  <option>20 à 40</option>
+                                  <option>40 à 60</option>
+                                  <option>60 à 100</option>
+                                  <option>100 à 150</option>
+                                  <option>150 et +</option>
+                                </select>
+                            </div>
+                            
+                              <div class="form-group">
+                                <label class="bold" for="capacite">Capacité <small>nombre de personnes</small> </label>
+                                <input type="text" class="form-control" id="capacite" placeholder="Ex: 10">
+                              </div>
+
+                              <div class="form-group">
+                                <label class="bold" for="surface">Surface <small>en m²</small> </label>
+                                <input type="text" class="form-control" id="surface" placeholder="Ex: 50">
+                              </div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="bold" for="equipements">Equipements </label>
+                                
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" id="equimement" value="bureau">
+                                  <label class="form-check-label" for="equimement">Bureau</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="checkbox" id="equimement" value="frigo">
+                                  <label class="form-check-label" for="equimement">Frigo</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="checkbox" id="equimement" value="videoProjecteur">
+                                  <label class="form-check-label" for="equimement">Video projecteur</label>
+                                </div>
+                                
+                            </div>
+
+                            <button type="submit" class="btn btn-dark">Valider</button>
+                        </form>
+
+                    </fieldset>
+
+            </aside>
             <!--Fin Section Criteres-->
             
             <!--Section Toutes nos salles-->
-            <section id="propositionSalles" class="col-sm-8">
-                  
-                   {% for liste_salles in salle %}
-          
-                      <article class="col-sm-3">
-                            <div class="container">
-                               <div class="row">
-                                    <h3 class="display-4">{{ liste_salles.nomSalle }}</h3>
-                                    <p class="lead">{{ liste_salles.prixSalle }} €</p>
-                                    <p class="lead">{{ liste_salles.id }}</p>
-                                    <a class="btn btn-info" href="{{ url('detailSalle', {'id' : liste_salles.id }) }}">Détails</a>
-                               </div>
-                            </div>
-                      </article>
+            <section id="propositionSalles" class="col-lg-10 col-md-8">
+                
+                        <div class="card-columns">
+                        
+                        {% for liste_salles in salle %}
+                            
+                            <article class="card">
+                              <img class="card-img-top" src="img/intro-bg.jpg" alt="photo reunion">
+                              <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ url('detailSalle', {'id' : liste_salles.id }) }}">
+                                            {{ liste_salles.nomSalle }}
+                                        </a>
+                                    </h5>
+                                    <p class="card-text">{{ liste_salles.descriptionSalle }}</p>
+                                  
+                                    <small>
+                                        <i class="fa fa-tag" aria-hidden="true"></i> Prix : {{ liste_salles.prixSalle }} €/j <br>
+                                        <i class="fa fa-user" aria-hidden="true"></i> Capacité : {{ liste_salles.capaciteSalle }}<br>
+                                        <i class="fa fa-briefcase" aria-hidden="true"></i> Catégorie : {{ liste_salles.idCategorieSalle.libelleCategorieSalle }}
+                                    </small>
+                                </div>
+                            </article>
+                        {% endfor %}
+                        </div><!--fin de div class card column-->
+                    
 
-                  {% endfor %}
-                
-                
             </section>
             <!--Fin Section Toutes nos salles-->
         </div>
+        
+    </div><!--Fin div container-fluid-->
 
 
 
