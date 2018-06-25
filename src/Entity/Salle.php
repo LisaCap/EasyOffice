@@ -94,7 +94,7 @@ class Salle
         return $this->idMembre;
     }
 
-    public function setIdMembre(id $id): self
+    public function setIdMembre($id): self
     {
         $this->idMembre = $id;
 
@@ -238,7 +238,7 @@ class Salle
         return $this->equipementSalle;
     }
 
-    public function setEquipementSalle(id $id): self
+    public function setEquipementSalle($id): self
     {
         $this->equipementSalle = $id;
 

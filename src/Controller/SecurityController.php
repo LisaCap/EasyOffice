@@ -174,12 +174,12 @@ class SecurityController extends Controller
 		{            
             
             //recuperer l'id membre via la session            
-            $idMembre = $this->getUser()->getId();
+            $idMembre = $this->getUser();
             //ensuite il faut inscrire cet id dans le champs idMembre de la Table Produit
-            $reservation->setIdMembre(1);
+            $reservation->setIdMembre($idMembre);
             
             //insertion de l'id salle dans le champ idSalle de la table Produit
-            $reservation->setIdSalle(1);
+            $reservation->setIdSalle($detailSalle);
             
             //insertion de l'etatProduit dans le champ EtatProduit de la table Produit
             $statutIndisponible = 1; //1 = "loué" et '2' = "indisponible(proprietaire)";
@@ -220,15 +220,16 @@ class SecurityController extends Controller
 		//si soumis et validé
 		if($form->isSubmitted() && $form->isValid())
 		{
-            //recuperer l'id membre via la session pour le mettre en BDD          
-            $idMembre = $this->getUser()->getId();
+            //recuperer l'id membre via la session pour le mettre en BDD
+            //Pour recuperer l'id lui donner le lien de la table suffit, on ne lui donne pas le champ à aller chercher. Le manyToOne se fait tout seul.
+            $idMembre = $this->getUser();
             $nouvelleSalle->setIdMembre($idMembre);
             
             //recuperer le nom de la salle pour generer une reference unique en incluant son nom
             $nomSalle = $nouvelleSalle->getNomSalle();
             
             //creation d'une reference en automatique
-            $referenceUnique =  rand(1,10000) . $nomSalle;
+            $referenceUnique = $nomSalle . rand(1,10000);
             $nouvelleSalle->setReferenceSalle($referenceUnique);
             
 			//enregistrement dans la table

@@ -48,7 +48,7 @@ class Indisponible
         return $this->idSalle;
     }
 
-    public function setIdSalle($id): self
+    public function setIdSalle($id)
     {
         $this->idSalle = $id;
 
