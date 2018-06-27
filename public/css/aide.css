@@ -45,17 +45,65 @@ body{
 
 
 h1 {
-    font-size: 3em;
+    font-size: 3.6em;
     text-align: center;
-    color:white;
+    color:#81f36c;
 }
 
 h2 {
-    font-size: 5em;
+    font-size: 7em;
     text-align: center;
-    color:white;
+    color:#81f36c;
 }
 
+h3 {
+    font-size: 2.0em;
+    text-align: left;
+    color:#717171;
+}
+
+h4 {
+    font-size: 2.0em;
+    text-align: left;
+    color:#717171;
+}
+
+h5 {
+    font-size: 2.0em;
+    text-align: left;
+    color:#717171;
+}
+
+h6 {
+    font-size: 2.0em;
+    text-align: left;
+    color:#717171;
+}
+
+
+/* DEBUT BUTTON SCROLL DOWN */
+
+.button-scroll {
+    position: absolute;
+    bottom: 0px;
+    height: 60px;
+    width: 60px;
+    border: 2px solid #43B874;
+    background-color: rgba( 0, 0, 0, 0.5);
+    font-size: 40px;
+    text-align: center;
+}
+
+/* FIN BUTTON SCROLL DOWN */
+
+
+/* DEBUT NAVBAR */
+
+#mainNav {
+    background-color: #43B874;
+}
+
+/* FIN NAVBAR */
 
 div {
   margin-left: auto;
@@ -67,8 +115,8 @@ div {
 
 .headerAide {
  background: linear-gradient(
- rgba(217, 216, 216, 0.45), 
- rgba(216, 216, 216, 0.45)
+ rgba(217, 216, 216, 0.3), 
+ rgba(216, 216, 216, 0.32)
  ),url("../img/wallpaperaide.jpg");
  background-size:cover;
  background-repeat:no-repeat;
@@ -89,9 +137,31 @@ button:active {
     color: #717171;
     background-color: #dddddd;
     border-color: #227179;
-    width: 1650px;
-    height: 50px;  
+    width: 1300px;
+    height: 80px;  
     display: block;
     margin : auto;
 
 } 
+
+/* FIN BUTTON SCROLL BAS DE PAGE */
+.btn-circle {
+  font-size: 26px;
+  width: 55px;
+  height: 55px;
+  margin-top: 15px;
+  line-height: 45px;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+  color: white;
+  border: 2px solid white;
+  border-radius: 100% !important;
+  background: transparent;
+}
+
+.btn-circle:focus, .btn-circle:hover {
+  color: white;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+}

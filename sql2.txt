@@ -1,0 +1,5 @@
+SELECT * FROM salle AS s
+                    LEFT JOIN photo AS p 
+                    ON s.id = p.id_salle_id
+                    LEFT JOIN categorie_salle AS c
+                    ON s.id_categorie_salle_id = c.id

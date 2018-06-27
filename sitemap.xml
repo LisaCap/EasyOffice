@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+  <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git</loc>
+     /* la date de sa dernière mise à jour */  
+    <lastmod>2018-06-24</lastmod>
+     /* selon quelle fréquence change l'URL */
+    <changefreq>monthly</changefreq>
+     /* son importance relativement aux autres URL du site */  
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/index.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>516msmonthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/concept.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url>
+   <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/aide.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url>  
+   <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/inscription.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url> 
+  <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/connexion.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url> 
+  <url> 
+      
+     <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/contact.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url> 
+  <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/MentionsLegales.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/offresalle.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url>  
+   <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/reservation.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url>
+   <url>
+    <loc>http://github>.com/LisaCap/EasyOffice.git/http://localhost/EasyOffice/public/tableauDeBord.html</loc>
+    <lastmod>2018-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.1</priority>
+  </url> 
+  
+  ...
+</urlset>

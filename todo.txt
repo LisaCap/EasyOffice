@@ -33,10 +33,6 @@ champs où?
 >si il renseigne 5chiffres > requetelechiffreentier
 >si c'est du texte, chercher une ville
 
-recherche
-__________
-creer une variable $critere qui remplirai la requete SELECT au fur et a mesure, à faire passer dans la $_SESSION
-
 
 menu
 _________
@@ -59,23 +55,6 @@ $statut à mettre dans $_SESSION pour gerer le menu du tableau de bord
 >si on est proprietaire/locataire -> big menu -> passer en hote (ou passer en proprietaire)
 > si on est hote OU proprietaire, afficher le bouton "modifier profil" dans l'onglet "profil"
 
-INSCRIPTION
-_______________
-mail unique A FAIRE
-
-
-
-
-
-REPARTITION TACHE A FAIRE
-_________________________
-> gerer la session
-> gerer l'ajax
-> gerer les template de page d'erreur
-
-
-
-
 ____________________________________
 FONCTIONNALITES A DEVELOPPER
 ____________________________________
@@ -84,7 +63,9 @@ ____________________________________
 >  infos bancaire pour paiement en ligne
 > pouvoir choisir les options (equipements) avec des paiements supplementaires lors de la creation du produit. Donc il aurait fallu creer une table supplementaire
 > etendre les recherches au departement dans le "ou?" de la page d'accueil
->pouvoir rajouter des equipements particulier à une salle (et que ça rentre dans la bdd sans passer par la description)
->gestion de la caution 
+> pouvoir rajouter des equipements particulier à une salle (et que ça rentre dans la bdd sans passer par la description)
+> gestion de la caution 
 > creer une messagerie interne
-> On aurait pu créer un agenda dynamique où on peut reserver des journées entrecoupées. cad : reserver 3 jours d'affilés, puis 2 jours non, puis les 3 jours suivant. Mais Air Bnb n'a pas développer ce principe... donc est ce faisable ? 
+> On aurait pu créer un agenda dynamique où on peut reserver des journées entrecoupées. cad : reserver 3 jours d'affilés, puis 2 jours non, puis les 3 jours suivant. Mais Air Bnb n'a pas développer ce principe... donc est ce faisable ?
+> gerer les template de page d'erreur
+> faire la page de recherche par critere en ajax

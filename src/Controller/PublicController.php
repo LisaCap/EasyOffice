@@ -133,6 +133,8 @@ class PublicController extends Controller
     //toutes les salles
     public function salle(Request $request, SessionInterface $session)
     {
+        //voir ce qui est enregistrer dans la session
+        dump($session);
         
         //creation du formulaire en premier pour povoir generer une render
         //création du formulaire
@@ -159,17 +161,137 @@ class PublicController extends Controller
                 ->add('Save', SubmitType::class, 
                                array('label' => 'Envoyer', 'attr' => ['class' => 'btn btn-info']))
                 ->getForm();
-        
+         
         $form->handleRequest($request);
         
-        dump($session);
+        //SI LE FORMULAIRE EST REMPLI ET SOUMIS //////////////////////////////
+            if($form->isSubmitted() && $form->isValid())
+            {
+                
+            //recuperer donnée formulaire    
+            $data = $form->getData();
+                
+                //ensuite on traduit chaque champ du formulaire pour le placer en session
+                
+                /*NOM*/
+                $nom = $data['nom'];
+                    if(empty($nom))
+                    {
+                        $nom = null;
+                    }
+                $session->set('nom', $nom);
+                
+                /*CODE POSTAL*/
+                $cp = $data['cp'];
+                    if(empty($cp))
+                    {
+                        $cp = null;
+                    }
+                $session->set('cp', $cp);
+                
+                /*VILLE*/
+                $ville = $data['ville'];
+                    if(empty($ville))
+                    {
+                        $ville = "tous";
+                    }
+                $session->set('ville', $ville);
+                
+                /*DATE*/
+                $date = $data['date'];
+                //si ie user rentre une date, je le met au bon format
+                if(!empty($date))
+                {
+                    $dateBonFormat =  $date->format('Y-m-d H:i:s');
+                    $session->set('date', $dateBonFormat);
+                }else{
+                    $date = null;
+                    $session->set('date', $date);
+                }
+                
+                /*CATEGORIE*/
+                $categorie = $data['idCategorieSalle'];
+                    if(empty($categorie))
+                    {
+                        $categorie = "tous";
+                    }
+                $session->set('categorie', $categorie);
+                
+                /*SURFACE*/
+                $surface = $data['surface'];
+                    if(empty($surface))
+                    {
+                        $surface = null;
+                    }
+                $session->set('surface', $surface);
+                
+                /*NBR PIECE*/
+                $nbrPiece = $data['nbrPiece'];
+                    if(empty($nbrPiece))
+                    {
+                        $nbrPiece = null;
+                    }
+                $session->set('nbrPiece', $nbrPiece);
+                
+                /*CAPACITE*/
+                $capacite = $data['capacite'];
+                    if(empty($capacite))
+                    {
+                        $capacite = null;
+                    }
+                $session->set('capacite', $capacite);
+                
+                /*PRIX MIN*/
+                $prixMin = $data['prixMin'];
+                    if(empty($prixMin))
+                    {
+                        $prixMin = null;
+                    }
+                $session->set('prixMin', $prixMin);
+                
+                /*PRIX MAX*/
+                $prixMax = $data['prixMax'];
+                    if(empty($prixMax))
+                    {
+                        $prixMax = null;
+                    }
+                $session->set('prixMax', $prixMax);
+
+                
+            //recuperer les variables rentrée dans la salle pour les passer dans de SalleRepository
+            $cp = $session->get('cp');
+            $ville = $session->get('ville');
+            $date = $session->get('date');
+            $categorie = $session->get('categorie');
+            $capacite = $session->get('capacite');
+            $surface = $session->get('surface');
+            //$equipement = $request->get('equipement');
+            $nom = $session->get('nom');
+            $nbrPiece = $session->get('nbrPiece');
+            $prixMin = $session->get('prixMin');
+            $prixMax = $session->get('prixMax');
+
+            //connexion avec la table salle, ainsi que son repository
+            $salles = $this->getDoctrine()->getRepository(Salle::class);
+
+            //appel de la fonction qui se trouve directement dans le repository
+            $listeSallesCriteres = $salles->salleRecherche($ville, $date, $categorie, $cp, $capacite, $surface, $nom, $nbrPiece, $prixMin, $prixMax);
+
+            //direction page salle pour la recherche avec les criteres
+            return $this->render('public/salle.html.twig', array('title' => 'Salles EasyOffice', 'salle' => $listeSallesCriteres, 'form' => $form->createView()));
+
+            }
+        
+        //FIN FORMULAIRE SOUMIS////////////////////////////////////////////////////
+        
+        /////si le formulaire n'est pas soumis, on fait les autre requete possible, en finissant par la plus general, soit un select *
         
         $ville = $session->get('ville');
         $date = $session->get('date');
         $categorie = $session->get('categorie');
         
         //si le user a cliqué sur valider dans la page Index
-        if($ville == "tous" && $categorie == "tous" && $date == null)
+        if( ($ville == "tous" && $categorie == "tous" && $date === null) || (empty($ville) && empty($date) && (empty($categorie) )) )
         {
             $salleTous = $this->getDoctrine()->getRepository(Salle::class);
             //liste de toutes les salles (SELECT * FROM salle)
@@ -192,100 +314,6 @@ class PublicController extends Controller
             return $this->render('public/salle.html.twig', array('title' => 'Salles EasyOffice', 'salle' => $listeSallesCriteres, 'form' => $form->createView()));
             
         }
-        
-        
-        //SI LE FORMULAIRE EST REMPLI ET SOUMIS //////////////////////////////
-            if($form->isSubmitted() && $form->isValid())
-            {
-            //recuperer donnée formulaire    
-            $data = $form->getData();
-                
-                 $ville = $data['ville'];
-            // dump($ville);
-                if(empty($ville))
-                {
-                    $ville = "tous";
-                }
-            $session->set('ville', $ville);
-                
-            //mettre les données du formulaires dans des variables pour les recuperer dans de SalleRepository
-            $codePostal = $request->get('cpSalle');
-            $ville = $request->get('villeSalle');
-            $date = $request->get('date');
-            $categorie = $request->get('idCategorieSalle');
-            $capacite = $request->get('capaciteSalle');
-            $surface = $request->get('surfaceSalle');
-            //$equipement = $request->get('equipement');
-            $nom = $request->get('nomSalle');
-            $nbrPiece = $request->get('nbrPieceSalle');
-            $prixMin = $request->get('prixMinSalle');
-            $prixMax = $request->get('prixMaxSalle');
-        
-            if(!empty($codePostal))
-            {
-                $session->set('cp', $codePostal);
-            }
-        
-            if(!empty($ville))
-            {
-                $session->set('ville', $ville);
-            }
-        
-            if(!empty($date))
-            {
-                $session->set('date', $date);
-            }
-        
-            if(!empty($categorie))
-            {
-                $session->set('categorie', $categorie);
-            }
-        
-            if(!empty($surface))
-            {
-                $session->set('surface', $surface);
-            }
-        
-            if(!empty($nom))
-            {
-                $session->set('nom', $nom);
-            }
-        
-            if(!empty($nbrPiece))
-            {
-                $session->set('nbrPiece', $nbrPiece);
-            }
-        
-            if(!empty($capacite))
-            {
-                $session->set('capacite', $capacite);
-            }
-        
-            if(!empty($prixMin))
-            {
-                $session->set('prixMin', $prixMin);
-            }
-        
-            if(!empty($prixMax))
-            {
-                $session->set('prixMax', $prixMax);
-            }
-        
-            $ville = $session->get('ville');
-            $date = $session->get('date');
-            $categorie = $session->get('categorie');
-
-            //ma fonction avec la requete sql selon les criteres entrés
-            $salles = $this->getDoctrine()->getRepository(Salle::class);
-
-            //appel de la fonction qui se trouve directement dans le repository
-            $listeSallesCriteres = $salles->salleRecherche($codePostal, $ville, $date, $categorie, $capacite, $surface, $nom, $nbrPiece, $prixMin, $prixMax);
-
-
-            //direction page salle pour la recherche avec les criteres
-            return $this->render('public/salle.html.twig', array('title' => 'Salles EasyOffice', 'salle' => $listeSallesCriteres, 'form' => $form->createView()));
-
-            }
 
     }
     

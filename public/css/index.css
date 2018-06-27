@@ -1,5 +1,8 @@
-﻿.headerIndex {
-    display: table;
+﻿.row {
+    margin: 0px !important;
+}
+
+.headerIndex {
     width: 100%;
     height: auto;
     padding: 200px 0;
@@ -11,10 +14,11 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 
 .headerIndex .intro-body {
-    display: table-cell;
+    display: block;
     vertical-align: middle;
 }
 
@@ -29,7 +33,7 @@
 @media (min-width: 768px) {
     .headerIndex {
         height: 100%;
-        padding: 0;
+
     }
     .headerIndex .intro-body .brand-heading {
         font-size: 100px;
@@ -41,6 +45,10 @@
 
 h1 {
     font-size: 100px;
+}
+
+h2 {
+    color: black;
 }
 
 .intro {
@@ -62,7 +70,7 @@ h1 {
 
 .intro-body {
     position: relative;
-    border-bottom: 8px solid #43B874;
+
 }
 
 /* DEBUT BUTTON SCROLL DOWN */
@@ -85,11 +93,21 @@ h1 {
 
 #mainNav {
     background-color: #43B874;
+    width: 100%;
 }
 
 /* FIN NAVBAR */
 
 /* BLOCK "Nos dernières offres" */
+
+.block-product {
+    position: relative;
+    width: 100%;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-top: 8px solid #43B874;
+}
 
 .product-container {
     border-bottom: 8px solid #43B874;
@@ -116,22 +134,32 @@ h1 {
     padding-bottom: 100px;
 }
 
-h2 {
-    color: black;
-}
 
 /* FIN BLOCK "Nos dernières offres" */
 
 /* DEBUT BLOCK PRESENTATION */
 
-.block-product {
-    position: relative;
+.container-fluid {
+    padding: 0px !important;
 }
 
 #presentation {
     background-image: url('../img/block-presentation.jpg') ;
     height: 100vh;
     position: relative;
+    width: 100%;
+    border-top: 8px solid #43B874;
+    padding-bottom: 0px !important;
+
+}
+
+.titre-presentation {
+    margin-top: 10vh;
+    margin-right: 0px;
+    font-size: 20px;
+    position: absolute;
+    z-index: 1;
+
 }
 
 .container-product {
@@ -144,25 +172,17 @@ h2 {
     width: 50vw;
     height: 100vh;
     position: relative;
-
 }
 
 .right-column {
     background-color: rgba( 0, 0, 0, 0.5);
     width: 50vw;
     height: 100vh;
-}
-
-.container-fluid .titre-presentation {
-    margin-top: 15vh;
-    font-size: 20px;
-    position: absolute;
-    width: 100vw;
-    z-index: 1;
+    position: relative;
 }
 
 .text-presentation {
-    margin: 35vh 10vh 10vh 10vh;
+    margin: 25vh 10vh 10vh 10vh;
 }
 
 .text-presentation p {
@@ -170,10 +190,23 @@ h2 {
 }
 
 .validation-button-green, .validation-button-black  {
-    width: 260px;
-    height: 50px;
     font-size: 20px;
+    bottom:15%;
+    position: absolute;
+}
+
+.btn-outline-success {
     color: white;
+}
+
+.right-column .container {
+    padding: 0 !important;
+    width: 97%;
+}
+
+#presentation .container-fluid {
+    width: 100%;
+    height: 100% !important;
 }
 
 /* FIN BLOCK PRESENTATION */

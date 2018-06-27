@@ -124,7 +124,7 @@
                         {% for liste_salles in salle %}
                             
                             <article class="card">
-                              <img class="card-img-top" src="{{ asset('/EasyOffice/public/img/intro-bg.jpg') }}" alt="photo reunion">
+                              <img class="card-img-top" src="{{ asset('img/salle/default/')}}{{liste_salles.lien_photo_default}}" alt="photo reunion">
                               <div class="card-body">
                                     <h5 class="card-title">
                                         <a href="{{ url('detailSalle', {'id' : liste_salles.id }) }}">
@@ -136,7 +136,7 @@
                                     <small>
                                         <i class="fa fa-tag" aria-hidden="true"></i> Prix : {{ liste_salles.prix_salle }} €/j <br>
                                         <i class="fa fa-user" aria-hidden="true"></i> Capacité : {{ liste_salles.capacite_salle }}<br>
-                                        {#<i class="fa fa-briefcase" aria-hidden="true"></i> Catégorie : {{ liste_salles.idCategorieSalle.libelleCategorieSalle }}#}
+                                        <i class="fa fa-briefcase" aria-hidden="true"></i> Catégorie : {{ liste_salles.libelle_categorie_salle }}
                                     </small>
                                 </div>
                             </article>

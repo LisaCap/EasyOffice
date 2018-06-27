@@ -135,7 +135,7 @@ __Sophia__
 sitemap
 
 ------------------------------
-23/06 et 24/06
+25/06
 ------------------------------
 
 __denys & maxence__
@@ -143,4 +143,34 @@ agenda dynamique
 
 __sophia & lisa__
 formulaire criteres de recherche
+
+------------------------------
+26/06
+------------------------------
+
+__denys__
+agenda dynamique
+tableauDeBord.html.twig
+
+__Maxence__
+agenda dynamique
+connexion.html.twig
+index.html.twig
+
+__sophia & lisa__
+formulaire criteres de recherche
+
+------------------------------
+26/06
+------------------------------
+
+__denys__
+agenda dynamique
+
+__Maxence__
+agenda dynamique
+
+__sophia & lisa__
+formulaire criteres de recherche
+relier les photos à la BDD
 
