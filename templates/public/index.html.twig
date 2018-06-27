@@ -39,38 +39,40 @@
 
             {# BEGIN SEARCHBAR #}
             {% block searchbar %}
+             
+            <div class="container-fluid">
+              
                 <div class="row">
-                    <div class="index">
-                        <div class="container searchbox">
-                            <div class="input-group">
-                                <div class="selector">
-                                    <input type="text" placeholder="Où?" aria-label="ou" aria-describedby="basic-addon2">
-                                    <div class="picto">
-                                        <i class="fas fa-map-marker fa-3x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="selector">
-                                    <input type="text" placeholder="Quand?" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="picto">
-                                        <i class="far fa-calendar-alt fa-3x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <div class="selector">
-                                    <input class="typesalle"  type="text" placeholder="Type de salle" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="picto">
-                                        <i class="fab fa-typo3"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="valid btn btn-outline-success">rechercher</button>
+
+                    {{ form_start(form) }}
+
+                        {#formulaire bootstrap#}
+
+                        {# generer la reference de la salle dans le publicController #}
+                        <div class="form-group">
+                            {{ form_row(form.ville, {attr: {class: "form-control"} }) }}
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.date, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">  
+                            {{ form_row(form.idCategorieSalle, {attr: {class: "form-control"} }) }}
+                        </div>
+                        
+                        {# LE BOUTON SUBMIT EST DANS PublicController/index #}
+
+                        <div class="form-group">
+                             {{ form_end(form) }}
+                       </div>
+
                 </div>
+            </div>
+                
             {% endblock %}
+            
+            
             {# END SEARCHBAR #}
         </div>
     </header>
@@ -162,23 +164,32 @@
         </div>
 
         <!-- Presentation Section -->
-        <section id="presentation" class="download-section content-section text-center">
+         <section id="presentation" class="download-section content-section text-center">
             <div class="container-fluid">
 
-                <p class="font-italic">Je suis un <span class="type">particulier</span> et je souhaite...</p>
+
+                <p class="titre-presentation font-italic">Je suis un <span>particulier</span> et je souhaite...</p>
 
                 <div class="row container-product">
+
                     <!-- SECTION : PRESENTATION Colonne de gauche -->
                     <div class="col-md-6 left-column">
                         <div class="text-presentation">
                             <h3>LOUER UNE SALLE</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
+                        <!-- BOUTTON VALIDATION PRODUIT -->
+                        <button type="button" class="validation-button-green btn btn-outline-success">Je cherche une salle</button>
                     </div>
+
                     <!-- SECTION : PRESENTATION Colonne de droite -->
                     <div class="col-md-6 right-column">
                         <div class="text-presentation">
                             <h3>METTRE EN LOCATION UNE SALLE</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
+                        <!-- BOUTTON VALIDATION PRODUIT -->
+                        <button type="button" class="validation-button-black btn btn-outline-success">Je propose ma salle</button>
                     </div>
 
                 </div>

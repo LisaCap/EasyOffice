@@ -3,6 +3,7 @@
 {% extends 'base.html.twig' %}
 
 {#HEAD#}
+   
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
     {% block stylesheets %}{% endblock %}
@@ -10,22 +11,65 @@
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %}
-        <h1>{{ membre.nomMembre }}</h1>
-    {% endblock %}
+    {% block header %}{% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
    
-    {# appel d'un controleur et d'un template pour mon menu personnalisé selon le role du membre et son statut#}
-    {{ render(controller('App\\Controller\\TableauDeBordController::navTableauDeBord'))}}
+    {{ render(controller('App\\Controller\\TableauDeBordController::navTableauDeBord')) }}
     
     {#Le tableau de bord pourrait être une page recapitulative de notre profil#}
-    
-    <p>
-        nom : {{ membre.idStatutMembre.libelleStatutMembre }}
-    </p>
+<div class="container">
+    <section class="row">
+        {# Photo du membre #}
+        <article class="col-sm-6 text-center">
+            <img src="{{asset('img/membre/photo_profil/')}}{{membre.photoMembre}}" class="img-fluid" alt="photo_membre">
+        </article>
+        {# infos du membre #}
+        <article class="col-sm-6 text-center">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <b>Nom :</b> {{ membre.nomMembre }} </li>
+                <li class="list-group-item">
+                    <b>Prénom :</b> {{ membre.prenomMembre }} </li>
+                <li class="list-group-item">
+                    <b>Société :</b> {{ membre.nomDeSocieteMembre }} €</li>
+                <li class="list-group-item">
+                    <b>SIRET :</b> {{ membre.siretMembre }} </li>
+                <li class="list-group-item">
+                    <b>TVA intracommunautaire :</b> {{ membre.tvaMembre }} </li>
+                <li class="list-group-item">
+                    <b>Date de naissance :</b> {{ membre.dateDeNaissance|date('d/m/Y') }} </li>
+                <li class="list-group-item">
+                    <b>Sexe :</b> {{ membre.sexeMembre }} </li>
+                <li class="list-group-item">
+                    <b>Adresse :</b> {{ membre.adresseMembre }} </li>
+                <li class="list-group-item">
+                    <b>Code Postal:</b> {{ membre.cpMembre }} </li>
+                <li class="list-group-item">
+                    <b>Ville :</b> {{ membre.villeMembre }} </li>
+                <li class="list-group-item">
+                    <b>Téléphone :</b> {{ membre.telephoneMembre }} </li>
+                <li class="list-group-item">
+                    <b>Email :</b> {{ membre.emailMembre }} </li>
+                <li class="list-group-item">
+                    <b>Date d'enregistrement :</b> {{ membre.dateEnregistrementMembre|date('d/m/Y') }} </li>
+                <li class="list-group-item">
+                    <b>Infos bancaires :</b> {{ membre.infoBancaireMembre }} </li>
+                <li class="list-group-item">
+                    <b>Statut :</b> {{ membre.idStatutMembre.libelleStatutMembre }} </li>
+            </ul>
+        </article>
+    </section>
+</div>
+
+   
+
+    {#recupere le libelle du statut membre qui correspond au numero IdStatutMembre qui correspond au StatutMembre#}
+
+
+    {# appel d'un controleur et d'un template pour mon menu personnalisé selon le role du membre et son statut#}    
     
 {% endblock %}
 {#FIN DE MAIN#}

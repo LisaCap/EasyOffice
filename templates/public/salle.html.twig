@@ -51,65 +51,66 @@
                 <fieldset>
                     <legend>Vos critères</legend>
 
-                        <form>
+                       {{ form_start(form) }}
 
-                            <div class="form-group">
-                                <label class="bold" for="categorie">Catégorie</label>
-                                <select class="form-control" id="categorie">
-                                  <option>Réunion</option>
-                                  <option>Formation</option>
-                                  <option>Conférence</option>
-                                  <option>Séminaire</option>
-                                  <option>Stockage</option>
-                                </select>
+                        {#formulaire bootstrap#}
+
+                        {# generer la reference de la salle dans le publicController #}
+                        <div class="form-group">
+                            {{ form_row(form.nom, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.cp, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.ville, {attr: {class: "form-control"} }) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form_row(form.date, {attr: {class: "form-control"} }) }}
+                        </div>
+                        
+                        {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS DE CATEGORIES#}                        
+                        <div class="form-group">  
+                            {{ form_row(form.idCategorieSalle, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.surface, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.nbrPiece, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.capacite, {attr: {class: "form-control"} }) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(form.prixMin, {attr: {class: "form-control"} }) }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form_row(form.prixMax, {attr: {class: "form-control"} }) }}
+                        </div>
+                        
+                        {#ATTENTION ICI CEST UNE CLE ETRANGERE POUR RECUPERER LES NOMS D'EQUIPEMENTS#}
+                        {#<div class="form-group">
+                            <div class="form-check form-check-inline">  
+                                {{ form_row(form.equipement, {attr: {class: "form-check-input"} }) }}
                             </div>
-                            
-                            <div class="form-group">
-                                <label class="bold" for="prix">Prix <small>à la journée</small></label>
-                                <select class="form-control" id="prix">
-                                  <option>0 à 20</option>
-                                  <option>20 à 40</option>
-                                  <option>40 à 60</option>
-                                  <option>60 à 100</option>
-                                  <option>100 à 150</option>
-                                  <option>150 et +</option>
-                                </select>
-                            </div>
-                            
-                              <div class="form-group">
-                                <label class="bold" for="capacite">Capacité <small>nombre de personnes</small> </label>
-                                <input type="text" class="form-control" id="capacite" placeholder="Ex: 10">
-                              </div>
+                        </div>#}
+                        
+                        {# LE BOUTON SUBMIT EST DANS OffreSallType #}
 
-                              <div class="form-group">
-                                <label class="bold" for="surface">Surface <small>en m²</small> </label>
-                                <input type="text" class="form-control" id="surface" placeholder="Ex: 50">
-                              </div>
-                            
-                            
-                            <div class="form-group">
-                                <label class="bold" for="equipements">Equipements </label>
-                                
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" id="equimement" value="bureau">
-                                  <label class="form-check-label" for="equimement">Bureau</label>
-                                </div>
 
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="equimement" value="frigo">
-                                  <label class="form-check-label" for="equimement">Frigo</label>
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="equimement" value="videoProjecteur">
-                                  <label class="form-check-label" for="equimement">Video projecteur</label>
-                                </div>
-                                
-                            </div>
-
-                            <button type="submit" class="btn btn-dark">Valider</button>
-                        </form>
-
+                        <div class="form-group">
+                             {{ form_end(form) }}
+                       </div>
+                   
                     </fieldset>
 
             </aside>
@@ -123,19 +124,19 @@
                         {% for liste_salles in salle %}
                             
                             <article class="card">
-                              <img class="card-img-top" src="img/intro-bg.jpg" alt="photo reunion">
+                              <img class="card-img-top" src="{{ asset('/EasyOffice/public/img/intro-bg.jpg') }}" alt="photo reunion">
                               <div class="card-body">
                                     <h5 class="card-title">
                                         <a href="{{ url('detailSalle', {'id' : liste_salles.id }) }}">
-                                            {{ liste_salles.nomSalle }}
+                                            {{ liste_salles.nom_salle }}
                                         </a>
                                     </h5>
-                                    <p class="card-text">{{ liste_salles.descriptionSalle }}</p>
+                                    <p class="card-text">{{ liste_salles.description_salle }}</p>
                                   
                                     <small>
-                                        <i class="fa fa-tag" aria-hidden="true"></i> Prix : {{ liste_salles.prixSalle }} €/j <br>
-                                        <i class="fa fa-user" aria-hidden="true"></i> Capacité : {{ liste_salles.capaciteSalle }}<br>
-                                        <i class="fa fa-briefcase" aria-hidden="true"></i> Catégorie : {{ liste_salles.idCategorieSalle.libelleCategorieSalle }}
+                                        <i class="fa fa-tag" aria-hidden="true"></i> Prix : {{ liste_salles.prix_salle }} €/j <br>
+                                        <i class="fa fa-user" aria-hidden="true"></i> Capacité : {{ liste_salles.capacite_salle }}<br>
+                                        {#<i class="fa fa-briefcase" aria-hidden="true"></i> Catégorie : {{ liste_salles.idCategorieSalle.libelleCategorieSalle }}#}
                                     </small>
                                 </div>
                             </article>

@@ -1,0 +1,4 @@
+SELECT * FROM salle AS s
+                    LEFT JOIN indisponible AS i
+                    ON s.id = i.id_salle_id
+                    WHERE (i.jour_indisponible <> :date OR i.jour_indisponible is null) AND s.ville_salle = :ville

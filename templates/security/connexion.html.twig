@@ -5,60 +5,63 @@
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>Connexion</h1> {% endblock %}
+    {% block header %} {% endblock %}
+{% block searchbar %} {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-      
-    <div class="row">
-        <div class="col-sm-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-4">
 
-              {# affichage des messages d'erreurs#}
+                {# affichage des messages d'erreurs#}
                 {% if error %}
                     <div class="alert alert-danger text-center">
                         {{ error.messageKey|trans(error.messageData, 'security') }}
                     </div>
                 {% endif %}
+            </div>
+
+            <div class="col-sm-5">
+                <!-- form card login -->
+                <div class="card rounded-0">
+                    <div class="card-header">
+                        <h3 class="mb-0">Connexion</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                            <div class="form-group">
+                                <label for="uname1">Email :</label>
+                                <input type="text" name ="_username" values="{{ last_username }}" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="">
+                                <div class="invalid-feedback">Oops, email invalide</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Mot de passe :</label>
+                                <input type="password" name ="_password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password">
+                                <div class="invalid-feedback">Entrer votre mot de passe!</div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                        </form>
+                    </div>
+                    <!--/card-block-->
+                </div>
+                <!-- /form card login -->
+            </div>
+
         </div>
-   
-        <div class= "col-sm-6">
-
-           <fieldset>
-               <legend>Connexion</legend>
-
-                   <form action="{{ path('connexion') }}" method="post">
-                       <div class="form-group">
-                          <label for="username">
-                              Email : 
-                          </label>
-                          <input type="text" name ="_username" values="{{ last_username }}" class="form-control">
-                       </div>
-
-                       <div class="form-group">
-                          <label for="password">
-                              Mot de passe : 
-                          </label>
-                          <input type="password" name ="_password" class="form-control">
-                       </div>
-
-                       <div class="form-group text-center">
-                           <button type="submit" class="btn btn-success">Connexion</button>
-                       </div>
-                   </form>
-            </fieldset>
-       </div>
     </div>
-       
 
 {% endblock %}
 {#FIN DE MAIN#}
 
-{#SCRIPT#}
+{# SCRIPT #}
     {% block javascripts %}{% endblock %}
-{#FIN DE SCRIPT#}
+{# FIN DE SCRIPT #}

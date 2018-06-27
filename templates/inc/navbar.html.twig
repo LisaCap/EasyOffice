@@ -3,11 +3,13 @@
     {# boucle sur le tableau des liens #}
     {% for lien in liens %}
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="http://localhost/EasyOffice/public/{{ lien.href }}">{{ lien.libelle_lien }} <span class="sr-only">(current)</span></a>
+            <a class="nav-link js-scroll-trigger" href="http://localhost/EasyOffice/public/{{ lien.href }}"><div class="a">{{ lien.libelle_lien }} </div> <span class="sr-only">(current)</span></a>
         </li>
     {% endfor %}
 
 </ul>
+
+
 
 <!--Si on veut rajouter un bouton de recherche-->
 {#<form class="form-inline my-2 my-lg-0">

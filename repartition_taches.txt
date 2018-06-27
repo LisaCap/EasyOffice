@@ -111,3 +111,36 @@ ReservationType.php
 __Sophia__
 aide.html.twig
 sitemap
+
+------------------------------
+23/06 et 24/06
+------------------------------
+
+__Denys__
+profil.html.twig
+modifierProfil.html.twig
+
+__Maxence__ 
+index.html.twig
+main.css
+index.css
+searchbar.css
+
+__Lisa__
+salle.html.twig + css
+detailSalle.html.twig + css
+
+
+__Sophia__
+sitemap
+
+------------------------------
+23/06 et 24/06
+------------------------------
+
+__denys & maxence__
+agenda dynamique
+
+__sophia & lisa__
+formulaire criteres de recherche
+

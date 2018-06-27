@@ -1,0 +1,24 @@
+
+
+main {
+    background: url("../img/login.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.container, .row {
+    height: 100%;
+}
+
+.btn-success {
+    width: 100%;
+}
+
+
+
+

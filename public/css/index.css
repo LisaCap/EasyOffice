@@ -143,6 +143,7 @@ h2 {
     background-color: rgba(67, 184, 116, 0.5);
     width: 50vw;
     height: 100vh;
+    position: relative;
 
 }
 
@@ -152,23 +153,27 @@ h2 {
     height: 100vh;
 }
 
-.text-presentation {
-    margin-top: 50vh;
-}
-
-.container-fluid p {
-    margin-top: 20vh;
+.container-fluid .titre-presentation {
+    margin-top: 15vh;
     font-size: 20px;
     position: absolute;
     width: 100vw;
     z-index: 1;
 }
 
+.text-presentation {
+    margin: 35vh 10vh 10vh 10vh;
+}
 
+.text-presentation p {
+    text-align: justify;
+}
 
-
-
-
-
+.validation-button-green, .validation-button-black  {
+    width: 260px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+}
 
 /* FIN BLOCK PRESENTATION */
