@@ -3,122 +3,136 @@
 {% extends 'base.html.twig' %}
 
 {#HEAD#}
-    {% block title %} {{ title }} {% endblock %}
-    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block title %}  {{ title }} {% endblock %}
+    {% block meta_description %}Inscription à EasyOffice{% endblock %}
+    {% block stylesheets %}
+        <link href="{{ asset('css/inscription.css') }}" rel="stylesheet">
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>Inscription</h1> {% endblock %}
+    {% block header %} {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-        <!--Formulaire d'inscription-->
-        <div class="row">
-           <div class="col-sm-3" ></div>
-            <div class="col-sm-6">
-                {#
-                    affichage des messages flash
-                    
-                    {% for message in app.flashes('message') %}
-                        <div class="alert alert-success text-center">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                #}
+
+    <!--
+    <div class="col-sm-6">
+        {#
+        affichage des messages flash
+        {% for message in app.flashes('message') %}
+        <div class="alert alert-success text-center">
+        {{ message }}
+        </div>
+        {% endfor %}
+        #}
+    </div>
+    -->
+
+    <!--Formulaire d'inscription-->
+    <div class="container big-box">
+        <div class="container box-titre">
+            <div class="row">
+                <div class="titre font-weight-bold">Inscription</div>
             </div>
         </div>
-        
-        <div class="row">
-        
-            <div class= "col-sm-6">
-                <fieldset>
-                    <legend>Inscription</legend>
 
-                        {{ form_start(form) }}
+        <div class="box-register row align-items-center">
+            <div class="col-md-6 rounded-0">
+                <!-- form card login -->
+                {{ form_start(form) }}
 
-                        {#formulaire bootstrap#}
+                {#formulaire bootstrap#}
 
-                        <div class="form-group">
-                            {{ form_row(form.nomMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.nomMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.prenomMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.prenomMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.nomDeSocieteMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.nomDeSocieteMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.siretMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.siretMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.tvaMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.tvaMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.dateDeNaissance, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.dateDeNaissance, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            <div class="form-check form-check-inline">  
-                                {{ form_row(form.sexeMembre, {attr: {class: "form-check-input"} }) }}
-                            </div>
-                        </div>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        {{ form_row(form.sexeMembre, {attr: {class: "form-check-input rounded-0"} }) }}
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.adresseMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.adresseMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.cpMembre, {attr: {class: "form-control"} }) }}
-                        </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.villeMembre, {attr: {class: "form-control"} }) }}
-                        </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.telephoneMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+            </div><!-- fin du col-md-6 -->
 
-                        <div class="form-group">  
-                            {{ form_row(form.idStatutMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+            <div class="col-md-6">
 
-                        <div class="form-group">
-                            {{ form_row(form.emailMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.cpMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.passwordMembre.first, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.villeMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.passwordMembre.second, {attr: {class: "form-control"} }) }}
-                        </div>           
+                <div class="form-group">
+                    {{ form_row(form.telephoneMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                            {{ form_row(form.photoMembre, {attr: {class: "form-control"} }) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.idStatutMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                        <div class="form-group">
-                             {{ form_end(form) }}
-                        </div>
+                <div class="form-group">
+                    {{ form_row(form.emailMembre, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                    </fieldset>
+                <div class="form-group">
+                    {{ form_row(form.passwordMembre.first, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-                </div><!--fin du class=col-sm-6-->
-        </div><!--fin du row-->
+                <div class="form-group">
+                    {{ form_row(form.passwordMembre.second, {attr: {class: "form-control rounded-0 border border-secondary"} }) }}
+                </div>
 
-    {% endblock %}
-{#FIN DE MAIN#}
+                <div class="form-group">
+                    {{ form_row(form.photoMembre, {attr: {class: "form-control rounded-0"} }) }}
+                </div>
 
-{#SCRIPT#}
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success">Enregistrer</button>
+                </div>
+                {{ form_end(form) }}
+
+
+
+
+            </div><!-- fin du col-md-6 -->
+        </div><!-- fin du row -->
+    </div><!-- fin du container -->
+
+{% endblock %}
+    {#FIN DE MAIN#}
+
+    {#SCRIPT#}
     {% block javascripts %}{% endblock %}
 {#FIN DE SCRIPT#}

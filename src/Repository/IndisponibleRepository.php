@@ -47,4 +47,23 @@ class IndisponibleRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function calendrier_indispo($id): array
+    {
+        $connexion = $this->getEntityManager()->getConnection();
+        
+        $parametres = array();
+        
+        $sql = "SELECT jour_indisponible FROM indisponible AS i
+                LEFT JOIN salle AS s
+                ON s.id = i.id_salle_id
+                WHERE ";
+        $sql .= "i.id_salle_id = :id";
+        
+        $parametres[":id"] = $id;
+        //file_put_contents('c:/xampp/htdocs/EasyOffice/sql.txt', $sql.PHP_EOL);
+        $stmt = $connexion->prepare($sql);
+                $stmt->execute($parametres);//equivaut à un bindParam
+                return $stmt->fetchAll();
+    }
+
 }

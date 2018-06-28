@@ -6,28 +6,19 @@
             {#StatutMembre == locataire #}
             {% if statut.idStatutMembre.id == 1 %}
                
-                <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-primary"> Profil </a>
+                <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-default"> Profil </a>
                 <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-warning"> Modifier mon Profil </a>
                 <a href="http://localhost/EasyOffice/public/mesReservations" class="btn btn-primary"> Mes reservations </a>
                 <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-primary"> Messagerie </a>
                 
-                {#StatutMembre == proprietaire #}
+                {#StatutMembre == proprietaire / locataire #}
                 {% elseif statut.idStatutMembre.id == 2 %}
-                    <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-primary"> Profil </a>
-                    <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-warning"> Modifier mon Profil </a>
-                    <a href="http://localhost/EasyOffice/public/mesSalles" class="btn btn-primary"> Mes salles </a>
-                    <a href="{{ url('offreSalle')}}" class="btn btn-warning"> Proposer une salle </a>
-                    <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-primary"> Messagerie </a>
-                
-                {#StatutMembre == locataire / proprietaire #}
-                {% elseif statut.idStatutMembre.id == 3 %}
-                    <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-primary"> Profil </a>
+                    <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-default"> Profil </a>
                     <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-warning"> Modifier mon Profil </a>
                     <a href="http://localhost/EasyOffice/public/mesReservations" class="btn btn-primary"> Mes reservations </a>
                     <a href="http://localhost/EasyOffice/public/mesSalles" class="btn btn-primary"> Mes salles </a>
                     <a href="http://localhost/EasyOffice/public/offreSalle" class="btn btn-warning"> Proposer une salle </a>
                     <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-primary"> Messagerie </a>
-                
                 
             {% endif %}
             

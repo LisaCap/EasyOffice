@@ -20,6 +20,12 @@ use App\Entity\Salle;
 //connexion avec la table Membre pour la fonction Profil (affichage du profil du membre)
 use App\Entity\Membre;
 
+use App\Entity\Photo;
+
+use App\Entity\Indisponible;
+
+use App\Services\Calendrier;
+
 //pour les produits, dans la classe Produit, j'ai fait un lien avec les categorie, alors il faut que j'etablisse le lien ici aussi
 use App\Entity\CategorieSalle;
 
@@ -59,7 +65,7 @@ class PublicController extends Controller
                       array('required' => false))
                 ->add('idCategorieSalle', ChoiceType::class,
                       array('choices' => array
-                                        ('Tous' => 'tous','Stockage' => 1,'Sémainaire / Conférence' => 2),
+                                        ('Tous' => 'tous','Stockage' => 1,'Séminaire / Conférence' => 2, 'Formation' => 3, 'Entretien' => 4, 'Réunion' => 5, 'Evènement' => 6),
                             'expanded' => false,
                             'multiple' => false),
                      array('required' => false))
@@ -148,7 +154,7 @@ class PublicController extends Controller
                       array('required' => false))
                 ->add('idCategorieSalle', ChoiceType::class,
                       array('choices' => array
-                                        ('Tous' => 'tous','Stockage' => 1,'Sémainaire / Conférence' => 2),
+                                        ('Tous' => 'tous','Stockage' => 1,'Séminaire / Conférence' => 2, 'Formation' => 3, 'Entretien' => 4, 'Réunion' => 5, 'Evènement' => 6),
                             'expanded' => false,
                             'multiple' => false),
                      array('required' => false))
@@ -327,14 +333,26 @@ class PublicController extends Controller
     */
     
     //Page d'accueil, qui apparaisse dans l'url
-    public function detailSalle($id)
+    public function detailSalle($id, Calendrier $calendrier)
     {
+        //on appelle notre service qui va afficher le calendrier et qui est lié au IndisponibleRepository
+        $calendrier_indisponible = $this->getDoctrine()->getRepository(Indisponible::class);
+        $affichageCalendrier = $calendrier->creationCalendrier($id, $calendrier_indisponible);
+
+        //recup photo
+         //appel du modele Photo
+        $photo = $this->getDoctrine()->getRepository(Photo::class);
+        //infos de la salle (SELECT * FROM salle WHERE id= :id)
+        $tablePhoto = $photo->recupPhoto($id);
+        ////////////////////////
+        
+        
         //appel du modele Salle (c'est comme si je faisais un new Salle)
         $salle = $this->getDoctrine()->getRepository(Salle::class);
         //infos de la salle (SELECT * FROM salle WHERE id= :id)
         $detailSalle = $salle->find($id);
-        dump($detailSalle);
-        return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'adresse' => $detailSalle->getAdresseSalle(), 'cp' => $detailSalle->getCpSalle(), 'ville' => $detailSalle->getVilleSalle(), 'detail' => $detailSalle ));
+        dump($affichageCalendrier);
+        return $this->render('public/detailSalle.html.twig', array('affichage_calendrier' => $affichageCalendrier, 'photo' => $tablePhoto, 'title' => $detailSalle->getNomSalle(), 'adresse' => $detailSalle->getAdresseSalle(), 'cp' => $detailSalle->getCpSalle(), 'ville' => $detailSalle->getVilleSalle(), 'detail' => $detailSalle ));
     }
         
     /**

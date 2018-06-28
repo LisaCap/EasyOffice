@@ -1,17 +1,17 @@
-{# templates/public/template.html.twig #}
+{# templates/security/tableauDeBord.html.twig #}
 
 {% extends 'base.html.twig' %}
 
 {#HEAD#}
    
-    {% block title %} {{ title }} {% endblock %}
-    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %}{% endblock %}
+{% block header %}{% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
@@ -21,13 +21,14 @@
     
     {#Le tableau de bord pourrait être une page recapitulative de notre profil#}
 <div class="container">
-    <section class="row">
+    <div class="row">
         {# Photo du membre #}
-        <article class="col-sm-6 text-center">
+        <div class="col-sm-6 text-center">
+        	<legend>Ma photo de profil</legend>
             <img src="{{asset('img/membre/photo_profil/')}}{{membre.photoMembre}}" class="img-fluid" alt="photo_membre">
-        </article>
+        </div>
         {# infos du membre #}
-        <article class="col-sm-6 text-center">
+        <div class="col-sm-6 text-center">
             <ul class="list-group">
                 <li class="list-group-item">
                     <b>Nom :</b> {{ membre.nomMembre }} </li>
@@ -42,7 +43,7 @@
                 <li class="list-group-item">
                     <b>Date de naissance :</b> {{ membre.dateDeNaissance|date('d/m/Y') }} </li>
                 <li class="list-group-item">
-                    <b>Sexe :</b> {{ membre.sexeMembre }} </li>
+                    <b>Civilité :</b> {{ membre.sexeMembre }} </li>
                 <li class="list-group-item">
                     <b>Adresse :</b> {{ membre.adresseMembre }} </li>
                 <li class="list-group-item">
@@ -60,20 +61,16 @@
                 <li class="list-group-item">
                     <b>Statut :</b> {{ membre.idStatutMembre.libelleStatutMembre }} </li>
             </ul>
-        </article>
-    </section>
-</div>
 
-   
-
-    {#recupere le libelle du statut membre qui correspond au numero IdStatutMembre qui correspond au StatutMembre#}
-
-
-    {# appel d'un controleur et d'un template pour mon menu personnalisé selon le role du membre et son statut#}    
-    
+            <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-success"> Modifier </a>
+            
+        </div><!-- Fin col-sm-6 -->
+    </div><!-- Fin Row -->
+</div><!-- Fin Container -->
+  
 {% endblock %}
 {#FIN DE MAIN#}
 
 {#SCRIPT#}
-    {% block javascripts %}{% endblock %}
+{% block javascripts %}{% endblock %}
 {#FIN DE SCRIPT#}

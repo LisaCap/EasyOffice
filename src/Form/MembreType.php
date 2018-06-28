@@ -71,12 +71,13 @@ class MembreType extends AbstractType
                             'label' => 'Date de Naissance'))
             
                 ->add('sexeMembre', ChoiceType::class,
-                      array('choices' => array('Femme' => 'f',
-                                               'Homme' => 'h'),
+                      array('label' => 'Civilité',
+                            'choices' => array('Femme' => 'Femme',
+                                               'Homme' => 'Homme'),
                             'expanded' =>true,
                             'multiple' => false),
-                      array('constraints' => array(new NotBlank()),
-                            'label' => 'Sexe'))
+                      array('constraints' => array(new NotBlank())))
+                            
             
                 ->add('adresseMembre', TextType::class,
                       array('constraints' => array(new NotBlank()),
@@ -100,11 +101,12 @@ class MembreType extends AbstractType
                       
                 //attention ici c'est une clé etrangere 
                 ->add('idStatutMembre', EntityType::class,
-                      array('class' => StatutMembre::class,
+                      array('label' => 'Statut',
+                            'class' => StatutMembre::class,
                             'choice_label' => 'libelleStatutMembre',
                             'expanded' => false,
                             'multiple' => false),
-                      array('constraints' => array(new NotBlank()), 'label' => 'Statut'))
+                      array('constraints' => array(new NotBlank())))
             
                 ->add('emailMembre', EmailType::class,
                       array('constraints' => array(new NotBlank()),
@@ -121,12 +123,13 @@ class MembreType extends AbstractType
                       
                 ->add('photoMembre', FileType::class,
                       array('label' => 'Photo de Profil',
-                            'required' => false))
+                            'required' => false,
+                            'data_class' => null));
                 
                 //creer deux champs input qui fait tout les controle et le cryptage
-                ->add('Save', SubmitType::class,
+/*                ->add('Save', SubmitType::class,
                       array('label' =>'Enregistrer',
-                            'attr' => ['class' => 'btn btn-info']));
+                            'attr' => ['class' => 'btn btn-info']));*/
                 
     }
     

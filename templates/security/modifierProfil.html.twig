@@ -1,0 +1,119 @@
+{# templates/security/modifierProfil.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{#HEAD#}
+   
+{% block title %} {{ title }} {% endblock %}
+{% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{#FIN DE HEAD#}
+
+{#HEADER#}
+{% block header %}{% endblock %}
+{#FIN DE HEADER#}
+
+{#MAIN#}
+{% block main %}
+   
+    {{ render(controller('App\\Controller\\TableauDeBordController::navTableauDeBord')) }}
+
+    <div class="container">
+
+	    <div class="row">
+			<div class="col-sm-6 text-center">
+				<legend>Ma photo de profil</legend>
+			    <img src="{{asset('img/membre/photo_profil/')}}{{membre.photoMembre}}" class="img-fluid" alt="photo_membre">
+	    	</div>
+	   
+			<div class= "col-sm-6">
+			    <fieldset>
+			        <legend>Modifier mon Profil</legend>
+
+		            {{ form_start(form) }}
+
+		            {#formulaire bootstrap#}
+
+		            <div class="form-group" placeholder="{{ membre.nomMembre }}">
+		                {{ form_row(form.nomMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.prenomMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.nomDeSocieteMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.siretMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.tvaMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.dateDeNaissance, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                <div class="form-check form-check-inline">  
+		                    {{ form_row(form.sexeMembre, {attr: {class: "form-check-input"} }) }}
+		                </div>
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.adresseMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.cpMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.villeMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.telephoneMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">  
+		                {{ form_row(form.idStatutMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.emailMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.passwordMembre.first, {attr: {class: "form-control"} }) }}
+		            </div>
+
+		            <div class="form-group">
+		                {{ form_row(form.passwordMembre.second, {attr: {class: "form-control"} }) }}
+		            </div>           
+
+		            <div class="form-group">
+		                {{ form_row(form.photoMembre, {attr: {class: "form-control"} }) }}
+		            </div>
+
+	                <div class="form-group text-center">
+	                    <button type="submit" class="btn btn-info">Modifier</button>
+	                </div>
+		                 {{ form_end(form) }}
+
+		        </fieldset>
+		    </div><!--fin du class=col-sm-6-->
+	    </div><!--fin du row-->
+
+    </div><!--fin du container-->
+
+{% endblock %}
+
+{#SCRIPT#}
+{% block javascripts %}{% endblock %}
+{#FIN DE SCRIPT#}

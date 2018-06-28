@@ -70,7 +70,8 @@ class SalleRepository extends ServiceEntityRepository
                     LEFT JOIN photo AS p 
                     ON s.id = p.id_salle_id
                     LEFT JOIN categorie_salle AS c
-                    ON s.id_categorie_salle_id = c.id";
+                    ON s.id_categorie_salle_id = c.id
+                    group by s.id";
             
             $stmt = $connexion->prepare($sql);
             file_put_contents('c:/xampp/htdocs/EasyOffice/sql2.txt', $sql.PHP_EOL);
@@ -184,7 +185,7 @@ class SalleRepository extends ServiceEntityRepository
                     {
                         $parametres[":ville"] = $ville;
                     }*/
-                    
+                    $sql.= ' group by s.id';
                     $stmt = $connexion->prepare($sql);
                     file_put_contents('c:/xampp/htdocs/EasyOffice/sql2.txt', $sql.PHP_EOL);
                     $stmt->execute($parametres);//equivaut à un bindParam
@@ -255,7 +256,7 @@ class SalleRepository extends ServiceEntityRepository
                 //on la passe dans la requete sql
                 $sql.= $sqlCategorie;
             }
-        
+            $sql .= ' group by s.id';
             ///PROBLEMES UTF-8 SUR LES VILLES POUR LES REQUETES
             file_put_contents('c:/xampp/htdocs/EasyOffice/sql.txt', $sql.PHP_EOL);
             $stmt = $connexion->prepare($sql);
@@ -272,10 +273,11 @@ class SalleRepository extends ServiceEntityRepository
                 LEFT JOIN photo AS p 
                 ON s.id = p.id_salle_id
                 LEFT JOIN categorie_salle AS c
-                ON s.id_categorie_salle_id = c.id";
+                ON s.id_categorie_salle_id = c.id group by s.id";
         file_put_contents('c:/xampp/htdocs/EasyOffice/sql.txt', $sql.PHP_EOL);
         $stmt = $connexion->prepare($sql);
                 $stmt->execute();//equivaut à un bindParam
                 return $stmt->fetchAll();
     }
+    
 }

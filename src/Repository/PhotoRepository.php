@@ -47,4 +47,28 @@ class PhotoRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    public function recupPhoto($id): array
+    {
+        //$id corrrespond à l'id salle
+        
+        //dans cette fonction, nous venons de la page index et nous arrivons sur la page salle, et nous avons rempli au moins une partie de la requete dans le formulaire d'entrée de critere partiel 
+        
+        $connexion = $this->getEntityManager()->getConnection();
+        
+        $parametres = array();
+            
+        $sql = "SELECT lien_photo_default, lien_photo_details FROM photo AS p
+                LEFT JOIN salle AS s 
+                ON s.id = p.id_salle_id
+                WHERE ";
+        
+        $sql .= "p.id_salle_id = :id";
+        
+        $parametres[":id"] = $id;
+        
+        $stmt = $connexion->prepare($sql);
+        $stmt->execute($parametres);//equivaut à un bindParam
+        return $stmt->fetchAll();
+    }
 }

@@ -15,7 +15,7 @@
             {# ici c'est pour recuperer la bonne image de fond via le controller, c'est  une variable ici#}
             #headerDetailSalle {
                 background-color: rgba(0, 0, 0, 0.5);
-                background: url("img/salle_joubert.jpg") no-repeat bottom center scroll;
+                background: url("{{ asset('img/salle/default/')}}{{photo.0.lien_photo_default}}") no-repeat bottom center scroll;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -60,10 +60,14 @@
             <div class="col-sm-2"></div>
               <div class="col-sm-4">
                   <h3>{{ detail.nomSalle}}</h3>
-                  <p> Ref : {{ detail.referenceSalle }} <br>
-                       Prix : {{ detail.prixSalle }} <br>
-                       Description : {{ detail.descriptionSalle }} <br>
-                       Catégorie : {{ detail.idCategorieSalle.libelleCategorieSalle }}
+                  <p> Référence : {{ detail.referenceSalle }} <br>
+                      Prix : {{ detail.prixSalle }} €<br>
+                      Surface : {{ detail.surfaceSalle }} m²<br>
+                      Capacité : {{ detail.capaciteSalle }} m²<br>
+                      Nombre de pièce : {{ detail.nbrPieceSalle }} m²<br>
+                      Description : {{ detail.descriptionSalle }} <br>
+                      Catégorie : {{ detail.idCategorieSalle.libelleCategorieSalle }} <br>
+                      Adresse : {{ detail.adresseSalle }}, {{ detail.cpSalle }} {{ detail.villeSalle }}
                   </p>
                   
                    <a class="btn btn-info" href="{{ url('salle') }}">Retour</a>
@@ -73,7 +77,11 @@
                 <div class="col-sm-3">
                   <h3>Agenda des disponibilités</h3>
                     
-                      
+                    
+
+                    <div> {{ affichage_calendrier|raw }} </div>
+                        
+                    
 
               </div>
             
@@ -86,42 +94,16 @@
             <div class="col-sm-6">
                   <div class="container-fluid p-0">
                       <div class="row no-gutters popup-gallery">
-
+                          
+                          {% for liste in photo %}
+                          
                           <div class="col-lg-4 col-sm-6">
                             <div class="portfolio-box" >
-                              <img class="img-fluid" src="img/salle_joubert.jpg" alt="photo">
+                              <img class="img-fluid" src="{{ asset('img/salle/default/')}}{{ liste.lien_photo_details }}" alt="photo">
                             </div>
                           </div>
-
-                          <div class="col-lg-4 col-sm-6">
-                            <div class="portfolio-box" >
-                              <img class="img-fluid" src="img/salle_joubert_2.jpg" alt="photo">
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4 col-sm-6">
-                            <div class="portfolio-box" >
-                              <img class="img-fluid" src="img/salle_joubert_3.jpg" alt="photo">
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4 col-sm-6">
-                            <div class="portfolio-box" >
-                              <img class="img-fluid" src="img/salle_joubert.jpg" alt="photo">
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4 col-sm-6">
-                            <div class="portfolio-box" >
-                              <img class="img-fluid" src="img/salle_joubert_2.jpg" alt="photo">
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4 col-sm-6">
-                            <div class="portfolio-box" >
-                              <img class="img-fluid" src="img/salle_joubert_3.jpg" alt="photo">
-                            </div>
-                          </div>
+                          
+                          {% endfor %}
 
                       </div><!--finde div row-->
                   </div><!--finde div container-fluid-->

@@ -60,6 +60,8 @@ class SecurityController extends Controller
 		//récupération des données du formulaire
 		$form->handleRequest($request);
         
+        
+        
 		//si soumis et validé
 		if($form->isSubmitted() && $form->isValid())
 		{
@@ -70,6 +72,7 @@ class SecurityController extends Controller
             
             $photoProfil = $membre->getPhotoMembre();
             $fileName = $fileUploader->upload($photoProfil);
+            
             $membre->setPhotoMembre($fileName);
 
             ////Fin de uploadphoto/////////////////////////////////////////////////////
