@@ -329,11 +329,11 @@ class PublicController extends Controller
     //Page d'accueil, qui apparaisse dans l'url
     public function detailSalle($id)
     {
-        //appel du modele Salle (c'est comme si je faisais un new Produit)
+        //appel du modele Salle (c'est comme si je faisais un new Salle)
         $salle = $this->getDoctrine()->getRepository(Salle::class);
         //infos de la salle (SELECT * FROM salle WHERE id= :id)
         $detailSalle = $salle->find($id);
-        
+        dump($detailSalle);
         return $this->render('public/detailSalle.html.twig', array('title' => $detailSalle->getNomSalle(), 'adresse' => $detailSalle->getAdresseSalle(), 'cp' => $detailSalle->getCpSalle(), 'ville' => $detailSalle->getVilleSalle(), 'detail' => $detailSalle ));
     }
         

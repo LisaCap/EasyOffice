@@ -20,6 +20,37 @@ class SalleRepository extends ServiceEntityRepository
         parent::__construct($registry, Salle::class);
     }
     
+    
+//    /**
+//     * @return Salle[] Returns an array of Salle objects
+//     */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('s.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Salle
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
+    
+    
 //si par exemple $capacite est rempli, il ecrase la valeur qui est entré dans la function salleRecherche
 //le ='' est simplement une valeur par default
     public function salleRecherche($ville, $date, $categorie, $cp, $capacite, $surface, $nom, $nbrPiece, $prixMin, $prixMax): array

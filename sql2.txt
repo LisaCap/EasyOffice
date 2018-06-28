@@ -3,3 +3,4 @@ SELECT * FROM salle AS s
                     ON s.id = p.id_salle_id
                     LEFT JOIN categorie_salle AS c
                     ON s.id_categorie_salle_id = c.id
+                    WHERE 1=1 AND s.prix_salle >= :prixMin
