@@ -31,21 +31,25 @@ class Calendrier
         //$date_indispo represente le tableau de comparaison
         $calendrier = '';
         //Init en html
-        $calendrier.= '<table border=1>
-                            <tr>
-                                <td></td>
-                                <td colspan="5">Juin</td>
-                                <td></td>
-                            </tr>
+        $calendrier.= '<table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td scope="col"></td>
+                                    <td scope="col">Juillet</td>
+                                    <td scope="col"></td>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
                             
                             <tr>
-                                 <td>L</td>
-                                 <td>M</td>
-                                 <td>M</td>
-                                 <td>J</td>
-                                 <td>V</td>
-                                 <td>S</td>
-                                 <td>D</td>
+                                 <td scope="row">L</td>
+                                 <td scope="row">M</td>
+                                 <td scope="row">M</td>
+                                 <td scope="row">J</td>
+                                 <td scope="row">V</td>
+                                 <td scope="row">S</td>
+                                 <td scope="row">D</td>
                             </tr>
     <tr>';//Affichage des jours dans le tableau
 
@@ -58,7 +62,7 @@ class Calendrier
         /*$date_indispo[] = "2018-06-28 00:00:00";
         $date_indispo[] = "2018-06-29 00:00:00";
         $date_indispo[] = "2018-06-30 00:00:00"; */
-        $mois = 6;
+        $mois = 7; //correspond à Juin
         $annee = 2018;
         dump($date_indispo);
         while($j<= date("t",mktime(0,0,0,$mois,1,$annee)) ) //boucle
@@ -84,12 +88,12 @@ class Calendrier
 
             //$calendrier.= $date;
 
-            $calendrier.= '<td ';
+            $calendrier.= '<td scope="row" ';
             
             //$indispo = tableau array contenant toutes les date d'indisponibilité de la salle 
             if(in_array($date, $tab_indispo))
             {
-                $calendrier.= "style='color:green'";
+                $calendrier.= "style='background-color:#882231; color:white'";
             }
             $calendrier.= '>';
 
@@ -105,7 +109,7 @@ class Calendrier
 
             if($i==7) $i=0;
     }
-        $calendrier.= '</table>';
+        $calendrier.= '</tbody></table>';
         
         return $calendrier;
         
