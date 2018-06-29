@@ -5,7 +5,9 @@
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+    <link href="{{ asset('css/calendrier.css') }}" rel="stylesheet">
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
@@ -20,9 +22,10 @@
            
            <div class="row">
                <div class="col-sm-3"></div>
-               <div class="col-sm-6">
+               <div id=" {{ id }} " class="col-sm-6">
                    <h2>Récapitulation du produit :</h2>
                    <p>
+                       id : {{ id }} <br>
                        Nom : {{ detailSalle.nomSalle }} <br>
                        Adresse : {{ detailSalle.adresseSalle }} <br>
                        Code Postal : {{ detailSalle.cpSalle }} <br>
@@ -34,37 +37,20 @@
            
             <div class="row">
                 <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <fieldset>
-                       <legend>Reservation</legend>
-
-                            {{ form_start(form) }}
-                            {# form_start c'est comme une ouverture de balise form #}
-
-                            {# {{ form_widget(form) }}  le basic de symfony#}
-
-                            {#formulaire bootstrap#}
-
-                            <div class="form-group">
-
-                                {{ form_row(form.jourIndisponible, {attr: {class: "form-control"} }) }}
-
-                            </div>
-
-                            {#Ici il aurait fallu mettre un message, pour que ce soit inscrit dans la table produit, et non la table Indisponible#}
-
-                             <div class="form-group">
-                                 {{ form_end(form) }}
-                             </div>
-
-                     </fieldset>
+                <div class="col-sm-5">
+                    <h2>Choisissez vos jours de réservation</h2>
+                    <div> {{ affichage_calendrier|raw }} </div>
                 </div>
             </div>{#fin de div class row#}
+            <div id="message"></div>
        </div>{#fin de container fluid#}
 
     {% endblock %}
 {#FIN DE MAIN#}
 
 {#SCRIPT#}
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+    <script src="{{ asset('js/calendrier.js') }}">
+	</script>
+    {% endblock %}
 {#FIN DE SCRIPT#}

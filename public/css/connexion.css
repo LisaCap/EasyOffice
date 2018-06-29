@@ -1,0 +1,39 @@
+
+
+main {
+    background: url("../img/login.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.container, .row {
+    height: 100%;
+}
+
+.btn-success {
+    width: 100%;
+}
+
+label {
+    display: none;
+    width: 0; height:0;
+    font-size:0;
+    line-height:0;
+}
+
+.second-box {
+    margin-bottom: 7%;
+}
+
+.shadow-lg {
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.53) !important;
+}
+
+#membre_sexemembre {
+    margin-left: 50px;
+}

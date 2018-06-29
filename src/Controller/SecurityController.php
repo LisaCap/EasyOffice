@@ -26,6 +26,8 @@ use App\Entity\Salle;
 // pour le formulaire de reservation, aller charger la table Indisponible pour rentrer les lignes de reservation
 use App\Entity\Indisponible;
 
+//pour le calendrier
+use App\Services\Calendrier;
 
 //formulaire inscription
 use App\Form\MembreType;
@@ -59,8 +61,6 @@ class SecurityController extends Controller
 
 		//récupération des données du formulaire
 		$form->handleRequest($request);
-        
-        
         
 		//si soumis et validé
 		if($form->isSubmitted() && $form->isValid())
@@ -145,64 +145,6 @@ class SecurityController extends Controller
 							array('last_username' => $lastUsername,
 										'error' => $error,
 										'title' => 'connexion'));
-	}
-    
-    
-    /**
-	* @Route(
-	*	  "/reservation/{id}",
-	*	  name="reservation",
-    *     requirements={"id":"\d+"})
-	*/
-	public function reservation($id, Request $request)
-	{
-        //pour afficher la description du produit en rappel au dessus du formulaire
-        $salle = $this->getDoctrine()->getRepository(Salle::class);
-        //infos de la salle (SELECT * FROM salle WHERE id= :id)
-        $detailSalle = $salle->find($id);
-        
-        //Creation d'un nouveau Produit issu de la classe Produit
-		$reservation = new Indisponible();
-		//création du formulaire
-		$form = $this->createForm(ReservationType::class, $reservation);
-
-		//récupération des données du formulaire
-		$form->handleRequest($request);
-        
-        //dans cette fonction, nous allons faire des requete simplifier (sans boucle pour gerer entre jour Depart et jour Arrivée). Pour voir le code qui a commencé à etre developper ->testReservationController.php
-
-        
-		//si soumis et validé
-		if($form->isSubmitted() && $form->isValid())
-		{            
-            
-            //recuperer l'id membre via la session            
-            $idMembre = $this->getUser();
-            //ensuite il faut inscrire cet id dans le champs idMembre de la Table Produit
-            $reservation->setIdMembre($idMembre);
-            
-            //insertion de l'id salle dans le champ idSalle de la table Produit
-            $reservation->setIdSalle($detailSalle);
-            
-            //insertion de l'etatProduit dans le champ EtatProduit de la table Produit
-            $statutIndisponible = 1; //1 = "loué" et '2' = "indisponible(proprietaire)";
-            $reservation->setStatutIndisponible($statutIndisponible);
-            
-            
-            
-			//enregistrement dans la table
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($reservation);
-			$em->flush();
-
-			//retour au tableau de bord pour voir notre reservation
-			return $this->redirectToRoute('tableauDeBord');
-		}
-		//affichage du formulaire
-		return $this->render('security/reservation.html.twig',
-									array('form' => $form->createView(),
-												'title' => 'reservation', 'detailSalle'=> $detailSalle));
-		
 	}
     
     /**

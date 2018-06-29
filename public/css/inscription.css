@@ -24,10 +24,14 @@ body {
 
 .btn-success {
     width: 100%;
+    margin-top: 2%;
 }
 
 .form-group {
-    margin-bottom: 0.2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    color: rgba(128, 128, 128, 0.51);
+
 }
 
 .big-box {
@@ -46,4 +50,19 @@ body {
     font-size: 2em;
     text-align: center;
     width: 100%;
+}
+
+.left-column {
+    padding-bottom: 10px;
+}
+
+.hidden label {
+    display: none;
+    width: 0; height:0;
+    font-size:0;
+    line-height:0;
+}
+
+.shadow-lg {
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.53) !important;
 }

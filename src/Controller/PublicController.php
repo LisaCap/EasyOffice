@@ -140,7 +140,7 @@ class PublicController extends Controller
     public function salle(Request $request, SessionInterface $session)
     {
         //voir ce qui est enregistrer dans la session
-        dump($session);
+        //dump($session);
         
         //creation du formulaire en premier pour povoir generer une render
         //création du formulaire
@@ -351,7 +351,7 @@ class PublicController extends Controller
         $salle = $this->getDoctrine()->getRepository(Salle::class);
         //infos de la salle (SELECT * FROM salle WHERE id= :id)
         $detailSalle = $salle->find($id);
-        dump($affichageCalendrier);
+        //dump($affichageCalendrier);
         return $this->render('public/detailSalle.html.twig', array('affichage_calendrier' => $affichageCalendrier, 'photo' => $tablePhoto, 'title' => $detailSalle->getNomSalle(), 'adresse' => $detailSalle->getAdresseSalle(), 'cp' => $detailSalle->getCpSalle(), 'ville' => $detailSalle->getVilleSalle(), 'detail' => $detailSalle ));
     }
         

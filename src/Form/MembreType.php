@@ -74,7 +74,7 @@ class MembreType extends AbstractType
                       array('label' => 'Civilité',
                             'choices' => array('Femme' => 'Femme',
                                                'Homme' => 'Homme'),
-                            'expanded' =>true,
+                            'expanded' =>false,
                             'multiple' => false),
                       array('constraints' => array(new NotBlank())))
                             

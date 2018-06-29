@@ -40,7 +40,7 @@ class TableauDeBordController extends Controller
             // 1 -> Locataire
             // 2 -> Propriétaire / proprietaire
             $statutMembre = $this->getUser();
-            dump($statutMembre);
+            //dump($statutMembre);
         }
         
         return $this->render('inc/navTableauDeBord.html.twig', array('statut' =>$statutMembre));
