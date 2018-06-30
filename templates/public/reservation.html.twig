@@ -12,37 +12,54 @@
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>Reservation</h1> {% endblock %}
+    {% block header %}
+    <header id="headerDetailSalle">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+
+                        <h1 class="brand-heading">
+                            {{ detailSalle.nomSalle }}
+                        </h1>
+                        
+                        <div class="barre-blanche col-sm-6"></div>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
        
-       <div class="container-fluid">
+       <div class="container-fluid margin-top">
            
            <div class="row">
-               <div class="col-sm-3"></div>
-               <div id=" {{ id }} " class="col-sm-6">
-                   <h2>Récapitulation du produit :</h2>
+               <div class="col-sm-1"></div>
+               <div id=" {{ id }} " class="col-sm-5">
+                   <h4>Récapitulatif du produit</h4>
                    <p>
                        id : {{ id }} <br>
                        Nom : {{ detailSalle.nomSalle }} <br>
                        Adresse : {{ detailSalle.adresseSalle }} <br>
                        Code Postal : {{ detailSalle.cpSalle }} <br>
-                       Ville : {{ detailSalle.villeSalle }} <br>
+                       Ville : {{ detailSalle.villeSalle }} <br><br>
+                       <a class="btn btn-default" href="{{ url('detailSalle', {'id' : detailSalle.id}) }}">Retour</a>
                    </p>
                </div>
-           </div>
-           
-           
-            <div class="row">
-                <div class="col-sm-3"></div>
+               
                 <div class="col-sm-5">
-                    <h2>Choisissez vos jours de réservation</h2>
+                    <h4>Choisissez vos jours de réservation</h4>
                     <div> {{ affichage_calendrier|raw }} </div>
                 </div>
-            </div>{#fin de div class row#}
-            <div id="message"></div>
+           </div>
+           
+
+
        </div>{#fin de container fluid#}
 
     {% endblock %}

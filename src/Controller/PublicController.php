@@ -282,6 +282,11 @@ class PublicController extends Controller
 
             //appel de la fonction qui se trouve directement dans le repository
             $listeSallesCriteres = $salles->salleRecherche($ville, $date, $categorie, $cp, $capacite, $surface, $nom, $nbrPiece, $prixMin, $prixMax);
+                
+            if( is_null($listeSallesCriteres))
+            {
+                $listeSallesCriteres = "toto";
+            }
 
             //direction page salle pour la recherche avec les criteres
             return $this->render('public/salle.html.twig', array('title' => 'Salles EasyOffice', 'salle' => $listeSallesCriteres, 'form' => $form->createView()));

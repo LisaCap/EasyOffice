@@ -108,39 +108,44 @@ class AjaxController extends Controller
     
     /**
 	* @Route(
-	*	  "/ajoutReservation/{date}",
+	*	  "/ajoutReservation",
 	*	  name="ajoutReservation")
 	*/
-	public function ajoutReservation($date, Request $request)
+	public function ajoutReservation(Request $request)
 	{
-        //pour creer une nouvelle reservation, on creer un nouvel objet
-        $reservation = new Indisponible();
         
-            //GETTERS
-            //recuperer l'id membre via la session            
-            $idMembre = $this->getUser();
-            //recuperer la valeur du jour via la value inserer dans le tableau
-            $idSalle = $request->get('id_salle');
+            //GETTERS AJAX
+            $idSalle = $request->get('id');
+            //value correspond à la date
+            $date = $request->get('date');
+        
+            $salleAreserver = $this->getDoctrine()->getRepository(Salle::class);
+            $idSalle = $salleAreserver->find($request->get('id'));
+            $em = $this->getDoctrine()->getManager();
+            //pour creer une nouvelle reservation, on creer un nouvel objet
+            $jourReservation = new Indisponible();
+
             //SETTERS
             //On insere l'id membre
-            $reservation->setIdMembre($idMembre);
+            $idMembre = $this->getUser();
+            
+            $jourReservation->setIdMembre($idMembre);
             //on insere l'id salle
-            $reservation->setIdSalle($idSalle);
+            $jourReservation->setIdSalle($idSalle);
             //1 = "loué" et '2' = "indisponible(proprietaire)";
             $statutIndisponible = 1;
-            $reservation->setStatutIndisponible($statutIndisponible);
+            $jourReservation->setStatutIndisponible($statutIndisponible);
             //setter pour le jour
             //$dateBonFormat =  $date->format('Y-m-d');
             
             //$dateOk = date('Y-m-d', strtotime($date));
             $dateOk = new \DateTime($date);
             //dump($dateBonFormat);
-            $reservation->setJourIndisponible($dateOk);
+            $jourReservation->setJourIndisponible($dateOk);
         
         
         //enregistrement dans la table
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($reservation);
+        $em->persist($jourReservation);
         $em->flush();
 
 		return new response(json_encode(['msg' => '<p class="alert alert-success">Jour reservé !</p>']));

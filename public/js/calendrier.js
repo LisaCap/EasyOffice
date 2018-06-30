@@ -43,15 +43,17 @@ $(document).ready(function(){
     
     //Pour ajouter une reservation
 	$('.libre').on('click', function(){
+        elem = $(this).prop('id').substr(0,1);
+		date =  $(this).prop('id').substr(1);
 		//alert('modif' + ' '+ elem + ' ' + value);
 		$.ajax({
-			url: "ajoutReservation",
+			url: "/EasyOffice/public/ajoutReservation",
 			type: "post",
-			data: {'id_salle' : $(this).prop('id').substr(0)},
+			data: {'id': elem, 'date': date},
 			dataType: 'json',
 			error: function(a, b, c)
 			{
-				alert(a + b + c);
+				alert(a + b + c );
 			},
 			success: function(data)
 			{

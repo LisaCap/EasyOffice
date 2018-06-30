@@ -97,9 +97,8 @@ class CalendrierAjout
             $calendrier.= "class='reserve'>";
             
         }else{
-            $url = "/EasyOffice/public/ajoutReservation/" . $date ;
             
-            $calendrier.= '><a class="libre" id="'. $id .'" href="' . $url . '">';
+            $calendrier.= '><button class="libre btn " id="'. $id . $date . '">';
         }
 
         if($j!=0) $calendrier.= $j;
@@ -109,7 +108,7 @@ class CalendrierAjout
         //si le td est un .libre, on ferme le lien, afin que les td . reserve ne soit pas cliquable
         if(!in_array($date, $tab_indispo))
         {
-            $calendrier.= "</a>";
+            $calendrier.= "</button>";
         }
 
         $calendrier .= '</td>';
