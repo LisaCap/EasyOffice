@@ -5,17 +5,43 @@
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+    <link href="{{ asset('css/mentionsLegales.css') }}" rel="stylesheet">
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>Mentions Légales</h1> {% endblock %}
+    {% block header %}
+    <header id="headerSalle">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+
+                        <h1 class="brand-heading">
+                            Mentions légales <br> Easy<span class="vert_logo console">Office</span>
+                        </h1>
+                        
+                        <div class="barre-blanche col-sm-6"></div>
+                        
+                        <p class="intro-text">
+                            Le meilleur des salles pour professionnels    
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-        <h2>Définitions</h2>
+    <div class="container">
+
+        <div class="row margin-top">
+            <h2>Définitions</h2>
         <p><b>Client&nbsp;:</b>&nbsp;tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
         <b>Prestations et Services&nbsp;:</b> <a href="http://localhost/boutiqueSymfony">http://localhost/boutiqueSymfony</a> met à disposition des Clients&nbsp;:</p>
 
@@ -221,6 +247,9 @@
          <p>
         Tout litige en relation avec l’utilisation du site&nbsp;<a href="http://localhost/boutiqueSymfony">http://localhost/boutiqueSymfony</a>&nbsp;est soumis au droit français. 
         En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de Montpellier</p>
+        </div>
+    </div>
+        
 
     {% endblock %}
 {#FIN DE MAIN#}
