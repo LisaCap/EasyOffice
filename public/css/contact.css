@@ -12,8 +12,9 @@ h1 {
     max-height: 400px;
     padding: 100px 0;
     text-align: left;
-    color: white;
-    background: url("../img/wallpaperaide.jpg") no-repeat center center scroll;
+    color: black;
+    background: url("../img/contact.jpg") no-repeat top center scroll;
+    background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -48,8 +49,8 @@ h1 {
 }
 
 
-.barre-blanche{
-    background-color: white;
+.barre-noire{
+    background-color: black;
     height: 2px;
     width: 100%;
 }
@@ -66,16 +67,4 @@ h1 {
 }
 
 /* MAIN */
-
-.margin-top{
-    margin-top: 4%;
-}
-
-.margin-bottom{
-    margin-bottom: 4%;
-}
-
-
-
-
 

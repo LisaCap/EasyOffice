@@ -1,26 +1,27 @@
-<br><br><br><br><br><br>
+{% block stylesheets %}
+    <link href="{{ asset('css/navTableauDeBord.css') }}" rel="stylesheet">
+{% endblock %}
 
-<div class="row">
-    <div class="col-sm-12 text-center">
-            
-            {#StatutMembre == locataire #}
-            {% if statut.idStatutMembre.id == 1 %}
-               
-                <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-default"> Profil </a>
-                <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-warning"> Modifier mon Profil </a>
-                <a href="http://localhost/EasyOffice/public/mesReservations" class="btn btn-primary"> Mes reservations </a>
-                <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-primary"> Messagerie </a>
+
+    <div class="row">
+        <div class="col-sm-12 text-center fondNav">
                 
+                {#StatutMembre == locataire #}
+                {% if statut.idStatutMembre.id == 1 %}
+                   
+                    <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-outline-secondary"> Mon Profil </a>
+                    <a href="http://localhost/EasyOffice/public/mesReservations" class="btn btn-outline-secondary"> Mes reservations </a>
+                    <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-outline-secondary"> Messagerie </a>
+                    
                 {#StatutMembre == proprietaire / locataire #}
                 {% elseif statut.idStatutMembre.id == 2 %}
-                    <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-default"> Profil </a>
-                    <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-warning"> Modifier mon Profil </a>
-                    <a href="http://localhost/EasyOffice/public/mesReservations" class="btn btn-primary"> Mes reservations </a>
-                    <a href="http://localhost/EasyOffice/public/mesSalles" class="btn btn-primary"> Mes salles </a>
-                    <a href="http://localhost/EasyOffice/public/offreSalle" class="btn btn-warning"> Proposer une salle </a>
-                    <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-primary"> Messagerie </a>
-                
-            {% endif %}
-            
-    </div>
-</div>
+                    <a href="http://localhost/EasyOffice/public/tableauDeBord" class="btn btn-outline-secondary"> Mon Profil </a>
+                    <a href="http://localhost/EasyOffice/public/mesReservations" class="btn btn-outline-secondary"> Mes reservations </a>
+                    <a href="http://localhost/EasyOffice/public/mesSalles" class="btn btn-outline-secondary"> Mes salles </a>
+                    <a href="http://localhost/EasyOffice/public/offreSalle" class="btn btn-outline-secondary"> Proposer une salle </a>
+                    <a href="http://localhost/EasyOffice/public/messagerie" class="btn btn-outline-secondary"> Messagerie </a>
+                    
+                {% endif %}
+        </div><!-- FIN col-sm-12 -->
+    </div><!-- FIN row -->
+

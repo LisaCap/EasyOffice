@@ -5,29 +5,96 @@
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
 {#HEADER#}
-    {% block header %} <h1>h1</h1> {% endblock %}
+    {% block header %}
+    <header id="headerSalle">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+
+                        <h1 class="brand-heading">
+                            Contact <br> Easy<span class="vert_logo console">Office</span>
+                        </h1>
+                        
+                        <div class="barre-noire col-sm-6"></div>
+                        
+                        <p class="intro-text">
+                            Pour tous renseignements, n'hésitez pas à nous contacter ! 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
 {#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
         <!--Section -->
         <section id="contact" class="content-section text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
+          <div class="container-fluid">
+            <div class="row text-left">
+                
+                <div class="col-lg-1">
+                </div>
+            
+              <div class="col-lg-5">
+                  <h2>Formulaire de contact</h2>
+                  
+                  <form>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Vous êtes</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Propriétaire</option>
+                          <option>Locataire</option>
+                        </select>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Objet</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Renseignements</option>
+                          <option>Problème avec un locataire</option>
+                          <option>Problème avec un propriétaire</option>
+                        </select>
+                      </div>
+                      
+                      
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Votre message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      
+                      <button class="btn btn-default" type="submit">Envoyer</button>
+                      
+                    </form>
 
+              </div>
+
+                
+              <div class="col-lg-5 text-left">
+                  <h2>Siège social</h2>
+                  <p><i class="fa fa-map-marker-alt " aria-hidden="true"></i> 600 Avenue du Campus Agropolis,<br> 34980 Montferrier-sur-Lez</p>
+                  <p><i class="fa fa-phone " aria-hidden="true"></i>+334 76 30 66 78</p>
+                  <div id="map">
+              </div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- Map Section -->
-        <div id="map"></div>
 
 {% endblock %}
 {#FIN DE MAIN#}

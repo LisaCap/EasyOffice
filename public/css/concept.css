@@ -1,160 +1,70 @@
-.headerConcept {
-  display: table;
-  width: 100%;
-  height: auto;
-  padding: 200px 0;
-  text-align: center;
-  color: white;
-  background: url("../img/wallpaperconcept.jpg") no-repeat bottom center scroll;
-  background-color: black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+﻿/* GLOBAL */
+
+h1 {
+    font-size: 4em;
+    font-family: Roboto;
 }
 
-.headerConcept .intro-body {
-  display: table-cell;
-  vertical-align: middle;
+/*HEADER */
+#headerSalle {
+    display: table;
+    width: 100%;
+    max-height: 400px;
+    padding: 100px 0;
+    text-align: left;
+    color: white;
+    background: url("../img/wallpaperconcept.jpg") no-repeat center center scroll;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border-bottom: 8px solid #43B874;
 }
 
-.headerConcept .intro-body .brand-heading {
-  font-size: 50px;
+#headerSalle .intro-body {
+    display: table-cell;
+    vertical-align: middle;
 }
 
-.headerConcept .intro-body .intro-text {
-  font-size: 18px;
+#headerSalle .intro-body .brand-heading {
+    font-size: 2em;
+}
+
+#headerSalle .intro-body .intro-text {
+    font-size: 1em;
 }
 
 @media (min-width: 768px) {
-  .headerConcept {
-    height: 100%;
-    padding: 0;
-  }
-  .headerConcept .intro-body .brand-heading {
-    font-size: 100px;
-  }
-  .headerConcept .intro-body .intro-text {
-    font-size: 22px;
-  }    
+    #headerSalle {
+        height: 100%;
+        padding: 0;
+    }
+    #headerSalle .intro-body .brand-heading {
+        font-size: 3em;
+    }
+    #headerSalle .intro-body .intro-text {
+        font-size: 1.5em;
+    }
 }
 
-/* DEBUT BUTTON SCROLL DOWN */
 
-.button-scroll {
-    position: absolute;
-    bottom: 0px;
-    height: 60px;
-    width: 60px;
-    border: 2px solid #43B874;
-    background-color: rgba( 0, 0, 0, 0.5);
-    font-size: 40px;
-    text-align: center;
+.barre-blanche{
+    background-color: white;
+    height: 2px;
+    width: 100%;
 }
 
-/* FIN BUTTON SCROLL DOWN */
+.intro {
+    margin-top: 50px;
+}
 
 
-/* DEBUT NAVBAR */
+/* NAVBAR */
 
 #mainNav {
     background-color: #43B874;
 }
 
-/* FIN NAVBAR */
-
-body{
-    background: white;
-}
-
-
-h1 {
-    font-size: 5em;
-    text-align: center;
-    color:#ddac09;
-}
-
-h2:hover {
-    font-size: 2.3em;
-    text-align: center;
-    color:#ddac09;
-    font-weight: bolder;
-}
-
-h2 {
-    font-size: 2.5em;
-    text-align: center;
-    color:#ddac09;    
-}
-
-
-div {
-  margin-left: auto;
-  margin-right: auto;
-  width: ...;
-  color:  #43B874;   
-}
-
-
-.headerConcept {
- background: linear-gradient(
- rgba(217, 216, 216, 0.3), 
- rgba(216, 216, 216, 0.32)
- ),url("../img/wallpaperconcept.jpg");
- background-size:cover;
- background-repeat:no-repeat;
-}
-
-p:hover { /* main */
-        color: #3dfc1a;
-        font-family: ;
-        font-size: 1.3em;
-        font-weight: bolder;
-}
-/* FIN BUTTON SCROLL BAS DE PAGE */
-.btn-circle {
-  font-size: 26px;
-  width: 55px;
-  height: 55px;
-  margin-top: 15px;
-  line-height: 45px;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
-  color: white;
-  border: 2px solid white;
-  border-radius: 100% !important;
-  background: transparent;
-}
-
-.btn-circle:focus, .btn-circle:hover {
-  color: white;
-  outline: none;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.fa-angle-double-left:before {
-  content: "\f100";
-}
-.fa-angle-double-right:before {
-  content: "\f101";
-}
-.fa-angle-double-up:before {
-  content: "\f102";
-}
-.fa-angle-double-down:before {
-  content: "\f103";
-}
-.fa-angle-left:before {
-  content: "\f104";
-}
-.fa-angle-right:before {
-  content: "\f105";
-}
-.fa-angle-up:before {
-  content: "\f106";
-}
-.fa-angle-down:before {
-  content: "\f107";
-}
+/* MAIN */
 

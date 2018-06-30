@@ -11,6 +11,9 @@ use App\Entity\Indisponible;
 //pour les membres
 use App\Entity\Membre;
 
+// sécurité pour verifier que l'utilisateur est connecté pour pouvoir reserver
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+
 // table Salle pour récupérer l'id de la salle
 use App\Entity\Salle;
 
@@ -78,22 +81,30 @@ class AjaxController extends Controller
 	*	  name="reservation",
     *     requirements={"id":"\d+"})
 	*/
-	public function reservation($id, Request $request, CalendrierAjout $calendrierAjout)
+	public function reservation($id, Request $request, CalendrierAjout $calendrierAjout, AuthorizationCheckerInterface $authChecker)
 	{
-        //pour afficher la description du produit en rappel au dessus du formulaire
-        $salle = $this->getDoctrine()->getRepository(Salle::class);
-        //infos de la salle (SELECT * FROM salle WHERE id= :id)
-        $detailSalle = $salle->find($id);
-        
-        //on appelle notre service qui va afficher le calendrier et qui est lié au IndisponibleRepository
-        $calendrier_indisponible = $this->getDoctrine()->getRepository(Indisponible::class);
-        $affichageCalendrier = $calendrierAjout->creationCalendrier($id, $calendrier_indisponible);
+        //si l'utilisateur est loggué, donc securité
+        if($authChecker->isGranted('ROLE_USER'))
+        {
+            //pour afficher la description du produit en rappel au dessus du formulaire
+            $salle = $this->getDoctrine()->getRepository(Salle::class);
+            //infos de la salle (SELECT * FROM salle WHERE id= :id)
+            $detailSalle = $salle->find($id);
 
-		//affichage du formulaire
-		return $this->render('public/reservation.html.twig',
-									array('affichage_calendrier' => $affichageCalendrier,'title' => 'reservation', 'detailSalle'=> $detailSalle, 'id' => $detailSalle->getId()));
-		
+            //on appelle notre service qui va afficher le calendrier et qui est lié au IndisponibleRepository
+            $calendrier_indisponible = $this->getDoctrine()->getRepository(Indisponible::class);
+            $affichageCalendrier = $calendrierAjout->creationCalendrier($id, $calendrier_indisponible);
+
+            //affichage du formulaire
+            return $this->render('public/reservation.html.twig',
+                                        array('affichage_calendrier' => $affichageCalendrier,'title' => 'reservation', 'detailSalle'=> $detailSalle, 'id' => $detailSalle->getId()));
+        }else
+        {
+            //si il n'est pas connecté, on le ramene à la page connexion
+            return $this->redirectToRoute('connexion');
+        }
 	}
+
     
     /**
 	* @Route(

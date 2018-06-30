@@ -6,7 +6,7 @@
    
 {% block title %} {{ title }} {% endblock %}
 {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %} <link href="{{ asset('css/tableauDeBord.css') }}" rel="stylesheet"> {% endblock %}
 
 {#FIN DE HEAD#}
 
@@ -17,51 +17,97 @@
 {#MAIN#}
 {% block main %}
    
-    {{ render(controller('App\\Controller\\TableauDeBordController::navTableauDeBord')) }}
-    
-    {#Le tableau de bord pourrait être une page recapitulative de notre profil#}
-<div class="container">
-    <div class="row">
-        {# Photo du membre #}
-        <div class="col-sm-6 text-center">
-        	<legend>Ma photo de profil</legend>
-            <img src="{{asset('img/membre/photo_profil/')}}{{membre.photoMembre}}" class="img-fluid" alt="photo_membre">
-        </div>
-        {# infos du membre #}
-        <div class="col-sm-6 text-center">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <b>Nom :</b> {{ membre.nomMembre }} </li>
-                <li class="list-group-item">
-                    <b>Prénom :</b> {{ membre.prenomMembre }} </li>
-                <li class="list-group-item">
-                    <b>Société :</b> {{ membre.nomDeSocieteMembre }} €</li>
-                <li class="list-group-item">
-                    <b>SIRET :</b> {{ membre.siretMembre }} </li>
-                <li class="list-group-item">
-                    <b>TVA intracommunautaire :</b> {{ membre.tvaMembre }} </li>
-                <li class="list-group-item">
-                    <b>Date de naissance :</b> {{ membre.dateDeNaissance|date('d/m/Y') }} </li>
-                <li class="list-group-item">
-                    <b>Civilité :</b> {{ membre.sexeMembre }} </li>
-                <li class="list-group-item">
-                    <b>Adresse :</b> {{ membre.adresseMembre }} </li>
-                <li class="list-group-item">
-                    <b>Code Postal:</b> {{ membre.cpMembre }} </li>
-                <li class="list-group-item">
-                    <b>Ville :</b> {{ membre.villeMembre }} </li>
-                <li class="list-group-item">
-                    <b>Téléphone :</b> {{ membre.telephoneMembre }} </li>
-                <li class="list-group-item">
-                    <b>Email :</b> {{ membre.emailMembre }} </li>
-                <li class="list-group-item">
-                    <b>Date d'enregistrement :</b> {{ membre.dateEnregistrementMembre|date('d/m/Y') }} </li>
-                <li class="list-group-item">
-                    <b>Infos bancaires :</b> {{ membre.infoBancaireMembre }} </li>
-                <li class="list-group-item">
-                    <b>Statut :</b> {{ membre.idStatutMembre.libelleStatutMembre }} </li>
-            </ul>
+<div class="container fond">
 
+    {{ render(controller('App\\Controller\\TableauDeBordController::navTableauDeBord')) }}
+
+    <h3 class="titre text-center">Bonjour {{ membre.prenomMembre }}</h3>
+
+    <div class="row">
+        <!-- photo du membre -->
+        <div class="col-sm-3 offset-1">
+        	<img src="{{asset('img/membre/photo_profil/')}}{{membre.photoMembre}}" class="img-thumbnail" alt="photo_membre">
+        </div>
+        <!-- infos du membre -->
+        <div class="col-sm-6">
+            <!-- menus accordéons -->        
+            <div class="accordion" id="accordionExample">
+              <!-- bloc profil -->
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <i class="fas fa-user"></i>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">MON PROFIL    <i class="fas fa-angle-down fa-sm"></i>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <li><b>Prénom :</b> {{ membre.prenomMembre }} </li>
+                        <li><b>Nom :</b> {{ membre.nomMembre }} </li>
+                        <li><b>Civilité :</b> {{ membre.sexeMembre }} </li>
+                        <li><b>Date de naissance :</b> {{ membre.dateDeNaissance|date('d/m/Y') }} </li>
+                    </div>
+                </div>
+              </div>
+              <!-- bloc coordonnées -->
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <i class="fas fa-envelope"></i>
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Mes Coordonnées    <i class="fas fa-angle-down fa-sm"></i>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <li><b>Adresse :</b> {{ membre.adresseMembre }} </li>
+                    <li><b>Code Postal:</b> {{ membre.cpMembre }} </li>
+                    <li><b>Ville :</b> {{ membre.villeMembre }} </li>
+                    <li><b>Téléphone :</b> {{ membre.telephoneMembre }} </li>
+                    <li><b>Email :</b> {{ membre.emailMembre }} </li>
+                  </div>
+                </div>
+              </div>
+              <!-- bloc pro -->
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <i class="fas fa-industry"></i>
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Mon Entreprise    <i class="fas fa-angle-down fa-sm"></i>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <li><b>Nom de Société :</b> {{ membre.nomDeSocieteMembre }} €</li>
+                    <li><b>SIRET :</b> {{ membre.siretMembre }} </li>
+                    <li><b>TVA intracom. :</b> {{ membre.tvaMembre }} </li>
+                  </div>
+                </div>
+              </div>
+              <!-- infos du membre -->
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <i class="fas fa-address-card"></i>
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                      Mes informations    <i class="fas fa-angle-down fa-sm"></i>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <li><b>Infos bancaires :</b> {{ membre.infoBancaireMembre }} </li>
+                    <li><b>Statut :</b> {{ membre.idStatutMembre.libelleStatutMembre }} </li>
+                    <li><b>Date d'enregistrement :</b> {{ membre.dateEnregistrementMembre|date('d/m/Y') }} </li>
+                  </div>
+                </div>
+              </div>
+            </div><!-- fin accordéon -->
+            <!-- bouton modifier -->
             <a href="http://localhost/EasyOffice/public/modifierProfil" class="btn btn-success"> Modifier </a>
             
         </div><!-- Fin col-sm-6 -->

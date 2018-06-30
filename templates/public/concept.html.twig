@@ -1,66 +1,84 @@
-{# templates/public/concept.html.twig #}
+{# templates/public/template.html.twig #}
+
 {% extends 'base.html.twig' %}
 
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
     {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
-    {% block stylesheets %} 
- <!--CSS SEARCHBAR-->
-        <link href="{{ asset('css/searchbar.css') }}" rel="stylesheet">
-<!--CSS GLOBAL-->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {% block stylesheets %}
+    <!--CSS SPEC SALLE-->
+        <link href="{{ asset('css/salle.css') }}" rel="stylesheet">
         <link href="{{ asset('css/concept.css') }}" rel="stylesheet">
-<!-- JS -->
-        <link href="{{ asset('js/concept.js') }}" rel="stylesheet">
-{% endblock %}
+    {% endblock %}
 
 {#FIN DE HEAD#}
 
-{% block header %}   
-<header class="headerConcept">
-<br/><br/><br/><br/><br/><br/><br/><br/>
-    <h2>Vous souhaite la bienvenue&nbsp;&nbsp;&#x1F642;</h2> 
-<br/><br/>   
-<h1>Concept</h1>
-   <p class="intro-text">
-                <br>
-    </p> <a href="#global" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated"></i>
-              </a>     
-</header> 
- 
-{% endblock %} 
+{#HEADER#}
+    {% block header %}
+    
+        
+    <header id="headerSalle">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+
+                        <h1 class="brand-heading">
+                            Le concept <br> Easy<span class="vert_logo console">Office</span>
+                        </h1>
+                        
+                        <div class="barre-blanche col-sm-6"></div>
+                        
+                        <p class="intro-text">
+                            Le meilleur des salles pour professionnels    
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    {% endblock %}
+{#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-<main class="mainContainerFluid">                
-        <!--Section -->
-       
-       <div id="global">
-        <div class="row">
-            <section id="concept" class="content-section text-center">
-                  <div class="col-lg-8 mx-auto">
-                        <ul>
-                        <p>Trouvez , vos location, simplement, rapidemant, et efficacement. Des espaces exeptionnels, pour vos evenement, formation, meeting, entretient, stockage, événement divers, séminaire et conférences, au service de la performance, et de l'epanouissement. Répondre au nouveaux code du travail. 
-                        </p>
-                      </ul>
-                  </div>
-                
-            </section>
-            
-        </div>
-     </div>   
-    </main>
-
-        <!--  -->
+    
+    <div class="container">
         
-{% endblock %}
+        <div class="row">
+            <!--Section Toutes nos salles-->
+            <section class="col-lg-12">
+                
+                <h2>Simple, rapide, efficace</h2>
+                <p>
+                    Trouvez vos location, simplement, rapidemant, et efficacement. Des espaces exeptionnels, pour vos evenement, formations, meeting, entretients, stockages, événements divers, séminaires et conférences, au service de la performance, et de l'épanouissement. 
+                </p>
+                
+                <hr>
+                
+                <h2>Objectif</h2>
+                <p>
+                    Répondre aux nouveaux besoin du système B to B.
+                </p>
+                
+                <hr>
+                
+                <h2>Rencontre, de professionnel à professionnel</h2>
+                <p>
+                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                </p>
+            </section>
+            <!--Fin Section Toutes nos salles-->
+        </div>
+        
+    </div><!--Fin div container-fluid-->
+
+
+
+    {% endblock %}
 {#FIN DE MAIN#}
 
-
 {#SCRIPT#}
- {% block javascripts %}
-  
-   {% endblock %}
+    {% block javascripts %}{% endblock %}
 {#FIN DE SCRIPT#}
-

@@ -1,140 +1,256 @@
-{# templates/public/aide.html.twig #}
+{# templates/public/template.html.twig #}
 
 {% extends 'base.html.twig' %}
 
 {#HEAD#}
     {% block title %} {{ title }} {% endblock %}
-    {% block meta_description %}Le truc qui apparait dans les recherches google{% endblock %}
+    {% block meta_description %}EasyOffice, votre partenaire pour vos salles professionnelles{% endblock %}
     {% block stylesheets %}
-         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!--CSS SPEC SALLE-->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
          <link href="{{ asset('css/aide.css') }}" rel="stylesheet">
     {% endblock %}
 
 {#FIN DE HEAD#}
 
-{% block header %} 
-<header class="headerAide">
-<br/><br/><br/><br/><br/><br/><br/>
-<h1>Vous Vous posez des questions? Vous <br/>êtes au bonne endroit?</h1>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
- <h2>Aide</h2>   
- <a href="#global" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated"></i>
-              </a>     
-</header>
-{% endblock %}
+{#HEADER#}
+    {% block header %}
+    
+        
+    <header id="headerSalle">
+        <div class="intro-body">
+            <div class="container intro">
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
 
+                        <h1 class="brand-heading">
+                            Aide <br> Easy<span class="vert_logo console">Office</span>
+                        </h1>
+                        
+                        <div class="barre-blanche col-sm-6"></div>
+                        
+                        <p class="intro-text">
+                            Besoin d'aide ? Merci de consulter la FAQ !  
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    {% endblock %}
+{#FIN DE HEADER#}
 
 {#MAIN#}
 {% block main %}
-<div class="mainContainerFluid">               
-        <!--Section -->
-      <div id="global">
-        <div class="col-md-12"> 
-        </div>    
-       </div><br/><br/><br/><br/><br/><br/>
-    <h3>FAQ : Questions, réponses & aide<h3>
     
-    <h4>Informations générales<h4>
-   <br/><br/> 
-       <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Qui est EasyOffice?
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-<div class="card card-body">Nos plateformes permettent une mise en relation<br/>  plus facile entre les locataires en recherche de logement<br/>et les bailleurs particuliers ou professionnels.<br/>Notre promesse : vous faciliter la mise en location grâce à des outils innovants,<br/>des annonces à jour et des profils contenant le maximum d'informations.  
-</div>
-</div>
-<br/>       
-  <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-    Où se trouvent les conditions générales ? 
-  </button>
-</p>
-<div class="collapse" id="collapseExample2">
-<div class="card card-body">Les conditions générales d'utilisation du site Sun Location sont accessibles en cliquant ici.  
-</div>
-</div>
-<br/>
-<br/>       
-<h5>Réservation de locaux<h5> 
-<br/><br/>       
-  <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
-    Comment faire une réservation sur Easy Office? 
-  </button>
-</p> 
-<div class="collapse" id="collapseExample3">
-<div class="card card-body">Cliquez sur Demande de réservation dans une annonce.
-Si l'option Réservation est affichée, cela signifie que l'hôte vous autorise à réserver son logement immédiatement. Votre réservation sera confirmée automatiquement après la Vérifiecation et les détails de la réservation pour vous assurer que tout est ,normal.
-confirmer vos informations de paiement. 
-Acceptez les conditions de reservations, y compris les conditions d'annulation du proprietaire et le règlement intérieur.
-Attendez la réponse de celui ci. Ils dispose de 24 heures, mais la plupart repondent au courant de la journee.
-On vous demandent de suivre la procédure d'identification , completer le formulaire dinscription. vérifiée avant de confirmer une réservation. 
-Si votre demande est acceptée, votre paiement est alors aussitôt perçu en totalité. Si l'hôte refuse la demande ou ne répond pas sous 24 heures, vous n'êtes pas débité et vous pouvez essayer de réserver d autre locaux, aux mêmes dates. 
-</div>
-</div> 
-<br/>        
-    <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
-    Quelles sont les heures d'arrivées et de départ? 
-  </button>
-</p> 
-<div class="collapse" id="collapseExample4">
-<div class="card card-body">Sauf mention contraire, les périodes de location se font par journée. L'heure d'arrivée est comprise entre 06H00 et 21h00, tandis que celle de départ se situe en général avant 23h00. Les horaires précis pour prendre possession de votre locaux sont mentionnés à la réservations, établis entre le propriétaire et le locataire. Celui-ci résume l'ensemble des informations utiles pour votre arrivée sur place.   
-</div>
-</div>
-<br/>         
- <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample5">
-    Je suis propriétaire de locaux, puis-je proposer mon bien sur EasyOffice ?
-  </button>
-</p> 
-<div class="collapse" id="collapseExample5">
-<div class="card card-body">Biensûre, EasyOffice dispose d'espace dédié permettant de publier des offres de locations de divers locaux sur le site.
-</div>
-</div> 
-<br/>         
-  <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample6" aria-expanded="false" aria-controls="collapseExample6">
-    Je suis locataire, ou professionnelle, puis-je louer divers locaux dédié a la formation, au meeting, au entretient, au stockage,<br/>  au événement divers, ainsi qu'au séminaire et conférences, sur EasyOffice ?
-  </button>
-</p> 
-<div class="collapse" id="collapseExample6">
-<div class="card card-body">EasyOffice dispose d'espace dédié, permettant de louer divers locaux de formation, meeting, entretient, stockage,événement divers, séminaire et conférencessur sur le site.
-</div>
-</div> 
-<br/><br/>
- <h6>Pendant votre séjour</h6>
- <br/><br/>   
- <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample7" aria-expanded="false" aria-controls="collapseExample7">
-    Les frais de ménager sont-ils obligatoires ? 
-  </button>
-</p> 
-<div class="collapse" id="collapseExample7">
-<div class="card card-body">Afin de garantir des locaux propre ulterieurement votre location de locaux et après.la plupart des agences prestataire, appliquent frais ménager dans les options de selection. Pour certaines locaux, les frais ménager, sont inclus dans la location de locaux. Les hôtes sont très souvent nettoyés par des professionnels pour ainsi vous éviter des mauvaises Surprises.
-</div>
-</div> 
-<br/>    
-        <h2></h2>
-        <div class="row">
-      
-            <section id="aide" class="content-section text-center">
-                  <div class="col-lg-8 mx-auto">
-                        <p>
-                        </p>
-                  </div>
+    <div class="container">
+        
+        <!-- SECTION 1-->
+        <div class="row margin-top margin-bottom">
+            <!--Section Question type 1-->
+            <div class="col-sm-6">
+                <div class="container-fluid">
+                    <div class="row margin-top">
+                        <h5>Informations générales</h5>
+                    </div>
+                    <div class="row">
+
+                        <!--Section Criteres-->
+                        <div class="col-sm-12">
+                            <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+
+                                Qui est EasyOffice?
+
+                            </button>
+
+                            <div class="collapse" id="collapseExample1">
+                                <div class="card card-body">
+                                    Nos plateformes permettent une mise en relation<br/>  plus facile entre les locataires en recherche de logement<br/>et les bailleurs particuliers ou professionnels.<br/>Notre promesse : vous faciliter la mise en location grâce à des outils innovants,<br/>des annonces à jour et des profils contenant le maximum d'informations.  
+                                </div>
+                            </div>
+                        </div>
+
+                        </div><!--Fin div row-->
+                        <div class="row">
+
+                            <!--Section Criteres-->
+                            <div class="col-sm-12">
+                                <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
+                                   Question 2
+
+                                </button>
+
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        Nos plateformes permettent une mise en relation<br/>  plus facile entre les locataires en recherche de logement<br/>et les bailleurs particuliers ou professionnels.<br/>Notre promesse : vous faciliter la mise en location grâce à des outils innovants,<br/>des annonces à jour et des profils contenant le maximum d'informations.  
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!--Fin div row-->
                 
-            </section>
-        </div>
-     </h6>
-    </h5></h5></h4></h4></h3></h3></div>
+                </div><!-- Fin de containerfluid-->
+            </div><!-- Fin de col-sm-6 -->
+            <!-- Fin de Section Question type 1-->
+            
+            <!--Section Question type 2-->
+            <div class="col-sm-6">
+                <div class="container-fluid">
+                    <div class="row margin-top">
+                        <h5>Recherche d'informations</h5>
+                    </div>
+                    <div class="row">
+
+                        <!--Section Criteres-->
+                        <div class="col-sm-12">
+                            <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+
+                                Où se trouvent les conditions générales ?
+
+                            </button>
+
+                            <div class="collapse" id="collapseExample3">
+                                <div class="card card-body">
+                                    Les conditions générales d'utilisation du site Sun Location sont accessibles en cliquant <a href="{{ url('inscription') }}">ici.</a>    
+                                </div>
+                            </div>
+                        </div>
+
+                        </div><!--Fin div row-->
+                        <div class="row">
+
+                            <!--Section Criteres-->
+                            <div class="col-sm-12">
+                                <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+
+                                   Où se trouvent les mentions légales ?
+
+                                </button>
+
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="card card-body">
+                                        Les mentions légales du site EasyOffice sont accessibles en cliquant <a href="{{ url('mentionsLegales') }}">ici.</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!--Fin div row-->
+                
+                </div><!-- Fin de containerfluid-->
+            </div><!-- Fin de col-sm-6 -->
+            <!-- Fin de Section Question type 2-->
+            
+            
+        </div><!-- Fin de div class row-->
+        <!-- FIN SECTION 1-->
+        
+        <!-- SECTION 2-->
+        <div class="row margin-top margin-bottom">
+            <!--Section Question type 3-->
+            <div class="col-sm-6">
+                <div class="container-fluid">
+                    <div class="row margin-top">
+                        <h5>Locataire</h5>
+                    </div>
+                    <div class="row">
+
+                        <!--Section Criteres-->
+                        <div class="col-sm-12">
+                            <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">
+
+                                Comment réserver une salle ?
+
+                            </button>
+
+                            <div class="collapse" id="collapseExample4">
+                                <div class="card card-body">
+                                    Nos plateformes permettent une mise en relation<br/>  plus facile entre les locataires en recherche de logement<br/>et les bailleurs particuliers ou professionnels.<br/>Notre promesse : vous faciliter la mise en location grâce à des outils innovants,<br/>des annonces à jour et des profils contenant le maximum d'informations.  
+                                </div>
+                            </div>
+                        </div>
+
+                        </div><!--Fin div row-->
+                        <div class="row">
+
+                            <!--Section Criteres-->
+                            <div class="col-sm-12">
+                                <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample5">
+
+                                   Comment contacter le propriétaire ?
+
+                                </button>
+
+                                <div class="collapse" id="collapseExample5">
+                                    <div class="card card-body">
+                                        Nos plateformes permettent une mise en relation<br/>  plus facile entre les locataires en recherche de logement<br/>et les bailleurs particuliers ou professionnels.<br/>Notre promesse : vous faciliter la mise en location grâce à des outils innovants,<br/>des annonces à jour et des profils contenant le maximum d'informations.  
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!--Fin div row-->
+                
+                </div><!-- Fin de containerfluid-->
+            </div><!-- Fin de col-sm-6 -->
+            <!-- Fin de Section Question type 3-->
+            
+            <!--Section Question type 4-->
+            <div class="col-sm-6">
+                <div class="container-fluid">
+                    <div class="row margin-top">
+                        <h5>Propriétaire</h5>
+                    </div>
+                    <div class="row">
+
+                        <!--Section Criteres-->
+                        <div class="col-sm-12">
+                            <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample6" aria-expanded="false" aria-controls="collapseExample6">
+
+                                Comment proposer une salle ?
+
+                            </button>
+
+                            <div class="collapse" id="collapseExample6">
+                                <div class="card card-body">
+                                    Les conditions générales d'utilisation du site Sun Location sont accessibles en cliquant <a href="{{ url('inscription') }}">ici.</a>    
+                                </div>
+                            </div>
+                        </div>
+
+                        </div><!--Fin div row-->
+                        <div class="row">
+
+                            <!--Section Criteres-->
+                            <div class="col-sm-12">
+                                <button class="btn btn-default margin-left" type="button" data-toggle="collapse" data-target="#collapseExample7" aria-expanded="false" aria-controls="collapseExample7">
+
+                                   Comment rendre indisponible une salle ?
+
+                                </button>
+
+                                <div class="collapse" id="collapseExample7">
+                                    <div class="card card-body">
+                                        Les mentions légales du site EasyOffice sont accessibles en cliquant <a href="{{ url('mentionsLegales') }}">ici.</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!--Fin div row-->
+                
+                </div><!-- Fin de containerfluid-->
+            </div><!-- Fin de col-sm-6 -->
+            <!-- Fin de Section Question type 4-->
+
+        </div><!-- Fin de div class row-->
+        <!-- FIN SECTION 2-->
+        
+        
+    </div><!--Fin div container-fluid-->
 
 
-        <!-- Map Section -->
-    
 
     {% endblock %}
 {#FIN DE MAIN#}

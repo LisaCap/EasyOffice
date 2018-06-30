@@ -1,0 +1,63 @@
+/* style général de la page */
+
+body {
+    background: url("../img/login.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh !important;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.fond {
+    background-color: white;
+    width: 50%;
+    margin-bottom: 5%;
+    margin-top: 10%;
+    padding: 2%;
+}
+
+
+/* polices, titres et icones */
+.titre {
+    margin-top: 1.5rem;
+    color: #656565;
+
+}
+
+
+/* photo de profil */
+.col-sm-3 {
+    margin-top: 0.5rem;
+}
+
+
+/* colonne de gauche - infos profil */
+
+.col-sm-6 {
+    margin-top: 0.5rem;
+}
+
+li {
+    list-style-type: none;
+}
+
+.btn-link {
+   color: grey;
+}
+
+.btn-link:hover {
+    color: grey;
+}
+.btn-success {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+
+
+
+
+
