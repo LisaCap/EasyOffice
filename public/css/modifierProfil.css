@@ -1,0 +1,55 @@
+/* style général de la page */
+
+body {
+    background: url("../img/login.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh !important;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.fond {
+    width: 100%;
+    background-color: white;
+    width: 50%;
+    margin-bottom: 5%;
+    margin-top: 10%;
+    padding: 2%;
+}
+
+/* polices, titres et icones */
+.titre {
+    margin-top: 1.5rem;
+    color: #656565;
+}
+
+/* conteneurs catégories */
+.groupCategorie {
+    border: 1px solid #b4b2b2;
+    font-family: Cabin;
+    color: grey;
+    margin-bottom: 2rem;
+}
+
+.card-body {
+    background-color: rgba(0,0,0,.03);
+}
+
+.titreCategorie {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.contenuCategorie {
+    margin-top: 1rem;
+    margin-left: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-success {
+    width: 100%;
+    font-size: 1.5rem;
+}
