@@ -43,8 +43,8 @@ $(document).ready(function(){
     
     //Pour ajouter une reservation
 	$('.libre').on('click', function(){
-        elem = $(this).prop('id').substr(0,1);
-		date =  $(this).prop('id').substr(1);
+        elem = $(this).prop('id').substr(19);
+		date =  $(this).prop('id').substr(0,19);
 		//alert('modif' + ' '+ elem + ' ' + value);
 		$.ajax({
 			url: "/EasyOffice/public/ajoutReservation",

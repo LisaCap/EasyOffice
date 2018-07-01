@@ -98,7 +98,7 @@ class CalendrierAjout
             
         }else{
             
-            $calendrier.= '><button class="libre btn " id="'. $id . $date . '">';
+            $calendrier.= '><button class="libre btn" id="'. $date . $id . '">';
         }
 
         if($j!=0) $calendrier.= $j;

@@ -100,8 +100,8 @@ class SalleRepository extends ServiceEntityRepository
                     if($ville != "tous")
                     {
                         //ici la ville peut se nommer "tous" ou c'est un string
-                        $sqlVille = "s.ville_salle = :ville";
-                        $parametres[":ville"] = $ville;
+                        $sqlVille = "s.ville_salle LIKE :ville";
+                        $parametres[":ville"] = '%' . $ville . '%';
                         //on la passe dans la requete
                         $sql.= " AND " . $sqlVille;
                     }
@@ -136,7 +136,7 @@ class SalleRepository extends ServiceEntityRepository
                     if($surface != null)
                     {
                         //ici la categorie peut se nommer "tous", ou c'est un numéro
-                        $sqlSurface = "s.surface_salle = :surface";
+                        $sqlSurface = "s.surface_salle >= :surface";
                         $parametres[":surface"] = $surface;
                         //on la passe dans la requete sql
                         $sql.= " AND " . $sqlSurface;
@@ -145,8 +145,8 @@ class SalleRepository extends ServiceEntityRepository
                     if($nom != null)
                     {
                         //ici la categorie peut se nommer "tous", ou c'est un numéro
-                        $sqlNom = "s.nom_salle = :nom";
-                        $parametres[":nom"] = $surface;
+                        $sqlNom = "s.nom_salle LIKE :nom";
+                        $parametres[":nom"] = '%' .$nom . '%';
                         //on la passe dans la requete sql
                         $sql.= " AND " . $sqlNom;
                     }
@@ -154,7 +154,7 @@ class SalleRepository extends ServiceEntityRepository
                     if($nbrPiece != null)
                     {
                         //ici la categorie peut se nommer "tous", ou c'est un numéro
-                        $sqlNbrPiece = "s.nbr_piece_salle = :nbrPiece";
+                        $sqlNbrPiece = "s.nbr_piece_salle >= :nbrPiece";
                         $parametres[":nbrPiece"] = $nbrPiece;
                         //on la passe dans la requete sql
                         $sql.= " AND " . $sqlNbrPiece;
@@ -227,14 +227,14 @@ class SalleRepository extends ServiceEntityRepository
             if($ville != 'tous' && $date != null)
             {
                 //ici la ville peut se nommer "tous" ou c'est un string
-                $sqlVille = "s.ville_salle = :ville";
-                $parametres[":ville"] = $ville;
+                $sqlVille = "s.ville_salle LIKE :ville";
+                $parametres[":ville"] = '%' . $ville . '%';
                 //on la passe dans la requete
                 $sql.= " AND " . $sqlVille;
             }elseif($ville != 'tous' && $date == null)
             {
-                $sqlVille = "s.ville_salle = :ville";
-                $parametres[":ville"] = $ville;
+                $sqlVille = "s.ville_salle LIKE :ville";
+                $parametres[":ville"] = '%' . $ville . '%';
                 //on la passe dans la requete
                 $sql.= $sqlVille;
             }
